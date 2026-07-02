@@ -1,0 +1,238 @@
+:root {
+    --accent: #5076a7;
+    --accent2:#c7dbe4;
+    --bg1: #e2e2e2;
+    --bg2: #ffffff;
+    --bg3: #002170;
+    --text: #1e1e1e;
+    --muted: #646464;
+    --border: #ababab;
+    --shadow: #092242;
+    --radius: 8px;
+
+    --small: 0.8rem;
+}
+
+
+html {
+  --s: 80px; /* control the size*/
+  --c1: #6c8a9d;
+  --c2: #7994a0;
+  
+  --_s: calc(2*var(--s)) calc(2*var(--s));
+  --_g: 35.36% 35.36% at;
+  --_c: #0000 66%,var(--c2) 68% 70%,#0000 72%;
+  background:
+    radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s),
+    radial-gradient(var(--_g) 0    75%,var(--_c)) var(--s) var(--s)/var(--_s),
+    radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s),
+    radial-gradient(var(--_g) 0    75%,var(--_c)) 0 0/var(--_s),
+    repeating-conic-gradient(var(--c1) 0 25%,#0000 0 50%) 0 0/var(--_s),
+    radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s)
+    var(--c1);
+}
+
+
+
+body {
+    color: var(--text);
+    font-family: "MONTSERRAT", sans-serif;
+    line-height: 1.5;
+    flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Top header bar */
+
+.title,
+.subtitle {
+    margin-bottom: 0;
+    color: var(--bg2);
+    text-align: center; 
+    font-size: 3rem;
+    /*font-family: "Lora Variable";*/
+    text-shadow: 5px 5px 0px var(--text);
+}
+
+.subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.header {
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text);
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+.header__titleblock {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.header__subtitle {
+    font-size: var(--small);
+    opacity: 0.8;
+}
+
+.button {
+    align-items: center;
+    background-color: var(--bg2);
+    border-radius: 100px;
+    border: 2px solid var(--border);
+    color: var(--text);
+    display: inline-flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    transition: border-color 0.1s ease;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: var(--accent2);
+}
+
+/* Main body */
+
+.content {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+    max-width: 100%;
+    margin: auto;
+    padding: 0 1.5rem;
+    flex: 1;
+}
+
+.content__block {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    flex: 4;
+    
+}
+
+.content__titlemeta {
+    text-align: center;
+}
+
+.content__titlemeta h1 {
+    margin-top: 0;
+    font-family: "MONTSERRAT";
+}
+
+/* Main exhibit article content */
+
+.header__titleblock{
+    color: var(--bg2);
+    background: var(--bg3);
+    border: 1px solid var(--bg3);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 5px 5px var(--shadow);
+}
+
+.content__titlemeta{
+    color: var(--bg2);
+    background: var(--bg3);
+    border: 1px solid var(--bg3);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 5px 5px var(--shadow);
+}
+
+.article,
+.exhibitlink {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 5px 5px var(--shadow);
+}
+
+.header__titleblock {
+    flex: 1;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6 {
+    font-family: "Montserrat";
+    border-bottom: 1px solid var(--border);
+}
+
+/* Table of contents */
+
+.toc {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    flex: 1;
+    height: fit-content; /* Prevents stretching */
+    padding: 2rem;
+    box-shadow: 5px 5px var(--shadow);
+}
+
+.padder {
+    flex: 0;
+    box-shadow: none;
+    visibility: hidden;
+}
+
+.toc h2 {
+    border-bottom: 1px solid var(--border);
+    font-family: "Lora Variable";
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+}
+
+.toc__list {
+    list-style: decimal;
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.toc__item a {
+    color: var(--accent);
+    text-decoration-style: dotted;
+}
+
+.toc__item a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: var(--small);
+    background-color: var(--text);
+    color: var(--bg1);
+    margin-top: 4rem;
+}
+
+@media (min-width: 1100px) {
+    .content {
+        max-width: 100%; /* Expanded width to easily fit both columns */
+        display: flex;
+        flex-direction: row;
+    }
+
+    .toc {
+        position: sticky;
+        top: 2rem; /* Gap between top of viewport and component during scroll */
+    }
+}

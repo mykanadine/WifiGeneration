@@ -5,12 +5,16 @@ author: "Chua, Myka; Esperanza, MJ; Lim, Julienne; Ong, Eiress; Xu, Kai Wen"
 readingTime: "67 minutes"
 ---
 
+import '../styles/wifi.css'; 
+
  {/* We import various Astro and React components */}
 
 import TextWithImage from "../components/TextWithImage.astro"
 
 import ImageGallery from '../components/ImageGallery.jsx';
-import DistroQuiz from "../components/DistroQuiz.jsx"
+import DistroQuiz from "../components/DistroQuiz.jsx";
+
+import TimelineDemo from "../components/Timeline.jsx"
 
 {/* Images have to be imported manually */}
 
@@ -107,6 +111,8 @@ export const photos = [
 
 # The Evolution of Wi-Fi
 
+## Introduction
+
 <TextWithImage
   body=" [INSERT: What is Wi-Fi]."
   imageSrc={tux.src}
@@ -116,6 +122,9 @@ export const photos = [
 
 *(The above is an example of a custom Astro component, \<TextWithImage>, which simply places some text beside an image. [Astro components](https://docs.astro.build/en/basics/astro-components/) are meant to provide reusable HTML templates for layouting content. Check the source code of the various components to learn more about creating them -- and if you're reading this from your IDE, run the dev server via `npm run dev` to see it render live!)*
 
+## Timeline
+
+{/*
 ## Various Modern Linux Distributions
 
 <ImageGallery photos={photos} client:load />
@@ -123,8 +132,9 @@ export const photos = [
 *(This \<ImageGallery> is an example of a custom React component. React components provide more interactivity than Astro components, and can keep track of state.)*
 
 Nothing is stopping anyone from building their own "version" of Linux, but there are deeper reasons why people add on to the ever-growing pile of distros. Each one of these distros exist to solve **different problems**, such as in Debian's focus on stability going against the Arch-based distros' focus on cutting-edge software. Distros can also express **different philosophies: Fedora ships with only 100% free and open-source software out-of-the-box, while other distros, such as Ubuntu, may prioritize convenience and include proprietary drivers out of the box. The open-source nature of Linux also makes for a very **easy ecosystem** to derive from other existing distros, similar to how Manjaro built on top of Arch to provide a more user-friendly way to benefit from its rolling release model by including a pre-installed desktop environment.
+*/}
 
-## Distro Chooser
+## Knowledge Check
 
 Want to see which distro fits you the best? If you're new to Linux or are thinking of switching from another distro, try out the following Distro Quiz!
 
