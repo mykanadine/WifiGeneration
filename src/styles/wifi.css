@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"); 
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+
 body  {
     --accent: #5076a7;
     --accent2:#c7dbe4;
@@ -38,7 +41,7 @@ body:has(.wifi_history_timeline) {
 
 body:has(.wifi_history_timeline) {
     color: var(--text);
-    font-family: "MONTSERRAT", sans-serif;
+    font-family: "Montserrat", Arial;
     line-height: 1.5;
     flex-direction: column;
     display: flex;
@@ -53,7 +56,7 @@ body:has(.wifi_history_timeline) {
     color: var(--bg2);
     text-align: center; 
     font-size: 3rem;
-    /*font-family: "Lora Variable";*/
+    font-family: "Lora";
     text-shadow: 5px 5px 0px var(--text);
 }
 
@@ -130,7 +133,7 @@ body:has(.wifi_history_timeline) {
 
 .content__titlemeta h1 {
     margin-top: 0;
-    font-family: "MONTSERRAT";
+    font-family: "Lora";
 }
 
 /* Main exhibit article content */
@@ -166,7 +169,7 @@ body:has(.wifi_history_timeline) {
 .article h4,
 .article h5,
 .article h6 {
-    font-family: "Montserrat";
+    font-family: "Lora";
     border-bottom: 1px solid var(--border2);
 }
 
@@ -400,13 +403,47 @@ footer {
    ========================================== */
 
 /* Theme: Wifi 1-3*/
-.wifi_1-3 .vertical-timeline-element-content {
+.wifi_1 .vertical-timeline-element-content {
+  background: #a1c4f3 ; 
+}
+.wifi_1 .vertical-timeline-element-content-arrow {
+  border-right: 7px solid #a1c4f3 ;
+}
+.wifi_1 .vertical-timeline-element-icon {
+  background: #a1c4f3;
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+}
+
+.wifi_2a .vertical-timeline-element-content {
+  background: #85b2ec ; 
+}
+.wifi_2a .vertical-timeline-element-content-arrow {
+  border-right: 7px solid #85b2ec ;
+}
+.wifi_2a .vertical-timeline-element-icon {
+  background: #85b2ec;
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+}
+
+.wifi_2b .vertical-timeline-element-content {
+  background: #7ca6dd ; 
+}
+.wifi_2b .vertical-timeline-element-content-arrow {
+  border-right: 7px solid #7ca6dd ;
+}
+.wifi_2b .vertical-timeline-element-icon {
+  background: #7ca6dd;
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+}
+
+/* Theme: Wifi 3*/
+.wifi_3 .vertical-timeline-element-content {
   background: #658cbf ; 
 }
-.wifi_1-3 .vertical-timeline-element-content-arrow {
+.wifi_3 .vertical-timeline-element-content-arrow {
   border-right: 7px solid #658cbf ;
 }
-.wifi_1-3 .vertical-timeline-element-icon {
+.wifi_3 .vertical-timeline-element-icon {
   background: #658cbf;
   box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
 }
