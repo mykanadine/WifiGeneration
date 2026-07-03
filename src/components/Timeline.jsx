@@ -86,7 +86,7 @@ export default function TimelineDemo() {
 
   return (
     // 1. Attach the ref to a wrapper element
-    <div ref={timelineRef}>
+    <div ref={timelineRef} className="wifi_history_timeline">
       {/* 2. Key attribute forces React to destroy and rebuild the animation cycle cleanly */}
       <VerticalTimeline key={shouldAnimate ? "visible" : "hidden"} animate={shouldAnimate}>
         {TIMELINE_DATA.map((event) => (

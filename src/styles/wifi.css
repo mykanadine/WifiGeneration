@@ -1,4 +1,4 @@
-:root {
+body  {
     --accent: #5076a7;
     --accent2:#c7dbe4;
     --bg1: #e2e2e2;
@@ -14,8 +14,9 @@
     --small: 0.8rem;
 }
 
-
-html {
+/* Changes the page background ONLY if our custom timeline exists on the screen.
+   This prevents it from leaking onto your instructor's homepage! */
+body:has(.wifi_history_timeline) {
   --s: 80px; /* control the size*/
   --c1: #6c8a9d;
   --c2: #7994a0;
@@ -32,11 +33,10 @@ html {
     radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s)
     var(--c1);
 }
-*/
 
 
 
-body {
+body:has(.wifi_history_timeline) {
     color: var(--text);
     font-family: "MONTSERRAT", sans-serif;
     line-height: 1.5;
@@ -135,15 +135,8 @@ body {
 
 /* Main exhibit article content */
 
-.header__titleblock{
-    color: var(--bg2);
-    background: var(--bg3);
-    border: 1px solid var(--bg3);
-    border-radius: var(--radius);
-    padding: 2rem;
-    box-shadow: 5px 5px var(--shadow);
-}
 
+.header__titleblock,
 .content__titlemeta{
     color: var(--bg2);
     background: var(--bg3);
@@ -179,7 +172,7 @@ body {
 
 /* Table of contents */
 
-.toc {
+body:has(.wifi_history_timeline) .toc {
     background: var(--bg2);
     border: 1px solid var(--border2);
     border-radius: var(--radius);
@@ -189,13 +182,13 @@ body {
     box-shadow: 5px 5px var(--shadow);
 }
 
-.padder {
+body:has(.wifi_history_timeline) .padder {
     flex: 0;
     box-shadow: none;
     visibility: hidden;
 }
 
-.toc h2 {
+body:has(.wifi_history_timeline) .toc h2 {
     border-bottom: 1px solid var(--border2);
     font-family: "Montserrat";
     margin-top: 0;
@@ -379,7 +372,7 @@ footer {
     
     /* This ensures it starts drawing the moment the timeline enters the screen, */
     /* and finishes right when the last element of the timeline hits its mark. */
-    animation-range: entry 0% exit 35%;
+    animation-range: entry 0% exit 40%;
 }
 
 /* 4. Keep position alignment working flawlessly on mobile */
