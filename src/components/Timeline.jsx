@@ -20,8 +20,8 @@ const TIMELINE_DATA = [
     title: "802.11",
     description: "Original blueprint for wireless networking",
     modalContent: modalContent1,
-    improvements: "Established the foundational architecture for Wi-Fi, utilized two primary spread-spectrum technologies to transmit data: Frequency Hopping Spread Spectrum (FHSS) and Direct Sequence Spread Spectrum (DSSS)",
-    limitations: "Low speed and limited range"
+    improvements: "As the pioneer of wireless networking, this standard successfully cut the physical cord by establishing the first standardized framework for Wireless Local Area Networks (WLANs). It introduced the fundamental architecture that allowed devices to dynamically discover, authenticate, and connect to a central access point.",
+    limitations: "One of the major drawbacks of this Wi-Fi standard was its maximum speed of only 2 Mbps, which was too slow to support activities beyond simple text-based data transfers and basic internet use. Another major limitation was that devices using Frequency-Hopping Spread Spectrum (FHSS) could not communicate with devices using Direct-Sequence Spread Spectrum (DSSS) because these were two different wireless transmission methods that were not compatible with each other. As a result, devices from different manufacturers often could not connect, leading to market fragmentation and interoperability issues."
   },
   {
     id: "wifi_2a",
@@ -30,8 +30,8 @@ const TIMELINE_DATA = [
     title: "802.11b",
     description: "Made Wi-Fi popular",
     modalContent: modalContent2a,
-    improvements: "",
-    limitations: ""
+    improvements: "This Wi-Fi standard significantly improved wireless networking by increasing the maximum speed from 2 Mbps to 11 Mbps through the use of High-Rate Direct Sequence Spread Spectrum (HR-DSSS). HR-DSSS achieved these higher speeds by using Complementary Code Keying (CCK), a more efficient data encoding technique that allowed more information to be transmitted within the same bandwidth. As a result, users experienced faster web browsing, quicker file transfers, and more reliable wireless connections. These improvements also made Wi-Fi practical and affordable for everyday home and office use. ",
+    limitations: " Since this standard operated entirely on the 2.4 GHz frequency band, it often experienced interference from common household devices such as microwave ovens, cordless phones, and baby monitors, which also used the same frequency. This interference weakened the wireless signal and caused slower speeds, unstable connections, and occasional data loss. "
   },
   {
     id: "wifi_2b",
