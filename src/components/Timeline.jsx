@@ -27,7 +27,7 @@ const TIMELINE_DATA = [
     id: "wifi_2a",
     themeClass: "wifi_2a", // Custom class for unique colors
     date: "1999",
-    title: "",
+    title: "Wi-Fi 1 (802.11b)",
     description: "Made Wi-Fi popular",
     modalContent: modalContent2a,
     improvements: "This Wi-Fi standard significantly improved wireless networking by increasing the maximum speed from 2 Mbps to 11 Mbps through the use of High-Rate Direct Sequence Spread Spectrum (HR-DSSS). HR-DSSS achieved these higher speeds by using Complementary Code Keying (CCK), a more efficient data encoding technique that allowed more information to be transmitted within the same bandwidth. As a result, users experienced faster web browsing, quicker file transfers, and more reliable wireless connections. These improvements also made Wi-Fi practical and affordable for everyday home and office use. ",
