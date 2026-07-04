@@ -17,7 +17,7 @@ const TIMELINE_DATA = [
     id: "wifi_1",
     themeClass: "wifi_1", // Custom class for unique colors
     date: "1997",
-    title: "Wi-Fi 0",
+    title: "Wi-Fi 0 (802.11)",
     description: "Original blueprint for wireless networking",
     modalContent: modalContent1,
     improvements: "As the pioneer of wireless networking, this standard successfully cut the physical cord by establishing the first standardized framework for Wireless Local Area Networks (WLANs). It introduced the fundamental architecture that allowed devices to dynamically discover, authenticate, and connect to a central access point.",
@@ -27,7 +27,7 @@ const TIMELINE_DATA = [
     id: "wifi_2a",
     themeClass: "wifi_2a", // Custom class for unique colors
     date: "1999",
-    title: "Wi-Fi 1",
+    title: "",
     description: "Made Wi-Fi popular",
     modalContent: modalContent2a,
     improvements: "This Wi-Fi standard significantly improved wireless networking by increasing the maximum speed from 2 Mbps to 11 Mbps through the use of High-Rate Direct Sequence Spread Spectrum (HR-DSSS). HR-DSSS achieved these higher speeds by using Complementary Code Keying (CCK), a more efficient data encoding technique that allowed more information to be transmitted within the same bandwidth. As a result, users experienced faster web browsing, quicker file transfers, and more reliable wireless connections. These improvements also made Wi-Fi practical and affordable for everyday home and office use. ",
@@ -37,7 +37,7 @@ const TIMELINE_DATA = [
     id: "wifi_2b",
     themeClass: "wifi_2b", // Custom class for unique colors
     date: "1999",
-    title: "Wi-Fi 2",
+    title: "Wi-Fi 2 (802.11a)",
     description: "Faster than 802.11b, but shorter range",
     modalContent: modalContent2b,
     improvements: " Operating as a high-speed alternative to 802.11b, this standard achieved a major increase in maximum bandwidth, reaching up to 54 Mbps by introducing Orthogonal Frequency Division Multiplexing (OFDM). OFDM improves data transmission by dividing the wireless signal into multiple smaller sub-signals that transmit data simultaneously, making communication faster, more efficient, and more resistant to interference. In addition, by operating entirely on the less congested 5 GHz frequency band, it avoided much of the interference caused by common household devices, resulting in more stable and reliable wireless connections. ",
@@ -47,7 +47,7 @@ const TIMELINE_DATA = [
     id: "wifi_3",
     themeClass: "wifi_3",// Custom class for unique colors
     date: "2003",
-    title: "Wi-Fi 3",
+    title: "Wi-Fi 3 (802.11g)",
     description: "Combined the best of both earlier standards",
     modalContent: modalContent3,
     improvements: " This standard combined the best features of 802.11a and 802.11b by bringing the faster Orthogonal Frequency Division Multiplexing (OFDM) technology to the 2.4 GHz frequency band. As a result, it increased the maximum speed to 54 Mbps while maintaining the wider coverage of the 2.4 GHz band. It also remained backward compatible with older 802.11b devices, allowing users to upgrade their networks without replacing all of their existing hardware.",
@@ -57,7 +57,7 @@ const TIMELINE_DATA = [
     id: "wifi_4",
     themeClass: "wifi_4", // Custom class for unique colors
     date: "2009",
-    title: "Wi-Fi 4",
+    title: "Wi-Fi 4 (802.11n)",
     description: "First considered fully ready for mainstream commercial use",
     modalContent: modalContent4,
     improvements: "This generation introduced MIMO (Multiple Input, Multiple Output), which used multiple smart antennas to broadcast data simultaneously rather than relying on a single stream. It was also the first truly dual-band standard, allowing routers to transmit over both the far-reaching 2.4 GHz band and the faster 5 GHz band at the same time. These architectural changes dramatically increased maximum throughput up to 600 Mbps and significantly extended indoor signal range",
@@ -67,7 +67,7 @@ const TIMELINE_DATA = [
     id: "wifi_5",
     themeClass: "wifi_5", // Custom class for unique colors
     date: "2013",
-    title: "Wi-Fi 5",
+    title: "Wi-Fi 5 (802.11ac)",
     description: "Largest single speed increase",
     modalContent: modalContent5,
     improvements: "This generation solved multi-device lag by introducing MU-MIMO (Multi-User MIMO), which allowed the router to transmit data to up to four different devices simultaneously. It also added Beamforming, a technology that detects where a device is located and shoots a targeted, concentrated beam of data directly to it rather than broadcasting equally in all directions. By focusing entirely on wider channels in the 5 GHz band, it pushed maximum speeds past the gigabit barrier.",
@@ -77,7 +77,7 @@ const TIMELINE_DATA = [
     id: "wifi_6",
     themeClass: "wifi_6", // Custom class for unique colors
     date: "2019",
-    title: "Wi-Fi 6",
+    title: "Wi-Fi 6 (802.11ax)",
     description: "Handled many connected devices smoothly at once",
     modalContent: modalContent6,
     improvements: "Designed for crowded smart homes, this generation introduced OFDMA (Orthogonal Frequency Division Multiple Access), which allows a router to bundle data for multiple completely different devices into a single transmission. Wi-Fi 6 applied these massive upgrades to both the 2.4 GHz and 5 GHz bands, while the 6E update unlocked an entirely new, pristine 6 GHz spectrum highway with zero appliance interference. It also brought MU-MIMO to both uploads and downloads, drastically reducing network latency.",
@@ -87,7 +87,7 @@ const TIMELINE_DATA = [
     id: "wifi_7",
     themeClass: "wifi_7", // Custom class for unique colors
     date: "2024",
-    title: "Wi-Fi 7",
+    title: "Wi-Fi 7 (802.11be)",
     description: "Major generation of the wireless standard",
     modalContent: modalContent7,
     improvements: " Named as the Extremely High Throughput standard, Wi-Fi 7 introduced MLO (Multi-Link Operation), which allows a single device to connect to the 2.4 GHz, 5 GHz, and 6 GHz bands all at the same time to combine their speeds and backup data paths. It also doubled maximum channel widths to 320 MHz and implemented Multi-RU Puncturing, a feature that lets the network slice out a small, jammed piece of a radio channel while continuing to use the rest of it. These combined features skyrocketed theoretical speeds to a massive 46 Gbps while cutting latency to near-zero levels.",
