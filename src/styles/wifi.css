@@ -221,73 +221,7 @@ footer {
     color: var(--bg1);
     margin-top: 4rem;
 }
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  body:has(.wifi_history_timeline) {
-    font-size: 0.98rem;
-  }
 
-  body:has(.wifi_history_timeline) .header {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.75rem;
-    padding: 1rem;
-  }
-
-  body:has(.wifi_history_timeline) .header__titleblock {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
-    padding: 1rem;
-  }
-
-  body:has(.wifi_history_timeline) .button {
-    align-self: flex-start;
-  }
-
-  body:has(.wifi_history_timeline) .content {
-    gap: 0.75rem;
-    padding: 0 1rem;
-  }
-
-  body:has(.wifi_history_timeline) .content__block {
-    gap: 0.75rem;
-  }
-
-  body:has(.wifi_history_timeline) .content__titlemeta,
-  body:has(.wifi_history_timeline) .article,
-  body:has(.wifi_history_timeline) .toc {
-    padding: 1rem;
-  }
-
-  body:has(.wifi_history_timeline) .content__titlemeta h1 {
-    font-size: 1.5rem;
-    line-height: 1.15;
-  }
-
-  body:has(.wifi_history_timeline) .article h2 {
-    font-size: 1.25rem;
-  }
-
-  body:has(.wifi_history_timeline) .article h3,
-  body:has(.wifi_history_timeline) .article h4,
-  body:has(.wifi_history_timeline) .article h5,
-  body:has(.wifi_history_timeline) .article h6 {
-    font-size: 1.05rem;
-  }
-
-  body:has(.wifi_history_timeline) .toc {
-    width: 100%;
-  }
-
-  body:has(.wifi_history_timeline) .toc__list {
-    padding-left: 1.25rem;
-  }
-
-  body:has(.wifi_history_timeline) .padder {
-    display: none;
-  }
-}
 
 @media (min-width: 1100px) {
     .content {
