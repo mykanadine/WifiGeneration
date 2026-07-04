@@ -18,8 +18,8 @@ export default function ResultStage({ setStage, answers }) {
   const scorePercent = Math.round((totalCorrect / totalQuestions) * 100);
 
   return (
-    <div style={{ maxWidth: "900px", margin: "0 auto", padding: "16px" }}>
-      <h2 style={{ fontSize: "22px", marginBottom: "20px" }}>📝 Final Result</h2>
+    <div style={{ maxWidth: "900px", margin: "0 auto"}}>
+      <p style={{ fontSize: "20px", marginBottom: "10px" }}><strong>📝 Final Result</strong></p>
 
       <div style={{
         padding: "18px",
@@ -28,13 +28,13 @@ export default function ResultStage({ setStage, answers }) {
         marginBottom: "24px",
         border: "1px solid #e9ecef"
       }}>
-        <h3 style={{ margin: "0 0 12px 0", fontSize: "20px" }}>Your Score: {scorePercent}%</h3>
-        <p style={{ margin: "6px 0" }}>Matching Stage: {matchCorrect} / {matchTotal} correct</p>
-        <p style={{ margin: "6px 0" }}>Multiple Choice: {mcqCorrect} / {mcqTotal} correct</p>
-        <p style={{ margin: "8px 0 0 0", fontWeight: "bold" }}>Total: {totalCorrect} / {totalQuestions}</p>
+        <p style={{ margin: "0 0 12px 0", fontSize: "18px" }}><strong>Your Score: {scorePercent}%</strong></p>
+        <p style={{ margin: "6px 0", fontSize: "16px" }}>Matching Stage: {matchCorrect} / {matchTotal} correct</p>
+        <p style={{ margin: "6px 0", fontSize: "16px" }}>Multiple Choice: {mcqCorrect} / {mcqTotal} correct</p>
+        <p style={{ margin: "8px 0 0 0", fontSize: "18px" }}><strong>Total: {totalCorrect} / {totalQuestions}</strong></p>
       </div>
 
-      <h3 style={{ fontSize: "18px", margin: "24px 0 12px 0" }}>🔍 Matching Stage Answers</h3>
+     <p style={{ fontSize: "20px", marginBottom: "10px" }}><strong>🔍 Matching Stage Answers</strong></p>
       <div style={{ overflowX: "auto" }}>
         <table style={{
           width: "100%",
@@ -66,7 +66,7 @@ export default function ResultStage({ setStage, answers }) {
         </table>
       </div>
 
-      <h3 style={{ fontSize: "18px", margin: "24px 0 12px 0" }}>📋 Multiple Choice Answers</h3>
+      <p style={{ fontSize: "20px", marginBottom: "10px" }}><strong>📋 Multiple Choice Answers</strong></p>
       <div style={{ overflowX: "auto" }}>
         <table style={{
           width: "100%",
@@ -106,12 +106,12 @@ export default function ResultStage({ setStage, answers }) {
           fontSize: "16px",
           border: "none",
           borderRadius: "6px",
-          background: "#2196f3",
+          background: "#002170",
           color: "white",
           cursor: "pointer"
         }}
       >
-        🔄 Start Over
+        Start Over
       </button>
     </div>
   );

@@ -65,7 +65,6 @@ export default function MCQStage({ setStage, setAnswers, currentAnswers }) {
 
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-      <h2 style={{ fontSize: "20px", marginBottom: "20px" }}>Step 2: Multiple Choice Questions</h2>
 
       {questions.map(question => (
         <div
@@ -93,7 +92,7 @@ export default function MCQStage({ setStage, setAnswers, currentAnswers }) {
                   padding: "10px 12px",
                   borderRadius: "6px",
                   background: selected[question.id] === option ? "#e3f2fd" : "#f8f9fa",
-                  border: selected[question.id] === option ? "1px solid #2196f3" : "1px solid transparent",
+                  border: selected[question.id] === option ? "1px solid #00227098" : "1px solid transparent",
                   cursor: "pointer",
                   fontSize: "15px"
                 }}
@@ -121,7 +120,7 @@ export default function MCQStage({ setStage, setAnswers, currentAnswers }) {
             fontSize: "16px",
             border: "none",
             borderRadius: "6px",
-            background: "#2196f3",
+            background: "#002170",
             color: "white",
             cursor: "pointer"
           }}

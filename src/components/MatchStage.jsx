@@ -117,7 +117,6 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
 
   return (
     <div>
-      <h2 style={{ fontSize: "20px", marginBottom: "16px" }}>Step 1: Match to WiFi</h2>
       <div style={{ marginBottom: "24px" }}>
         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
           {items.map(item => (
@@ -130,7 +129,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
               style={{
                 padding: "10px 14px",
                 background: "#e3f2fd",
-                border: "1px solid #2196f3",
+                border: "1px solid #002270a7",
                 borderRadius: "6px",
                 width: "100%",
                 maxWidth: "240px",
@@ -178,11 +177,12 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
                   padding: "8px 10px",
                   margin: "6px 0",
                   borderRadius: "4px",
-                  background: "#e9ecef",
-                  border: "1px solid #ced4da",
+                  background: "#002170",
+                  border: "1px solid #002170",
                   display: "flex",
                   justifyContent: "space-between",
-                  alignItems: "center"
+                  alignItems: "center",
+                  color: "#fff"
                 }}
               >
                 <span>{item.text}</span>
@@ -193,7 +193,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
                     background: "none",
                     cursor: "pointer",
                     fontSize: "18px",
-                    color: "#666"
+                    color: "#fff"
                   }}
                 >
                   ×
@@ -212,7 +212,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
           fontSize: "16px",
           border: "none",
           borderRadius: "6px",
-          background: "#2196f3",
+          background: "#002170",
           color: "white",
           cursor: "pointer",
           width: "100%",
