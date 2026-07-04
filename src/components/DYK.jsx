@@ -14,7 +14,7 @@ export default function DYK({ info }) {
             right: '20px',
             padding: '12px 24px',
             fontSize: '16px',
-            backgroundColor: '#2196F3',
+            backgroundColor: '#002170',
             color: '#fff',
             border: 'none',
             borderRadius: '30px',
