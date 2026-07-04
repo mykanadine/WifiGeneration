@@ -40,8 +40,8 @@ const TIMELINE_DATA = [
     title: "802.11a",
     description: "Faster than 802.11b, but shorter range",
     modalContent: modalContent2b,
-    improvements: "",
-    limitations: ""
+    improvements: "test",
+    limitations: "" 
   },
   {
     id: "wifi_3",
