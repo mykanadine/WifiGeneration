@@ -68,18 +68,28 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
     const edge = 80;
     const scrollSpeed = 8;
 
-    //For Mobile Layout
+    const stopAutoScroll = () => {
+      if (scrollTimer) {
+        clearInterval(scrollTimer);
+        scrollTimer = null;
+      }
+    };
+
     const handleTouchStart = (e) => {
+      stopAutoScroll();
       const touch = e.touches[0];
       const el = e.currentTarget;
       const id = Number(el.dataset.id);
       activeTouchItem = items.find(i => i.id === id);
       draggedElement = el;
 
+      if (!activeTouchItem) return;
+
       // Make it look like it's being lifted
       draggedElement.style.opacity = "0.6";
       draggedElement.style.position = "fixed";
       draggedElement.style.zIndex = "1000";
+      draggedElement.style.pointerEvents = "none";
       // Start position
       draggedElement.style.left = `${touch.clientX - 20}px`;
       draggedElement.style.top = `${touch.clientY - 20}px`;
@@ -97,32 +107,32 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
 
       // Stop normal page scroll while dragging
       e.preventDefault();
-
-      // AUTO-SCROLL
-      // Clear previous scroll first
-      if (scrollTimer) clearInterval(scrollTimer);
-
-      // If finger is near the bottom, scroll DOWN
-      if (touch.clientY > screenHeight - edge) {
-        scrollTimer = setInterval(() => {
-          window.scrollBy({ top: scrollSpeed, behavior: "auto" });
-        }, 16);
-      }
-
-      // If finger is near the top, scroll UP
-      else if (touch.clientY < edge) {
-        scrollTimer = setInterval(() => {
-          window.scrollBy({ top: -scrollSpeed, behavior: "auto" });
-        }, 16);
+      
+      // Handle autoscroll
+      if (!scrollTimer) {
+        // If finger is near the bottom, scroll DOWN
+        if (touch.clientY > screenHeight - edge) {
+          scrollTimer = setInterval(() => {
+            window.scrollBy({ top: scrollSpeed, behavior: "auto" });
+          }, 16);
+        }
+        // If finger is near the top, scroll UP
+        else if (touch.clientY < edge) {
+          scrollTimer = setInterval(() => {
+            window.scrollBy({ top: -scrollSpeed, behavior: "auto" });
+          }, 16);
+        }
+      } else {
+        // Stop if finger moves away from edge
+        if (touch.clientY >= edge && touch.clientY <= screenHeight - edge) {
+          stopAutoScroll();
+        }
       }
     };
 
-
     const handleTouchEnd = (e) => {
+      stopAutoScroll(); 
       if (!activeTouchItem || !draggedElement) return;
-
-      // Stop auto-scrolling immediately
-      if (scrollTimer) clearInterval(scrollTimer);
 
       // Reset item back to normal
       draggedElement.style.opacity = "1";
@@ -159,7 +169,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
 
     // Clean up
     return () => {
-      if (scrollTimer) clearInterval(scrollTimer);
+      stopAutoScroll();
       itemsEl.forEach(el => {
         el.removeEventListener("touchstart", handleTouchStart);
         el.removeEventListener("touchmove", handleTouchMove);
