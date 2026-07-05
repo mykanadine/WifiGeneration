@@ -6,6 +6,7 @@ import ResultStage from "./ResultStage.jsx";
 
 export default function KnowledgeCheck() {
   const [stage, setStage] = useState("match");
+  // Save Results
   const [answers, setAnswers] = useState({
     matchResults: [],
     mcqResults: []
@@ -13,6 +14,7 @@ export default function KnowledgeCheck() {
 
   return (
     <div>
+      {/*Matching Stage*/}
       {stage === "match" && (
         <MatchStage
           setStage={setStage}
@@ -20,6 +22,7 @@ export default function KnowledgeCheck() {
           currentAnswers={answers}
         />
       )}
+      {/*Multiple Choice Stage*/}
       {stage === "mcq" && (
         <MCQStage
           setStage={setStage}
@@ -27,6 +30,7 @@ export default function KnowledgeCheck() {
           currentAnswers={answers}
         />
       )}
+      {/*Result Stage*/}
       {stage === "result" && (
         <ResultStage
           setStage={setStage}

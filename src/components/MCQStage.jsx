@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 export default function MCQStage({ setStage, setAnswers, currentAnswers }) {
+  // Define questions and correct answers
   const questions = [
     {
       id: 1,
@@ -35,7 +36,9 @@ export default function MCQStage({ setStage, setAnswers, currentAnswers }) {
     }
   ];
 
+  // Handle Selected
   const [selected, setSelected] = useState({});
+
   const handleSelect = (questionId, chosenAnswer) => {
     setSelected(prev => ({
       ...prev,

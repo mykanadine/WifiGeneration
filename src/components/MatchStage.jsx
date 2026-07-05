@@ -2,6 +2,7 @@
 import {useState, useRef, useEffect} from "react";
 
 export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
+  // Define descriptions and its correct zone
   const[items, setItems] = useState([
     {id: 1, text: "wifi0 to wifi3 description", correctZone: "WiFi 0-3"},
     {id: 2, text: "wifi4 description", correctZone: "WiFi 4"},
@@ -10,6 +11,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
     {id: 5, text: "wifi7 description", correctZone: "WiFi 7"}
   ]);
 
+  // Declare the zones
   const [zones, setZones] = useState({
     "WiFi 0-3": [],
     "WiFi 4": [],
@@ -18,8 +20,23 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
     "WiFi 7": []
   });
 
+  // Store item being dragged
   const [draggedItem, setDraggedItem] = useState(null);
   const draggedItemRef = useRef(null);
+
+  const placeItem = (item, zoneName) => {
+    // Remove from source list
+    setItems(prev => prev.filter(i => i.id !== item.id));
+
+    // Check if answer is correct
+    const isCorrect = item.correctZone === zoneName;
+
+    // Add to target zone
+    setZones(prev => ({
+      ...prev,
+      [zoneName]: [...prev[zoneName], { ...item, assignedZone: zoneName, isCorrect }]
+    }));
+  };
 
   const handleDragStart = (e, item) => {
     setDraggedItem(item);
@@ -42,48 +59,115 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
     draggedItemRef.current = null;
   };
 
+  // Mobile Layout
   useEffect(() => {
     let activeTouchItem = null;
+    let draggedElement = null;
+    let scrollTimer = null;
 
+    const edge = 80;
+    const scrollSpeed = 8;
+
+    //For Mobile Layout
     const handleTouchStart = (e) => {
-      const id = Number(e.currentTarget.dataset.id);
+      const touch = e.touches[0];
+      const el = e.currentTarget;
+      const id = Number(el.dataset.id);
       activeTouchItem = items.find(i => i.id === id);
-      if (activeTouchItem) e.currentTarget.style.opacity = "0.6";
+      draggedElement = el;
+
+      // Make it look like it's being lifted
+      draggedElement.style.opacity = "0.6";
+      draggedElement.style.position = "fixed";
+      draggedElement.style.zIndex = "1000";
+      // Start position
+      draggedElement.style.left = `${touch.clientX - 20}px`;
+      draggedElement.style.top = `${touch.clientY - 20}px`;
     };
+
+    const handleTouchMove = (e) => {
+      if (!activeTouchItem || !draggedElement) return;
+
+      const touch = e.touches[0];
+      const screenHeight = window.innerHeight;
+
+      // Make the item follow your finger
+      draggedElement.style.left = `${touch.clientX - 20}px`;
+      draggedElement.style.top = `${touch.clientY - 20}px`;
+
+      // Stop normal page scroll while dragging
+      e.preventDefault();
+
+      // AUTO-SCROLL
+      // Clear previous scroll first
+      if (scrollTimer) clearInterval(scrollTimer);
+
+      // If finger is near the bottom, scroll DOWN
+      if (touch.clientY > screenHeight - edge) {
+        scrollTimer = setInterval(() => {
+          window.scrollBy({ top: scrollSpeed, behavior: "auto" });
+        }, 16);
+      }
+
+      // If finger is near the top, scroll UP
+      else if (touch.clientY < edge) {
+        scrollTimer = setInterval(() => {
+          window.scrollBy({ top: -scrollSpeed, behavior: "auto" });
+        }, 16);
+      }
+    };
+
 
     const handleTouchEnd = (e) => {
-      if (!activeTouchItem) return;
-      e.currentTarget.style.opacity = "1";
-      const zoneName = e.currentTarget.dataset.zone;
-      if (zoneName) placeItem(activeTouchItem, zoneName);
+      if (!activeTouchItem || !draggedElement) return;
+
+      // Stop auto-scrolling immediately
+      if (scrollTimer) clearInterval(scrollTimer);
+
+      // Reset item back to normal
+      draggedElement.style.opacity = "1";
+      draggedElement.style.position = "";
+      draggedElement.style.zIndex = "";
+      draggedElement.style.pointerEvents = "";
+      draggedElement.style.left = "";
+      draggedElement.style.top = "";
+
+      // Check where you dropped it
+      const touch = e.changedTouches[0];
+      const droppedOn = document.elementFromPoint(touch.clientX, touch.clientY);
+      const dropZone = droppedOn?.closest(".drop-zone");
+
+      if (dropZone) {
+        placeItem(activeTouchItem, dropZone.dataset.zone);
+      }
+
+      // Reset all variables
       activeTouchItem = null;
+      draggedElement = null;
     };
 
+    // Attach listeners
     const itemsEl = document.querySelectorAll(".draggable-item");
-    const zonesEl = document.querySelectorAll(".drop-zone");
+    itemsEl.forEach(el => {
+      el.addEventListener("touchstart", handleTouchStart);
+      // passive: false so preventDefault works
+      el.addEventListener("touchmove", handleTouchMove, { passive: false });
+      el.addEventListener("touchend", handleTouchEnd);
+      // when touch is interrupted or stopped unexpectedly
+      el.addEventListener("touchcancel", handleTouchEnd);
+    });
 
-    itemsEl.forEach(el => el.addEventListener("touchstart", handleTouchStart));
-    zonesEl.forEach(el => el.addEventListener("touchend", handleTouchEnd));
-
+    // Clean up
     return () => {
-      itemsEl.forEach(el => el.removeEventListener("touchstart", handleTouchStart));
-      zonesEl.forEach(el => el.removeEventListener("touchend", handleTouchEnd));
+      if (scrollTimer) clearInterval(scrollTimer);
+      itemsEl.forEach(el => {
+        el.removeEventListener("touchstart", handleTouchStart);
+        el.removeEventListener("touchmove", handleTouchMove);
+        el.removeEventListener("touchend", handleTouchEnd);
+        el.removeEventListener("touchcancel", handleTouchEnd);
+      });
     };
-  }, [items]);
-
-  const placeItem = (item, zoneName) => {
-    // Remove from source list
-    setItems(prev => prev.filter(i => i.id !== item.id));
-
-    // Check if answer is correct
-    const isCorrect = item.correctZone === zoneName;
-
-    // Add to target zone
-    setZones(prev => ({
-      ...prev,
-      [zoneName]: [...prev[zoneName], { ...item, assignedZone: zoneName, isCorrect }]
-    }));
-  };
+  }, [items, placeItem]);
 
   // Move item back to list
   const moveBack = (item, zone) => {
