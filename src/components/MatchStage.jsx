@@ -62,7 +62,6 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
 
   // Mobile Layout
   const handleItemClick = (item) => {
-    // If same item is clicked again, unselect it
     if (selectedItem?.id === item.id) {
       setSelectedItem(null);
     } else {
@@ -71,7 +70,6 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   };
 
   const handleZoneClick = (zoneName) => {
-    // Only do something if an item is selected
     if (!selectedItem) return;
     placeItem(selectedItem, zoneName);
   };
