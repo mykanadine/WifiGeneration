@@ -109,24 +109,21 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
       e.preventDefault();
       
       // Handle autoscroll
-      if (!scrollTimer) {
-        // If finger is near the bottom, scroll DOWN
-        if (touch.clientY > screenHeight - edge) {
-          scrollTimer = setInterval(() => {
-            window.scrollBy({ top: scrollSpeed, behavior: "auto" });
-          }, 16);
-        }
-        // If finger is near the top, scroll UP
-        else if (touch.clientY < edge) {
-          scrollTimer = setInterval(() => {
-            window.scrollBy({ top: -scrollSpeed, behavior: "auto" });
-          }, 16);
-        }
-      } else {
-        // Stop if finger moves away from edge
-        if (touch.clientY >= edge && touch.clientY <= screenHeight - edge) {
-          stopAutoScroll();
-        }
+      const nearTop = touch.clientY < edge;
+      const nearBottom = touch.clientY > screenHeight - edge;
+
+      // Always stop first if position changed
+      stopAutoScroll();
+
+      // Then start the correct direction
+      if (nearBottom) {
+        scrollTimer = setInterval(() => {
+          window.scrollBy(0, scrollSpeed);
+        }, 16);
+      } else if (nearTop) {
+        scrollTimer = setInterval(() => {
+          window.scrollBy(0, -scrollSpeed);
+        }, 16);
       }
     };
 
