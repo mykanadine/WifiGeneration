@@ -20,9 +20,12 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
     "WiFi 7": []
   });
 
-  // Store item being dragged
+  // Store item being dragged (PC)
   const [draggedItem, setDraggedItem] = useState(null);
   const draggedItemRef = useRef(null);
+
+  // Store item being selected (Mobile)
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const placeItem = (item, zoneName) => {
     // Remove from source list
@@ -36,6 +39,8 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
       ...prev,
       [zoneName]: [...prev[zoneName], { ...item, assignedZone: zoneName, isCorrect }]
     }));
+
+    setSelectedItem(null);
   };
 
   // PC layout
@@ -61,7 +66,9 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   };
 
   // Mobile Layout
-  const handleItemClick = (item) => {
+  const handleItemClick = (item, e) => {
+    e.stopPropagation();
+
     if (selectedItem?.id === item.id) {
       setSelectedItem(null);
     } else {
@@ -69,13 +76,15 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
     }
   };
 
-  const handleZoneClick = (zoneName) => {
+  const handleZoneClick = (zoneName, e) => {
+    e.stopPropagation();
     if (!selectedItem) return;
     placeItem(selectedItem, zoneName);
   };
 
   // Move item back to list
-  const moveBack = (item, zone) => {
+  const moveBack = (item, zone, e) => {
+    e.stopPropagation();
     setZones(prev => ({
       ...prev,
       [zone]: prev[zone].filter(i => i.id !== item.id)
@@ -111,23 +120,22 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
           {items.map(item => (
             <div
               key={item.id}
-              data-id={item.id}
-              draggable
+              draggable="true"
               onDragStart={(e) => handleDragStart(e, item)}
-              onClick={() => handleItemClick(item)}
-              className="draggable-item"
+              onClick={(e) => handleItemClick(item, e)}
               style={{
                 padding: "10px 14px",
-                background: "#e3f2fd",
-                border: "1px solid #002270a7",
+                background: selectedItem?.id === item.id ? "#bbdefb" : "#e3f2fd",
+                border: selectedItem?.id === item.id ? "1px solid #1976d2" : "1px solid #002270a7",
                 borderRadius: "6px",
                 width: "100%",
                 maxWidth: "240px",
-                cursor: "grab",
-                touchAction: "none"
+                cursor: "pointer",
+                touchAction: "pan-y"
               }}
             >
               {item.text}
+              {selectedItem?.id === item.id && <span style={{ marginLeft: 8, fontSize: 12, color: "#0d47a1" }}>• Selected</span>}
             </div>
           ))}
         </div>
@@ -147,17 +155,17 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
         ].map(zone => (
           <div
             key={zone.key}
-            data-zone={zone.key}
             onDragOver={handleDragOver}
             onDrop={(e) => handleDrop(e, zone.key)}
-            onClick={() => handleZoneClick(zone.key)}
+            onClick={(e) => handleZoneClick(zone.key, e)}
             className="drop-zone"
             style={{
               minHeight: "140px",
               padding: "14px",
-              border: "2px dashed #999",
+              border: selectedItem ? "2px solid #64b5f6" : "2px dashed #999",
               borderRadius: "8px",
-              background: "#f9f9f9"
+              background: selectedItem ? "#e3f2fd" : "#f9f9f9",
+              cursor: "pointer"
             }}
           >
             <h4 style={{ marginTop: 0, fontSize: "17px" }}>{zone.label}</h4>
@@ -178,7 +186,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
               >
                 <span>{item.text}</span>
                 <button
-                  onClick={(e) => { e.stopPropagation(); moveBack(item, zone.key); }}
+                  onClick={(e) => moveBack(item, zone.key, e)}
                   style={{
                     border: "none",
                     background: "none",
