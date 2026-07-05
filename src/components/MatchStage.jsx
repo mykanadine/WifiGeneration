@@ -38,6 +38,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
     }));
   };
 
+  // PC layout
   const handleDragStart = (e, item) => {
     setDraggedItem(item);
     draggedItemRef.current = item;
@@ -60,50 +61,20 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   };
 
   // Mobile Layout
-  useEffect(() => {
-    let selectedItem = null;
+  const handleItemClick = (item) => {
+    // If same item is clicked again, unselect it
+    if (selectedItem?.id === item.id) {
+      setSelectedItem(null);
+    } else {
+      setSelectedItem(item);
+    }
+  };
 
-    const handleTouchStart = (e) => {
-      const el = e.currentTarget;
-      const id = Number(el.dataset.id);
-      // Save the item touched
-      selectedItem = items.find(i => i.id === id);
-    };
-
-    const handleTouchEnd = (e) => {
-      if (!selectedItem) return;
-
-      // Get where you released your finger
-      const touch = e.changedTouches[0];
-      const droppedOn = document.elementFromPoint(touch.clientX, touch.clientY);
-      const dropZone = droppedOn?.closest(".drop-zone");
-
-      // If you released on a valid zone → place it
-      if (dropZone) {
-        placeItem(selectedItem, dropZone.dataset.zone);
-      }
-
-      // Clear selection no matter what
-      selectedItem = null;
-    };
-
-    // Attach listeners
-    const itemsEl = document.querySelectorAll(".draggable-item");
-    itemsEl.forEach(el => {
-      el.addEventListener("touchstart", handleTouchStart);
-      el.addEventListener("touchend", handleTouchEnd);
-      el.addEventListener("touchcancel", handleTouchEnd);
-    });
-
-    // Cleanup
-    return () => {
-      itemsEl.forEach(el => {
-        el.removeEventListener("touchstart", handleTouchStart);
-        el.removeEventListener("touchend", handleTouchEnd);
-        el.removeEventListener("touchcancel", handleTouchEnd);
-      });
-    };
-  }, [items, placeItem]);
+  const handleZoneClick = (zoneName) => {
+    // Only do something if an item is selected
+    if (!selectedItem) return;
+    placeItem(selectedItem, zoneName);
+  };
 
   // Move item back to list
   const moveBack = (item, zone) => {
@@ -145,6 +116,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
               data-id={item.id}
               draggable
               onDragStart={(e) => handleDragStart(e, item)}
+              onClick={() => handleItemClick(item)}
               className="draggable-item"
               style={{
                 padding: "10px 14px",
@@ -180,6 +152,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
             data-zone={zone.key}
             onDragOver={handleDragOver}
             onDrop={(e) => handleDrop(e, zone.key)}
+            onClick={() => handleZoneClick(zone.key)}
             className="drop-zone"
             style={{
               minHeight: "140px",
@@ -207,7 +180,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
               >
                 <span>{item.text}</span>
                 <button
-                  onClick={() => moveBack(item, zone.key)}
+                  onClick={(e) => { e.stopPropagation(); moveBack(item, zone.key); }}
                   style={{
                     border: "none",
                     background: "none",
