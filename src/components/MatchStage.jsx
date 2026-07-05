@@ -61,115 +61,44 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
 
   // Mobile Layout
   useEffect(() => {
-    let activeTouchItem = null;
-    let draggedElement = null;
-    let scrollTimer = null;
-
-    const edge = 80;
-    const scrollSpeed = 8;
-
-    const stopAutoScroll = () => {
-      if (scrollTimer) {
-        clearInterval(scrollTimer);
-        scrollTimer = null;
-      }
-    };
+    let selectedItem = null;
 
     const handleTouchStart = (e) => {
-      stopAutoScroll();
-      const touch = e.touches[0];
       const el = e.currentTarget;
       const id = Number(el.dataset.id);
-      activeTouchItem = items.find(i => i.id === id);
-      draggedElement = el;
-
-      if (!activeTouchItem) return;
-
-      // Make it look like it's being lifted
-      draggedElement.style.opacity = "0.6";
-      draggedElement.style.position = "fixed";
-      draggedElement.style.zIndex = "1000";
-      draggedElement.style.pointerEvents = "none";
-      // Start position
-      draggedElement.style.left = `${touch.clientX - 20}px`;
-      draggedElement.style.top = `${touch.clientY - 20}px`;
-    };
-
-    const handleTouchMove = (e) => {
-      if (!activeTouchItem || !draggedElement) return;
-
-      const touch = e.touches[0];
-      const screenHeight = window.innerHeight;
-
-      // Make the item follow your finger
-      draggedElement.style.left = `${touch.clientX - 20}px`;
-      draggedElement.style.top = `${touch.clientY - 20}px`;
-
-      // Stop normal page scroll while dragging
-      e.preventDefault();
-      
-      // Handle autoscroll
-      const nearTop = touch.clientY < edge;
-      const nearBottom = touch.clientY > screenHeight - edge;
-
-      // Always stop first if position changed
-      stopAutoScroll();
-
-      // Then start the correct direction
-      if (nearBottom) {
-        scrollTimer = setInterval(() => {
-          window.scrollBy(0, scrollSpeed);
-        }, 16);
-      } else if (nearTop) {
-        scrollTimer = setInterval(() => {
-          window.scrollBy(0, -scrollSpeed);
-        }, 16);
-      }
+      // Save the item touched
+      selectedItem = items.find(i => i.id === id);
     };
 
     const handleTouchEnd = (e) => {
-      stopAutoScroll(); 
-      if (!activeTouchItem || !draggedElement) return;
+      if (!selectedItem) return;
 
-      // Reset item back to normal
-      draggedElement.style.opacity = "1";
-      draggedElement.style.position = "";
-      draggedElement.style.zIndex = "";
-      draggedElement.style.pointerEvents = "";
-      draggedElement.style.left = "";
-      draggedElement.style.top = "";
-
-      // Check where you dropped it
+      // Get where you released your finger
       const touch = e.changedTouches[0];
       const droppedOn = document.elementFromPoint(touch.clientX, touch.clientY);
       const dropZone = droppedOn?.closest(".drop-zone");
 
+      // If you released on a valid zone → place it
       if (dropZone) {
-        placeItem(activeTouchItem, dropZone.dataset.zone);
+        placeItem(selectedItem, dropZone.dataset.zone);
       }
 
-      // Reset all variables
-      activeTouchItem = null;
-      draggedElement = null;
+      // Clear selection no matter what
+      selectedItem = null;
     };
 
     // Attach listeners
     const itemsEl = document.querySelectorAll(".draggable-item");
     itemsEl.forEach(el => {
       el.addEventListener("touchstart", handleTouchStart);
-      // passive: false so preventDefault works
-      el.addEventListener("touchmove", handleTouchMove, { passive: false });
       el.addEventListener("touchend", handleTouchEnd);
-      // when touch is interrupted or stopped unexpectedly
       el.addEventListener("touchcancel", handleTouchEnd);
     });
 
-    // Clean up
+    // Cleanup
     return () => {
-      stopAutoScroll();
       itemsEl.forEach(el => {
         el.removeEventListener("touchstart", handleTouchStart);
-        el.removeEventListener("touchmove", handleTouchMove);
         el.removeEventListener("touchend", handleTouchEnd);
         el.removeEventListener("touchcancel", handleTouchEnd);
       });
