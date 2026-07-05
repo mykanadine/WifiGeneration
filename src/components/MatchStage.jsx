@@ -43,7 +43,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
     setSelectedItem(null);
   };
 
-  // PC layout
+  // PC layout (Drag)
   const handleDragStart = (e, item) => {
     setDraggedItem(item);
     draggedItemRef.current = item;
@@ -65,7 +65,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
     draggedItemRef.current = null;
   };
 
-  // Mobile Layout
+  // Mobile Layout (Click)
   const handleItemClick = (item, e) => {
     e.stopPropagation();
 
@@ -135,7 +135,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
               }}
             >
               {item.text}
-              {selectedItem?.id === item.id && <span style={{ marginLeft: 8, fontSize: 12, color: "#0d47a1" }}>• Selected</span>}
+              {selectedItem?.id === item.id && <span style={{ marginLeft: 8, fontSize: 12, color: "#0d47a1" }}>Selected</span>}
             </div>
           ))}
         </div>
