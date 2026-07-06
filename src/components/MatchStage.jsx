@@ -32,13 +32,13 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   ]);
 
   // Declare the zones
-  const [zones, setZones] = useState({
-    "WiFi 0-3": [],
-    "WiFi 4": [],
-    "WiFi 5": [],
-    "WiFi 6": [],
-    "WiFi 7": []
-  });
+const [zones, setZones] = useState({
+  "Wi-Fi 0-3": [],
+  "Wi-Fi 4": [],
+  "Wi-Fi 5": [],
+  "Wi-Fi 6": [],
+  "Wi-Fi 7": []
+});
 
   // Store item being dragged (PC)
   const [draggedItem, setDraggedItem] = useState(null);
@@ -168,11 +168,11 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
         gap: "16px"
       }}>
         {[
-          { key: "WiFi 0-3", label: "WiFi 0-3" },
-          { key: "WiFi 4", label: "WiFi 4" },
-          { key: "WiFi 5", label: "WiFi 5" },
-          { key: "WiFi 6", label: "WiFi 6" },
-          { key: "WiFi 7", label: "WiFi 7" }
+          { key: "Wi-Fi 0-3", label: "Wi-Fi 0-3" },
+          { key: "Wi-Fi 4", label: "Wi-Fi 4" },
+          { key: "Wi-Fi 5", label: "Wi-Fi 5" },
+          { key: "Wi-Fi 6", label: "Wi-Fi 6" },
+          { key: "Wi-Fi 7", label: "Wi-Fi 7" }
         ].map(zone => (
           <div
             key={zone.key}

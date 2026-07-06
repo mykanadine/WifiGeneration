@@ -10,63 +10,67 @@ const info = [
 ]
 
 export default function DYK() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [n, setN] = useState(0);
 
-    // randomize info shown
-    const [n, setN] = useState(0);
-
-    const handleMouseEnter = () => {
-        setN(Math.floor(Math.random() * info.length));
-        setIsHovered(true);
-    };
+  const toggleFact = () => {
+    if (!isOpen) {
+      setN(Math.floor(Math.random() * info.length));
+    }
+    setIsOpen(prev => !prev);
+  };
 
   return (
     <div>
-        <button
-                onMouseEnter={handleMouseEnter}
-        onMouseLeave={() => setIsHovered(false)}
-        style={{ 
-            position: 'fixed', 
-            bottom: '20px',
-            right: '20px',
-            padding: '12px 24px',
-            fontSize: '16px',
-            backgroundColor: '#002170',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '30px',
-            cursor: 'pointer',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.25)',
-            zIndex: 9999,
+      <button
+        type="button"
+        aria-expanded={isOpen}
+        aria-label="Toggle Did You Know fact"
+        onClick={toggleFact}
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '16px',
+          width: '52px',
+          height: '52px',
+          padding: 0,
+          fontSize: '20px',
+          backgroundColor: '#002170',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '50%',
+          cursor: 'pointer',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.25)',
+          zIndex: 9999,
         }}
-        >
-        🤔
-        </button>
+      >
+        ?
+      </button>
 
-        {isHovered && (
+      {isOpen && (
         <div
-            style={{
+          style={{
             position: 'fixed',
-            bottom: '70px',
-            right: '20px', 
-            width: '260px',
+            bottom: '82px',
+            right: '16px',
+            width: 'min(320px, calc(100vw - 2rem))',
             padding: '12px 15px',
             background: '#ffffff',
-            border: '1px solid #ddd',
-            borderRadius: '6px',
+            border: '1px solid #ababab',
+            borderRadius: '8px',
             boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
             zIndex: 10000,
             whiteSpace: 'normal',
             wordWrap: 'break-word',
             overflowWrap: 'break-word',
-            }}
+          }}
         >
-            <strong style={{ display: 'block', marginBottom: '5px' }}>Did You Know?</strong>
-            <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.4', color: '#333' }}>
+          <strong style={{ display: 'block', marginBottom: '5px' }}>Did You Know?</strong>
+          <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.4', color: '#333' }}>
             {info[n]}
-            </p>
+          </p>
         </div>
-        )}
+      )}
     </div>
   );
 }
