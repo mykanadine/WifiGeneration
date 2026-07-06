@@ -17,7 +17,7 @@ const TIMELINE_DATA = [
     id: "wifi_1",
     themeClass: "wifi_1", // Custom class for unique colors
     date: "1997",
-    title: "Wi-Fi 0 (802.11)",
+    title: "802.11",
     description: "Original blueprint for wireless networking",
     modalContent: modalContent1,
     improvements: "As the pioneer of wireless networking, this standard successfully cut the physical cord by establishing the first standardized framework for Wireless Local Area Networks (WLANs). It introduced the fundamental architecture that allowed devices to dynamically discover, authenticate, and connect to a central access point.",
@@ -27,7 +27,7 @@ const TIMELINE_DATA = [
     id: "wifi_2a",
     themeClass: "wifi_2a", // Custom class for unique colors
     date: "1999",
-    title: "Wi-Fi 1 (802.11b)",
+    title: "802.11b",
     description: "Made Wi-Fi popular",
     modalContent: modalContent2a,
     improvements: "This Wi-Fi standard significantly improved wireless networking by increasing the maximum speed from 2 Mbps to 11 Mbps through the use of High-Rate Direct Sequence Spread Spectrum (HR-DSSS). HR-DSSS achieved these higher speeds by using Complementary Code Keying (CCK), a more efficient data encoding technique that allowed more information to be transmitted within the same bandwidth. As a result, users experienced faster web browsing, quicker file transfers, and more reliable wireless connections. These improvements also made Wi-Fi practical and affordable for everyday home and office use. ",
@@ -37,7 +37,7 @@ const TIMELINE_DATA = [
     id: "wifi_2b",
     themeClass: "wifi_2b", // Custom class for unique colors
     date: "1999",
-    title: "Wi-Fi 2 (802.11a)",
+    title: "802.11a",
     description: "Faster than 802.11b, but shorter range",
     modalContent: modalContent2b,
     improvements: " Operating as a high-speed alternative to 802.11b, this standard achieved a major increase in maximum bandwidth, reaching up to 54 Mbps by introducing Orthogonal Frequency Division Multiplexing (OFDM). OFDM improves data transmission by dividing the wireless signal into multiple smaller sub-signals that transmit data simultaneously, making communication faster, more efficient, and more resistant to interference. In addition, by operating entirely on the less congested 5 GHz frequency band, it avoided much of the interference caused by common household devices, resulting in more stable and reliable wireless connections. ",
@@ -47,7 +47,7 @@ const TIMELINE_DATA = [
     id: "wifi_3",
     themeClass: "wifi_3",// Custom class for unique colors
     date: "2003",
-    title: "Wi-Fi 3 (802.11g)",
+    title: "802.11g",
     description: "Combined the best of both earlier standards",
     modalContent: modalContent3,
     improvements: " This standard combined the best features of 802.11a and 802.11b by bringing the faster Orthogonal Frequency Division Multiplexing (OFDM) technology to the 2.4 GHz frequency band. As a result, it increased the maximum speed to 54 Mbps while maintaining the wider coverage of the 2.4 GHz band. It also remained backward compatible with older 802.11b devices, allowing users to upgrade their networks without replacing all of their existing hardware.",
