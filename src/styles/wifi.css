@@ -353,45 +353,23 @@ footer {
   animation-range: entry 0% contain 10%;
 }
 
-
-/* 1. Define the clean top-to-bottom growth animation */
-@keyframes drawLine {
-    from {
-        transform: scaleY(0); /* Line length starts at 0 */
-    }
-    to {
-        transform: scaleY(1); /* Line length reaches 100% exactly when the element leaves the screen */
-    }
-}
-
-/* 2. Target the main timeline container to act as the scroll tracker */
+/* Keep the main timeline container as the scroll tracker for card and icon reveals. */
 .vertical-timeline {
-    /* Creates a custom scroll milestone tied ONLY to this component's visibility */
     view-timeline-name: --timelineScroll;
     view-timeline-axis: block;
 }
 
-/* 3. Apply the view-timeline to your vertical track line */
+/* Keep the vertical track visible at full height. */
 .vertical-timeline::before {
     width: 4px;
     height: 100%;
     left: 50%;
     transform: translateX(-50%);
     background: var(--bg3) !important;
-    
-    /* Make sure the line stretches downward from the top */
     transform-origin: top; 
-    
-    /* Bind the drawing animation to the custom view timeline created above */
-    animation: drawLine linear both;
-    animation-timeline: --timelineScroll;
-    
-    /* This ensures it starts drawing the moment the timeline enters the screen, */
-    /* and finishes right when the last element of the timeline hits its mark. */
-    animation-range: entry 0% exit 40%;
 }
 
-/* 4. Keep position alignment working flawlessly on mobile */
+/* Keep position alignment working on mobile. */
 @media only screen and (max-width: 1169px) {
     .vertical-timeline::before {
         left: 18px;
