@@ -3,19 +3,25 @@ import {useState, useRef, useEffect} from "react";
 
 export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   const[items, setItems] = useState([
-    {id: 1, text: "wifi0 to wifi3 description", correctZone: "WiFi 0-3"},
-    {id: 2, text: "wifi4 description", correctZone: "WiFi 4"},
-    {id: 3, text: "wifi5 description", correctZone: "WiFi 5"},
-    {id: 4, text: "wifi6 description", correctZone: "WiFi 6"},
-    {id: 5, text: "wifi7 description", correctZone: "WiFi 7"}
+    {id: 1, text: "The first Wi-Fi standard, introducing wireless networking on the 2.4 GHz band with speeds up to 2 Mbps.", correctZone: "IEEE 802.11"},
+    {id: 2, text: "An early 2.4 GHz Wi-Fi standard that increased speeds up to 11 Mbps.", correctZone: "IEEE 802.11b"},
+    {id: 3, text: "A 5 GHz Wi-Fi standard designed for faster speeds and less interference.", correctZone: "IEEE 802.11a"},
+    {id: 4, text: "A 2.4 GHz standard that improved compatibility and became very common in homes.", correctZone: "IEEE 802.11g"},
+    {id: 5, text: "A standard that added MIMO and much higher throughput, making Wi-Fi 4 faster and more efficient.", correctZone: "IEEE 802.11n (Wi-Fi 4)"},
+    {id: 6, text: "A 5 GHz standard known for major speed improvements and wider channel use.", correctZone: "IEEE 802.11ac (Wi-Fi 5)"},
+    {id: 7, text: "A Wi-Fi 6 generation standard focused on efficiency, better performance in crowded networks, and support for 6 GHz in 6E.", correctZone: "IEEE 802.11ax (Wi-Fi 6 / 6E)"},
+    {id: 8, text: "The newest generation in this set, designed for even higher throughput, lower latency, and improved multi-device performance.", correctZone: "IEEE 802.11be (Wi-Fi 7)"}
   ]);
 
   const [zones, setZones] = useState({
-    "WiFi 0-3": [],
-    "WiFi 4": [],
-    "WiFi 5": [],
-    "WiFi 6": [],
-    "WiFi 7": []
+    "IEEE 802.11": [],
+    "IEEE 802.11b": [],
+    "IEEE 802.11a": [],
+    "IEEE 802.11g": [],
+    "IEEE 802.11n (Wi-Fi 4)": [],
+    "IEEE 802.11ac (Wi-Fi 5)": [],
+    "IEEE 802.11ax (Wi-Fi 6 / 6E)": [],
+    "IEEE 802.11be (Wi-Fi 7)": []
   });
 
   const [draggedItem, setDraggedItem] = useState(null);
@@ -97,11 +103,14 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   // Save results and go to next stage
   const goToMCQ = () => {
     const allMatches = [
-      ...zones["WiFi 0-3"],
-      ...zones["WiFi 4"],
-      ...zones["WiFi 5"],
-      ...zones["WiFi 6"],
-      ...zones["WiFi 7"]
+      ...zones["IEEE 802.11"],
+      ...zones["IEEE 802.11b"],
+      ...zones["IEEE 802.11a"],
+      ...zones["IEEE 802.11g"],
+      ...zones["IEEE 802.11n (Wi-Fi 4)"],
+      ...zones["IEEE 802.11ac (Wi-Fi 5)"],
+      ...zones["IEEE 802.11ax (Wi-Fi 6 / 6E)"],
+      ...zones["IEEE 802.11be (Wi-Fi 7)"]
     ];
     const allResults = [
       ...allMatches,
@@ -149,11 +158,14 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
         gap: "16px"
       }}>
         {[
-          { key: "WiFi 0-3", label: "WiFi 0-3" },
-          { key: "WiFi 4", label: "WiFi 4" },
-          { key: "WiFi 5", label: "WiFi 5" },
-          { key: "WiFi 6", label: "WiFi 6" },
-          { key: "WiFi 7", label: "WiFi 7" }
+          { key: "IEEE 802.11", label: "IEEE 802.11" },
+          { key: "IEEE 802.11b", label: "IEEE 802.11b" },
+          { key: "IEEE 802.11a", label: "IEEE 802.11a" },
+          { key: "IEEE 802.11g", label: "IEEE 802.11g" },
+          { key: "IEEE 802.11n (Wi-Fi 4)", label: "IEEE 802.11n (Wi-Fi 4)" },
+          { key: "IEEE 802.11ac (Wi-Fi 5)", label: "IEEE 802.11ac (Wi-Fi 5)" },
+          { key: "IEEE 802.11ax (Wi-Fi 6 / 6E)", label: "IEEE 802.11ax (Wi-Fi 6 / 6E)" },
+          { key: "IEEE 802.11be (Wi-Fi 7)", label: "IEEE 802.11be (Wi-Fi 7)" }
         ].map(zone => (
           <div
             key={zone.key}
