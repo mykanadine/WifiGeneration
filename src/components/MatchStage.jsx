@@ -4,14 +4,46 @@ import {useState, useRef, useEffect} from "react";
 export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   // Define descriptions and its correct zone
   const[items, setItems] = useState([
-    {id: 1, text: "The first Wi-Fi standard, introducing wireless networking on the 2.4 GHz band with speeds up to 2 Mbps.", correctZone: "IEEE 802.11"},
-    {id: 2, text: "An early 2.4 GHz Wi-Fi standard that increased speeds up to 11 Mbps.", correctZone: "IEEE 802.11b"},
-    {id: 3, text: "The first Wi-Fi standard to use OFDM (Orthogonal Frequency Division Multiplexing), providing higher data rates and supporting multiple transmission speeds on the 5 GHz band.", correctZone: "IEEE 802.11a"},
-    {id: 4, text: "Brought OFDM multi-carrier modulation to the 2.4 GHz band, offering an affordable upgrade to 54 Mbps", correctZone: "IEEE 802.11g"},
-    {id: 5, text: "Introduced MIMO (Multiple-Input Multiple-Output) technology and first to support dual-band operations (simultaneous 2.4 GHz and 5 GHz)", correctZone: "IEEE 802.11n (Wi-Fi 4)"},
-    {id: 6, text: "Operating exclusively in the 5 GHz band to achieve gigabit speeds, this standard eliminated network lag by debuting MU-MIMO for simultaneous transmission to multiple devices and directional beamforming to target signals directly at clients.", correctZone: "IEEE 802.11ac (Wi-Fi 5)"},
-    {id: 7, text: "Designed for crowded environments, this standard introduced OFDMA to bundle data for multiple devices into a single transmission, while expanding bidirectional MU-MIMO across the 2.4 GHz and 5 GHz bands. ", correctZone: "IEEE 802.11ax (Wi-Fi 6 / 6E)"},
-    {id: 8, text: "Introduced Multi-Link Operation (MLO) for simultaneous multi-band connections, doubled channel widths to 320 MHz, and utilized Multi-RU Puncturing to bypass channel interference for speeds up to 46 Gbps. ", correctZone: "IEEE 802.11be (Wi-Fi 7)"}
+    {
+      id: 1,
+      text: "The first Wi-Fi standard, introduced in 1997, with a maximum speed of 2 Mbps and limited commercial use.",
+      correctZone: "IEEE 802.11"
+    },
+    {
+      id: 2,
+      text: "An early 2.4 GHz Wi-Fi standard that made wireless networking popular, but was vulnerable to interference.",
+      correctZone: "IEEE 802.11b"
+    },
+    {
+      id: 3,
+      text: "The first Wi-Fi standard to use the 5 GHz band, offering faster speeds but shorter range and less wall penetration.",
+      correctZone: "IEEE 802.11a"
+    },
+    {
+      id: 4,
+      text: "Brought OFDM multi-carrier modulation to the 2.4 GHz band while remaining backward compatible with 802.11b.",
+      correctZone: "IEEE 802.11g"
+    },
+    {
+      id: 5,
+      text: "Introduced MIMO, wider 40 MHz channels, and dual-band support for both 2.4 GHz and 5 GHz.",
+      correctZone: "IEEE 802.11n (Wi-Fi 4)"
+    },
+    {
+      id: 6,
+      text: "Operating exclusively in the 5 GHz band, this generation improved speed using wider channels, beamforming, and MU-MIMO.",
+      correctZone: "IEEE 802.11ac (Wi-Fi 5)"
+    },
+    {
+      id: 7,
+      text: "Designed for crowded environments with OFDMA, better multi-device efficiency, and the 6 GHz Wi-Fi 6E extension.",
+      correctZone: "IEEE 802.11ax (Wi-Fi 6 / 6E)"
+    },
+    {
+      id: 8,
+      text: "Introduced Multi-Link Operation, allowing devices to coordinate multiple wireless links for higher capacity and lower latency.",
+      correctZone: "IEEE 802.11be (Wi-Fi 7)"
+    }
   ]);
 
   // Declare the zones
@@ -133,12 +165,13 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
               onDragStart={(e) => handleDragStart(e, item)}
               onClick={(e) => handleItemClick(item, e)}
               style={{
-                padding: "10px 14px",
+                padding: "12px 14px",
                 background: selectedItem?.id === item.id ? "#bbdefb" : "#e3f2fd",
                 border: selectedItem?.id === item.id ? "1px solid #1976d2" : "1px solid #002270a7",
-                borderRadius: "6px",
+                borderRadius: "8px",
                 width: "100%",
-                maxWidth: "240px",
+                maxWidth: "100%",
+                minHeight: "44px",
                 cursor: "pointer",
                 touchAction: "pan-y"
               }}
@@ -152,7 +185,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
 
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
         gap: "16px"
       }}>
         {[
