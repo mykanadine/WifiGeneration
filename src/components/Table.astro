@@ -39,10 +39,12 @@ const tableData = [
     overflow-x: auto;
     margin: 2rem 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
   }
   table {
     width: 100%;
+    min-width: 640px;
     border-collapse: collapse;
   }
   th, td {

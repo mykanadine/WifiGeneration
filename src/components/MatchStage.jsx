@@ -4,11 +4,31 @@ import {useState, useRef, useEffect} from "react";
 export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   // Define descriptions and its correct zone
   const[items, setItems] = useState([
-    {id: 1, text: "wifi0 to wifi3 description", correctZone: "WiFi 0-3"},
-    {id: 2, text: "wifi4 description", correctZone: "WiFi 4"},
-    {id: 3, text: "wifi5 description", correctZone: "WiFi 5"},
-    {id: 4, text: "wifi6 description", correctZone: "WiFi 6"},
-    {id: 5, text: "wifi7 description", correctZone: "WiFi 7"}
+    {
+      id: 1,
+      text: "Early 802.11, 802.11b, 802.11a, and 802.11g standards; useful foundation, but limited by speed, interference, and compatibility issues.",
+      correctZone: "Wi-Fi 0-3"
+    },
+    {
+      id: 2,
+      text: "802.11n generation that introduced MIMO, wider 40 MHz channels, and support for both 2.4 GHz and 5 GHz bands.",
+      correctZone: "Wi-Fi 4"
+    },
+    {
+      id: 3,
+      text: "802.11ac generation focused on faster 5 GHz performance through wider channels, beamforming, and MU-MIMO.",
+      correctZone: "Wi-Fi 5"
+    },
+    {
+      id: 4,
+      text: "802.11ax generation built for crowded networks with OFDMA, better multi-device efficiency, and a 6 GHz extension through Wi-Fi 6E.",
+      correctZone: "Wi-Fi 6"
+    },
+    {
+      id: 5,
+      text: "802.11be generation that uses Multi-Link Operation so devices can coordinate multiple links for higher capacity and lower latency.",
+      correctZone: "Wi-Fi 7"
+    }
   ]);
 
   // Declare the zones
@@ -95,11 +115,11 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   // Save results and go to next stage
   const goToMCQ = () => {
     const allMatches = [
-      ...zones["WiFi 0-3"],
-      ...zones["WiFi 4"],
-      ...zones["WiFi 5"],
-      ...zones["WiFi 6"],
-      ...zones["WiFi 7"]
+      ...zones["Wi-Fi 0-3"],
+      ...zones["Wi-Fi 4"],
+      ...zones["Wi-Fi 5"],
+      ...zones["Wi-Fi 6"],
+      ...zones["Wi-Fi 7"]
     ];
     const allResults = [
       ...allMatches,
@@ -124,12 +144,13 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
               onDragStart={(e) => handleDragStart(e, item)}
               onClick={(e) => handleItemClick(item, e)}
               style={{
-                padding: "10px 14px",
+                padding: "12px 14px",
                 background: selectedItem?.id === item.id ? "#bbdefb" : "#e3f2fd",
                 border: selectedItem?.id === item.id ? "1px solid #1976d2" : "1px solid #002270a7",
-                borderRadius: "6px",
+                borderRadius: "8px",
                 width: "100%",
-                maxWidth: "240px",
+                maxWidth: "100%",
+                minHeight: "44px",
                 cursor: "pointer",
                 touchAction: "pan-y"
               }}
@@ -143,7 +164,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
 
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
         gap: "16px"
       }}>
         {[

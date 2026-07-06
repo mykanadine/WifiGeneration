@@ -35,9 +35,13 @@ export default function ResultStage({ setStage, answers }) {
       </div>
 
      <p style={{ fontSize: "20px", marginBottom: "10px" }}><strong>🔍 Matching Stage Answers</strong></p>
-      <div style={{ overflowX: "auto" }}>
+      <div style={{
+        overflowX: "auto",
+        WebkitOverflowScrolling: "touch"
+      }}>
         <table style={{
           width: "100%",
+          minWidth: "680px",
           borderCollapse: "collapse",
           fontSize: "15px"
         }}>

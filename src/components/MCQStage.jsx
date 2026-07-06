@@ -6,33 +6,58 @@ export default function MCQStage({ setStage, setAnswers, currentAnswers }) {
   const questions = [
     {
       id: 1,
-      text: "Which ajkdnjaskdjaskdakdajs?",
-      options: ["WiFi 0-3", "WiFi 4", "WiFi 5", "WiFi 6", "WiFi 7"],
-      correct: "WiFi 0-3"
+      text: "What is the main purpose of Wi-Fi?",
+      options: [
+        "To connect nearby devices to a network using radio waves instead of cables",
+        "To increase a computer's CPU clock speed",
+        "To store files permanently without an internet connection",
+        "To replace all wired power cables"
+      ],
+      correct: "To connect nearby devices to a network using radio waves instead of cables"
     },
     {
       id: 2,
-      text: "Which akdjalkdjskaldjaslkd?",
-      options: ["WiFi 0-3", "WiFi 4", "WiFi 5", "WiFi 6", "WiFi 7"],
-      correct: "WiFi 4"
+      text: "Which limitation was common in early 2.4 GHz Wi-Fi such as 802.11b?",
+      options: [
+        "It could suffer interference from other devices using the same band",
+        "It required fiber-optic cables for every device",
+        "It could only work with satellite internet",
+        "It used Multi-Link Operation by default"
+      ],
+      correct: "It could suffer interference from other devices using the same band"
     },
     {
       id: 3,
-      text: "Which asjdaskdjaslkdjasld?",
-      options: ["WiFi 0-3", "WiFi 4", "WiFi 5", "WiFi 6", "WiFi 7"],
-      correct: "WiFi 5"
+      text: "Which improvement is most closely associated with Wi-Fi 4 (802.11n)?",
+      options: [
+        "MIMO and wider 40 MHz channels for higher throughput",
+        "Multi-Link Operation across several bands at the same time",
+        "The first use of the 6 GHz extension called Wi-Fi 6E",
+        "A return to 2 Mbps maximum speeds"
+      ],
+      correct: "MIMO and wider 40 MHz channels for higher throughput"
     },
     {
       id: 4,
-      text: "Which adkasjdaslkdjaosdjkal?",
-      options: ["WiFi 0-3", "WiFi 4", "WiFi 5", "WiFi 6", "WiFi 7"],
-      correct: "WiFi 6"
+      text: "Which statement best describes Wi-Fi 6 and Wi-Fi 6E?",
+      options: [
+        "Wi-Fi 6 improves crowded-network efficiency with OFDMA, while Wi-Fi 6E extends that technology into the 6 GHz band",
+        "Wi-Fi 6 removes multi-device support, while Wi-Fi 6E returns to 2 Mbps speeds",
+        "Wi-Fi 6 only works through Ethernet cables, while Wi-Fi 6E only works through fiber",
+        "Wi-Fi 6 and Wi-Fi 6E are names for the original 1997 standard"
+      ],
+      correct: "Wi-Fi 6 improves crowded-network efficiency with OFDMA, while Wi-Fi 6E extends that technology into the 6 GHz band"
     },
     {
       id: 5,
-      text: "Which asjdkadkaskdk?",
-      options: ["WiFi 0-3", "WiFi 4", "WiFi 5", "WiFi 6", "WiFi 7"],
-      correct: "WiFi 7"
+      text: "What is the key idea behind Wi-Fi 7's Multi-Link Operation (MLO)?",
+      options: [
+        "A device can coordinate multiple wireless links at once for more capacity and lower latency",
+        "A router must turn off all bands except 2.4 GHz",
+        "A device can only connect after a wired cable is attached",
+        "A network must use one client at a time"
+      ],
+      correct: "A device can coordinate multiple wireless links at once for more capacity and lower latency"
     }
   ];
 
@@ -89,15 +114,17 @@ export default function MCQStage({ setStage, setAnswers, currentAnswers }) {
               <label
                 key={option}
                 style={{
-                  display: "flex",
+                   display: "flex",
                   alignItems: "center",
                   gap: "10px",
-                  padding: "10px 12px",
-                  borderRadius: "6px",
+                  padding: "12px 14px",
+                  minHeight: "44px",
+                  borderRadius: "8px",
                   background: selected[question.id] === option ? "#e3f2fd" : "#f8f9fa",
                   border: selected[question.id] === option ? "1px solid #00227098" : "1px solid transparent",
                   cursor: "pointer",
-                  fontSize: "15px"
+                  fontSize: "15px",
+                  lineHeight: "1.35"
                 }}
               >
                 <input
@@ -119,13 +146,16 @@ export default function MCQStage({ setStage, setAnswers, currentAnswers }) {
         <button
           onClick={goToResult}
           style={{
-            padding: "10px 20px",
+            padding: "12px 20px",
             fontSize: "16px",
             border: "none",
-            borderRadius: "6px",
+            borderRadius: "8px",
             background: "#002170",
             color: "white",
-            cursor: "pointer"
+            cursor: "pointer",
+            width: "100%",
+            maxWidth: "240px",
+            minHeight: "44px"
           }}
         >
           See Result →
