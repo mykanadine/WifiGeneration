@@ -6,12 +6,12 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   const[items, setItems] = useState([
     {id: 1, text: "The first Wi-Fi standard, introducing wireless networking on the 2.4 GHz band with speeds up to 2 Mbps.", correctZone: "IEEE 802.11"},
     {id: 2, text: "An early 2.4 GHz Wi-Fi standard that increased speeds up to 11 Mbps.", correctZone: "IEEE 802.11b"},
-    {id: 3, text: "A 5 GHz Wi-Fi standard designed for faster speeds and less interference.", correctZone: "IEEE 802.11a"},
-    {id: 4, text: "A 2.4 GHz standard that improved compatibility and became very common in homes.", correctZone: "IEEE 802.11g"},
-    {id: 5, text: "A standard that added MIMO and much higher throughput, making Wi-Fi 4 faster and more efficient.", correctZone: "IEEE 802.11n (Wi-Fi 4)"},
-    {id: 6, text: "A 5 GHz standard known for major speed improvements and wider channel use.", correctZone: "IEEE 802.11ac (Wi-Fi 5)"},
-    {id: 7, text: "A Wi-Fi 6 generation standard focused on efficiency, better performance in crowded networks, and support for 6 GHz in 6E.", correctZone: "IEEE 802.11ax (Wi-Fi 6 / 6E)"},
-    {id: 8, text: "The newest generation in this set, designed for even higher throughput, lower latency, and improved multi-device performance.", correctZone: "IEEE 802.11be (Wi-Fi 7)"}
+    {id: 3, text: "The first Wi-Fi standard to use OFDM (Orthogonal Frequency Division Multiplexing), providing higher data rates and supporting multiple transmission speeds on the 5 GHz band.", correctZone: "IEEE 802.11a"},
+    {id: 4, text: "Brought OFDM multi-carrier modulation to the 2.4 GHz band, offering an affordable upgrade to 54 Mbps", correctZone: "IEEE 802.11g"},
+    {id: 5, text: "Introduced MIMO (Multiple-Input Multiple-Output) technology and first to support dual-band operations (simultaneous 2.4 GHz and 5 GHz)", correctZone: "IEEE 802.11n (Wi-Fi 4)"},
+    {id: 6, text: "Operating exclusively in the 5 GHz band to achieve gigabit speeds, this standard eliminated network lag by debuting MU-MIMO for simultaneous transmission to multiple devices and directional beamforming to target signals directly at clients.", correctZone: "IEEE 802.11ac (Wi-Fi 5)"},
+    {id: 7, text: "Designed for crowded environments, this standard introduced OFDMA to bundle data for multiple devices into a single transmission, while expanding bidirectional MU-MIMO across the 2.4 GHz and 5 GHz bands. ", correctZone: "IEEE 802.11ax (Wi-Fi 6 / 6E)"},
+    {id: 8, text: "Introduced Multi-Link Operation (MLO) for simultaneous multi-band connections, doubled channel widths to 320 MHz, and utilized Multi-RU Puncturing to bypass channel interference for speeds up to 46 Gbps. ", correctZone: "IEEE 802.11be (Wi-Fi 7)"}
   ]);
 
   // Declare the zones
