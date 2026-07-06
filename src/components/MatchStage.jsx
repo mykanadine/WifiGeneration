@@ -6,39 +6,57 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   const[items, setItems] = useState([
     {
       id: 1,
-      text: "Early 802.11, 802.11b, 802.11a, and 802.11g standards; useful foundation, but limited by speed, interference, and compatibility issues.",
-      correctZone: "Wi-Fi 0-3"
+      text: "The first Wi-Fi standard, introduced in 1997, with a maximum speed of 2 Mbps and limited commercial use.",
+      correctZone: "IEEE 802.11"
     },
     {
       id: 2,
-      text: "802.11n generation that introduced MIMO, wider 40 MHz channels, and support for both 2.4 GHz and 5 GHz bands.",
-      correctZone: "Wi-Fi 4"
+      text: "An early 2.4 GHz Wi-Fi standard that made wireless networking popular, but was vulnerable to interference.",
+      correctZone: "IEEE 802.11b"
     },
     {
       id: 3,
-      text: "802.11ac generation focused on faster 5 GHz performance through wider channels, beamforming, and MU-MIMO.",
-      correctZone: "Wi-Fi 5"
+      text: "The first Wi-Fi standard to use the 5 GHz band, offering faster speeds but shorter range and less wall penetration.",
+      correctZone: "IEEE 802.11a"
     },
     {
       id: 4,
-      text: "802.11ax generation built for crowded networks with OFDMA, better multi-device efficiency, and a 6 GHz extension through Wi-Fi 6E.",
-      correctZone: "Wi-Fi 6"
+      text: "Brought OFDM multi-carrier modulation to the 2.4 GHz band while remaining backward compatible with 802.11b.",
+      correctZone: "IEEE 802.11g"
     },
     {
       id: 5,
-      text: "802.11be generation that uses Multi-Link Operation so devices can coordinate multiple links for higher capacity and lower latency.",
-      correctZone: "Wi-Fi 7"
+      text: "Introduced MIMO, wider 40 MHz channels, and dual-band support for both 2.4 GHz and 5 GHz.",
+      correctZone: "IEEE 802.11n (Wi-Fi 4)"
+    },
+    {
+      id: 6,
+      text: "Operating exclusively in the 5 GHz band, this generation improved speed using wider channels, beamforming, and MU-MIMO.",
+      correctZone: "IEEE 802.11ac (Wi-Fi 5)"
+    },
+    {
+      id: 7,
+      text: "Designed for crowded environments with OFDMA, better multi-device efficiency, and the 6 GHz Wi-Fi 6E extension.",
+      correctZone: "IEEE 802.11ax (Wi-Fi 6 / 6E)"
+    },
+    {
+      id: 8,
+      text: "Introduced Multi-Link Operation, allowing devices to coordinate multiple wireless links for higher capacity and lower latency.",
+      correctZone: "IEEE 802.11be (Wi-Fi 7)"
     }
   ]);
 
   // Declare the zones
-const [zones, setZones] = useState({
-  "Wi-Fi 0-3": [],
-  "Wi-Fi 4": [],
-  "Wi-Fi 5": [],
-  "Wi-Fi 6": [],
-  "Wi-Fi 7": []
-});
+  const [zones, setZones] = useState({
+    "IEEE 802.11": [],
+    "IEEE 802.11b": [],
+    "IEEE 802.11a": [],
+    "IEEE 802.11g": [],
+    "IEEE 802.11n (Wi-Fi 4)": [],
+    "IEEE 802.11ac (Wi-Fi 5)": [],
+    "IEEE 802.11ax (Wi-Fi 6 / 6E)": [],
+    "IEEE 802.11be (Wi-Fi 7)": []
+  });
 
   // Store item being dragged (PC)
   const [draggedItem, setDraggedItem] = useState(null);
@@ -115,11 +133,14 @@ const [zones, setZones] = useState({
   // Save results and go to next stage
   const goToMCQ = () => {
     const allMatches = [
-      ...zones["Wi-Fi 0-3"],
-      ...zones["Wi-Fi 4"],
-      ...zones["Wi-Fi 5"],
-      ...zones["Wi-Fi 6"],
-      ...zones["Wi-Fi 7"]
+      ...zones["IEEE 802.11"],
+      ...zones["IEEE 802.11b"],
+      ...zones["IEEE 802.11a"],
+      ...zones["IEEE 802.11g"],
+      ...zones["IEEE 802.11n (Wi-Fi 4)"],
+      ...zones["IEEE 802.11ac (Wi-Fi 5)"],
+      ...zones["IEEE 802.11ax (Wi-Fi 6 / 6E)"],
+      ...zones["IEEE 802.11be (Wi-Fi 7)"]
     ];
     const allResults = [
       ...allMatches,
@@ -168,11 +189,14 @@ const [zones, setZones] = useState({
         gap: "16px"
       }}>
         {[
-          { key: "Wi-Fi 0-3", label: "Wi-Fi 0-3" },
-          { key: "Wi-Fi 4", label: "Wi-Fi 4" },
-          { key: "Wi-Fi 5", label: "Wi-Fi 5" },
-          { key: "Wi-Fi 6", label: "Wi-Fi 6" },
-          { key: "Wi-Fi 7", label: "Wi-Fi 7" }
+          { key: "IEEE 802.11", label: "IEEE 802.11" },
+          { key: "IEEE 802.11b", label: "IEEE 802.11b" },
+          { key: "IEEE 802.11a", label: "IEEE 802.11a" },
+          { key: "IEEE 802.11g", label: "IEEE 802.11g" },
+          { key: "IEEE 802.11n (Wi-Fi 4)", label: "IEEE 802.11n (Wi-Fi 4)" },
+          { key: "IEEE 802.11ac (Wi-Fi 5)", label: "IEEE 802.11ac (Wi-Fi 5)" },
+          { key: "IEEE 802.11ax (Wi-Fi 6 / 6E)", label: "IEEE 802.11ax (Wi-Fi 6 / 6E)" },
+          { key: "IEEE 802.11be (Wi-Fi 7)", label: "IEEE 802.11be (Wi-Fi 7)" }
         ].map(zone => (
           <div
             key={zone.key}
