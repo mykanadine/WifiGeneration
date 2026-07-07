@@ -39,7 +39,7 @@
 - Completed the skeleton for knowledge check and timeline
 - Started adding information in the timeline.
 - Added incomplete summary table
-- **Challenge encountered**:
+- **Challenges encountered**:
   - A major challenge encountered through building the Knowledge Check section was handling the mobile layout. In the matching stage, the `onDragStart` and `onDragOver` events rely on the mouse. Implementing the matching in the mobile version became a challenge. The first attempt was to `addEventListener` with `touchstart` and `touchend`.
   - It was also challenging to adapt the react element code of the timeline for our webpage, especially for the design and animation aspects. The design was a challenge because the code came from the `react-vertical-timeline-component` package found online. The code has both CSS stylings and the timeline itself in one file. Thus, the group had to figure out how to separate the CSS codes to a different file, and also add new edits to change different aspects of the timeline such as card colors, font colors, scaling or hovering affects, etc. The group also found it challenging to modify the main timeline code in order to reset the animation each time it appears on screen, as initially, the timeline's animation would only trigger once.
 
