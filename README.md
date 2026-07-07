@@ -51,7 +51,7 @@
 - Deployed the website
 - Finalized information to the website
 - Began working on the mobile layout
-- **Challenge & Realization**: Upon deployment, the group realized that edits would have to be made to fix the mobile layout. Initially, the group had thought that the mobile layout would look the same as the minimized window view on the laptop. However, it turns out that there are still quite some differences when the website is actually viewed through mobile. The differences were mainly in the CSS stylings and designs and the knowledge check layout. To counter this, the group used syntax like `@media` and `overflow-x: hidden` to ensure that the layout changes depending on screen dimensions and cut-off excess parts of the website in a vertical view, disabling horizontal scrolling in the mobile layout.
+- **Challenge & Realization**: Upon deployment, the group realized that edits would have to be made to fix the mobile layout. Initially, the group had thought that the mobile layout would look the same as the minimized window view on the laptop. However, it turns out that there are still quite some differences when the website is actually viewed through mobile. The differences were mainly in the CSS stylings and designs and the knowledge check layout. To counter this, the group used syntax like `@media` and `overflow-x: hidden` to ensure that the layout changes depending on screen dimensions and cuts-off excess parts of the website in a vertical view, disabling horizontal scrolling in the mobile layout.
   
 ### July 5, 2026
 
