@@ -15,7 +15,7 @@
 **4. Website Deployment**
 
 ### Tasks Remaining:
-1. Refine mobile layout, specifically on layout for Table of Contents
+1. Refine mobile layout, specifically on the layout for Table of Contents
 2. Add more visual aids
 
 ***
