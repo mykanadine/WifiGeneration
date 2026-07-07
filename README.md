@@ -30,6 +30,7 @@
 - Learning about Astro and React with supplementary materials from the internet
 - Editing the provided layout template to fit our proposed template
 - **Challenge encountered**: It was challenging to manage around the CSS syntax and codes such as `:root` and `html` to customize our own page, especially with the already existing global.css file which contains configurations that affect all pages of the website. Initially, some of the custom designs and stylings such as background wallpaper and color, font style, and box shadow color leaked into the main page. The group utilized the code `:has(.wifi_history_timeline)` attached in front of the selector to signify that only the page containing our custom timeline would be affected by the custom design edits in our CSS file. It was also a struggle to understand the code initially, since there were so many unfamiliar CSS syntax, that it was difficult to determine what codes to edit or change to achieve the designs we wanted.
+- **Creative Process**: The group had already made a design template in the proposal stage, so we tried to copy it. The color scheme was retained; however, the layout deviated a bit from our initial plan since there was already a page template, and the group didn't want to change or work around it too much since that would be more difficult. The group made changes to the font, box sizes for the main content and table of contents, box shadow color, and overall color scheme of the page. The group aimed for a sleek and simple design, to make the page easy on the eyes.
 
 ### July 3, 2026
 
