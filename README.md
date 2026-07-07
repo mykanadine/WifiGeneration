@@ -63,3 +63,12 @@
 
 - Completed documentation and AI Usage Declaration
 - Added deployed website link to website description
+
+***
+
+### AI Usage
+####Dola
+- Used to summarize information and brainstorm interactive elements for Knowledge Check
+- Prompt: What events can be used for mobile development?
+- Prompt: What events can be used for both mobile and pc?
+- Prompt: Aside from multiple choice for knowledge check what else can I do to make it more interactive?
