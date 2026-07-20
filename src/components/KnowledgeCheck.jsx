@@ -23,7 +23,10 @@ export default function KnowledgeCheck() {
           </div>
           <div>
             <strong>Multiple Choice:</strong>
-            <div style={{ marginTop: "4px" }}>Select the best answer for each question, then view your results at the end.</div>
+            <div style={{ marginTop: "4px" }}>Select the best answer for each question.</div>
+          </div>
+          <div style={{ marginTop: "4px", fontStyle: "italic" }}>
+            The overall result will be shown at the very end after you complete both parts.
           </div>
         </div>
       </div>
