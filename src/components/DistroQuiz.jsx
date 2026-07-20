@@ -6,6 +6,7 @@
  * distro is shown as the recommendation at the end.
  *
  * ## Learning Notes
+ * 
  * This component demonstrates several key React concepts:
  * - Multiple pieces of state: We track three things at once with useState --
  *   which screen we're on (`step`), the answers chosen so far (`answers`), and the
@@ -36,6 +37,7 @@
  *   - Add or edit a distro          -> the `distros` object
  *   - Change how answers score      -> the `scoring` map (answer id -> distro points)
  */
+
 
 import { useState } from "react";
 

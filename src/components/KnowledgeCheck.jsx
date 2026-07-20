@@ -19,7 +19,7 @@ export default function KnowledgeCheck() {
         <div style={{ display: "grid", gap: "10px" }}>
           <div>
             <strong>Matching Type:</strong>
-            <div style={{ marginTop: "4px" }}>Drag each description into the correct Wi-Fi standard box. On mobile, tap a card first, then tap the appropriate Wi-Fi generation box to place it.</div>
+            <div style={{ marginTop: "4px" }}>Drag each description into the correct Wi-Fi standard box. On mobile , tap a card first, then tap the appropriate Wi-Fi generation box to place it.</div>
           </div>
           <div>
             <strong>Multiple Choice:</strong>
