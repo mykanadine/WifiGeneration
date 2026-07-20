@@ -15,13 +15,17 @@ export default function KnowledgeCheck() {
   return (
     <div>
       <div style={{ marginBottom: "20px", padding: "14px 16px", border: "1px solid #dbe7ff", borderRadius: "10px", background: "#f5f8ff" }}>
-        <h3 style={{ margin: "0 0 8px 0", color: "#002170" }}>How to complete this quiz</h3>
-        <ul style={{ margin: 0, paddingLeft: "20px", lineHeight: 1.6 }}>
-          <li>Drag each description into the correct Wi-Fi standard box.</li>
-          <li>On mobile, tap a card first, then tap the appropriate Wi-Fi generation box to place it.</li>
-          <li>After matching all items, click the next button to continue.</li>
-          <li>Answer the multiple-choice questions and view your results at the end.</li>
-        </ul>
+        <h3 style={{ margin: "0 0 8px 0", color: "#002170" }}>How to complete this Knowledge Check</h3>
+        <div style={{ display: "grid", gap: "10px" }}>
+          <div>
+            <strong>Matching Type:</strong>
+            <div style={{ marginTop: "4px" }}>Drag each description into the correct Wi-Fi standard box. On mobile, tap a card first, then tap the appropriate Wi-Fi generation box to place it.</div>
+          </div>
+          <div>
+            <strong>Multiple Choice:</strong>
+            <div style={{ marginTop: "4px" }}>Select the best answer for each question, then view your results at the end.</div>
+          </div>
+        </div>
       </div>
 
       {/*Matching Stage*/}
