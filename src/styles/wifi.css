@@ -41,8 +41,6 @@ body:has(.wifi_history_timeline) {
     var(--c1);
 }
 
-
-
 body:has(.wifi_history_timeline) {
     color: var(--text);
     font-family: "Montserrat", Arial;
@@ -136,7 +134,6 @@ body:has(.wifi_history_timeline) * {
     gap: 1rem;
     flex-direction: column;
     flex: 4;
-    
 }
 
 .content__titlemeta {
@@ -150,9 +147,8 @@ body:has(.wifi_history_timeline) * {
 
 /* Main exhibit article content */
 
-
 .header__titleblock,
-.content__titlemeta{
+.content__titlemeta {
     color: var(--bg2);
     background: var(--bg3);
     border: 1px solid var(--bg3);
@@ -234,7 +230,6 @@ footer {
     margin-top: 4rem;
 }
 
-
 @media (min-width: 1100px) {
     .content {
         max-width: 100%; /* Expanded width to easily fit both columns */
@@ -292,7 +287,6 @@ footer {
 .timeline-modal button:hover {
     background: #00174d;    /* Darkens slightly when hovered */
 }
-
 
 /* Style the dark blurred backdrop background */
 .timeline-modal::backdrop {
@@ -638,4 +632,992 @@ footer {
         width: 100%;
         min-height: 44px;
     }
+}
+
+/* ==========================================================================
+   INTERACTIVE ACRO_ANIMATION CSS LAYER ADDITIONS
+   ========================================================================== */
+
+.interactive-acronym-link {
+    color: #3d6dab;
+    font-weight: 700;
+    text-decoration: underline dashed 2px #1c4e8f;
+    cursor: pointer;
+    padding: 0 2px;
+    transition: all 0.2s linear;
+}
+
+.interactive-acronym-link:hover {
+    background-color: #c7dbe4;
+    color: #002170;
+    border-radius: var(--radius);
+}
+
+.animation-submodal {
+    border: 3px solid var(--accent) !important;
+    background-color: #f5f8ff !important;
+}
+
+.animation-container-workspace {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    border: 1px dashed var(--border2);
+    border-radius: var(--radius);
+    background-color: var(--bg2);
+}
+
+.animation-tab-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 8px;
+}
+
+.animation-tab-bar button {
+    background: #e2e2e2 !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border2) !important;
+    padding: 6px 12px !important;
+    font-size: 0.85rem !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+}
+
+.animation-tab-bar button.active-tab {
+    background: var(--bg3) !important;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.anim-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.anim-description p {
+    color: var(--text) !important;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    background: #fdfdfd;
+    padding: 1rem;
+    border-left: 4px solid var(--accent);
+    margin: 8px 0 0 0;
+}
+
+/* WLAN VISUAL ENGINE */
+.wlan-layout .wlan-visual {
+    position: relative;
+    height: 240px;
+    background: #0d1117;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.wlan-node {
+    position: absolute;
+    font-size: 2.2rem;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.globe-icon { top: 5%; left: 48%; animation: rotGlobe 12s linear infinite; }
+.router-icon { top: 38%; left: 48%; font-size: 2rem; }
+.pc-icon { bottom: 8%; left: 18%; }
+.laptop-icon { bottom: 8%; left: 48%; }
+.printer-icon { bottom: 8%; left: 76%; }
+
+.radiating-circle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #ffc107;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: radPulse 2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+.wlan-lines-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.pulse-line {
+    stroke: #ffc107;
+    stroke-width: 3;
+    stroke-dasharray: 6;
+    animation: dashPulse 1.2s linear infinite;
+}
+
+@keyframes rotGlobe { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes radPulse { 0% { width: 10px; height: 10px; opacity: 1; border-color: #ffc107; } 100% { width: 140px; height: 140px; opacity: 0; border-color: #ffeb3b; } }
+@keyframes dashPulse { to { stroke-dashoffset: -24; } }
+
+/* DSSS PIPELINE AND XOR LAYER WORKSPACE */
+.dsss-pipeline-visual {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    gap: 8px;
+}
+
+.pipe-node {
+    background: var(--accent);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: normal;
+    text-align: center;
+    min-width: 90px;
+}
+
+.pipe-node.specialized { background: var(--bg3); font-weight: 500; }
+.pipe-node.spreaded { background: #1c4e8f; border: 1px solid #ffc107; }
+.pipe-arrow { font-weight: bold; color: #ffc107; font-size: 1.2rem; }
+
+/* Staggered entry flash animations for DSSS pipeline components */
+.active-node-1 { animation: flashHighlight 4s infinite 0s; }
+.anim-arrow-1  { animation: flashHighlight 4s infinite 0.4s; }
+.active-node-2 { animation: flashHighlight 4s infinite 0.8s; }
+.anim-arrow-2  { animation: flashHighlight 4s infinite 1.2s; }
+.active-node-3 { animation: flashHighlight 4s infinite 1.6s; }
+.anim-arrow-3  { animation: flashHighlight 4s infinite 2.0s; }
+.active-node-4 { animation: flashHighlight 4s infinite 2.4s; }
+.anim-arrow-4  { animation: flashHighlight 4s infinite 2.8s; }
+.active-node-5 { animation: flashHighlight 4s infinite 3.2s; }
+
+@keyframes flashHighlight { 0%, 20% { background: #ffc107; color: #002170; transform: scale(1.04); } 25%, 100% {} }
+
+.xor-stream-simulation {
+    background: #1e1e1e;
+    color: #fff;
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    font-family: monospace;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.xor-row span { color: #85b2ec; width: 160px; display: inline-block; }
+.xor-row .bit-stream { display: inline-block; letter-spacing: 6px; }
+.xor-row .bit-stream-out { display: inline-block; letter-spacing: 6px; color: #ffc107; animation: bitReveal 3s steps(6) infinite; }
+.xor-row.output { border-top: 2px dashed #444; padding-top: 8px; margin-top: 4px; }
+
+@keyframes bitReveal { from { width: 0; overflow: hidden; white-space: nowrap; } to { width: 120px; } }
+
+.spectral-density-graph {
+    height: 180px;
+    background: #111;
+    position: relative;
+    border-radius: var(--radius);
+    border-bottom: 4px solid var(--border2);
+    border-left: 4px solid var(--border2);
+    overflow: hidden;
+}
+
+.narrowband-spike {
+    position: absolute;
+    bottom: 0; left: 20%; width: 12%; height: 85%;
+    background: rgba(220, 53, 69, 0.85);
+    color: white; font-size: 0.75rem; text-align: center;
+    padding-top: 10px;
+    font-weight: bold;
+    animation: entranceSpike 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+.dsss-wideband-spread {
+    position: absolute;
+    bottom: 0; left: 5%; width: 90%; height: 22%;
+    background: rgba(40, 167, 69, 0.8);
+    color: white; font-size: 0.75rem; text-align: center;
+    padding-top: 6px;
+    font-weight: bold;
+    animation: entranceSpike 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes entranceSpike { from { transform: scaleY(0); transform-origin: bottom; opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
+
+/*OFDM/FDM signal wave*/
+
+.fdm-animation-space-svg {
+    background: #0d0f14;
+    padding: 1.5rem 1rem;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.wave-channel-row {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    height: 50px;
+}
+
+.wave-row-label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #85b2ec;
+    width: 80px;
+    flex-shrink: 0;
+    z-index: 5;
+}
+
+.wave-svg-canvas {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.propagating-sine-wave {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+/* Loop animations match wavelength coordinates perfectly for seamless movement */
+.wave-amber {
+    stroke: #ffc107;
+    animation: propagateWavelength60 1.5s infinite linear;
+}
+
+.wave-teal {
+    stroke: #17a2b8;
+    animation: propagateWavelength40 1s infinite linear;
+}
+
+@keyframes propagateWavelength60 {
+    from { transform: translateX(0); }
+    to { transform: translateX(60px); }
+}
+
+@keyframes propagateWavelength40 {
+    from { transform: translateX(0); }
+    to { transform: translateX(40px); }
+}
+
+/* Guard Band UI Divider Line */
+.wave-channel-row.guard-band-gap {
+    height: 28px;
+    background: rgba(220, 53, 69, 0.05);
+    border: 1px dashed rgba(220, 53, 69, 0.25);
+    border-left: none; border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guard-band-text {
+    font-size: 0.7rem;
+    color: #dc3545;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Tab 2: Comparison Signal Stack Enclosures */
+.signal-canvas-container.dark-canvas {
+    background: #0d0f14;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.static-wave-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Slide closer together to simulate advanced optimization packing */
+/* Sets a permanent semi-transparent look so waves are already faded to begin with */
+.sliding-ofdm-wave-svg {
+    transform-origin: bottom;
+    opacity: 0.5; /* Adjust this number (0.0 to 1.0) to make them more or less transparent */
+    animation: packingOverlap 2.5s ease-in-out 1 forwards;
+}
+
+/* Removed opacity transitions so only the horizontal movement happens */
+@keyframes packingOverlap {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(var(--slide-dist, -15px)); }
+}
+.wave-svg-b { --slide-dist: -25px; }
+.wave-svg-c { --slide-dist: -50px; }
+.wave-svg-d { --slide-dist: -75px; }
+
+/* Tab 3: Orthogonal Analytical Cross Sections */
+.ofdm-orthogonal-space-svg {
+    background: #0d0f14;
+    border-radius: var(--radius);
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.orthogonal-axis-canvas {
+    width: 100%;
+    min-width: 500px;
+    height: auto;
+}
+
+.orthogonal-marker-group {
+    opacity: 0;
+    animation: alignmentFlash 4.5s infinite linear; 
+}
+
+.line-m1 { animation-delay: 0s; }
+.line-m2 { animation-delay: 1.5s; }
+.line-m3 { animation-delay: 3s; }
+
+@keyframes alignmentFlash {
+    0% { opacity: 0; }
+    4% { opacity: 1; }   /* Quickly fades in at the start of its window */
+    29% { opacity: 1; }  /* Holds solid visibility */
+    33.3% { opacity: 0; }/* Fully fades out before the 2-second mark hits */
+    100% { opacity: 0; } /* Stays completely invisible for the rest of the 6s cycle */
+}
+
+/* OFDM Orthogonal Subcarrier Intersects */
+.ofdm-orthogonal-space {
+    background: #0f111a;
+    height: 160px;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.sine-subcarrier {
+    position: absolute;
+    bottom: 0; height: 110px; border-radius: 50% 50% 0 0; opacity: 0.4;
+}
+
+.sub-blue { left: 10%; width: 45%; background: #4285f4; }
+.sub-red { left: 28%; width: 45%; background: #ea4335; }
+.sub-yellow { left: 45%; width: 45%; background: #fabc05; }
+
+.orthogonal-axis-line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    border-left: 2px dashed #fff;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marker-line-1 { left: 50.5%; animation: fadeBlink 3s infinite ease-in-out; }
+.marker-line-2 { left: 32.5%; animation: fadeBlink 3s infinite ease-in-out 1.5s; }
+
+.orthogonal-axis-line .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.peak-red { top: 32%; background: #ea4335; box-shadow: 0 0 8px #ea4335; border: 2px solid #fff; }
+.zero-blue { bottom: 0; background: #000; border: 2px solid #4285f4; }
+.zero-yellow { bottom: 0; background: #000; border: 2px solid #fabc05; }
+
+.peak-blue { top: 32%; background: #4285f4; box-shadow: 0 0 8px #4285f4; border: 2px solid #fff; }
+.zero-red-2 { bottom: 0; background: #000; border: 2px solid #ea4335; }
+.zero-yellow-2 { bottom: 0; background: #000; border: 2px solid #fabc05; }
+
+@keyframes fadeBlink { 0%, 100% { opacity: 0.1; } 50% { opacity: 1; } }
+
+/* MIMO CITYSCAPE SVG ANIMATION */
+.mimo-city-workspace svg {
+    overflow: visible;
+}
+
+.mimo-dotted-flow {
+    animation: mimoDashFlow 1s linear infinite;
+}
+
+.mimo-lost-path {
+    animation: mimoLostFade 2.4s ease-in-out infinite;
+}
+
+@keyframes mimoDashFlow {
+    to { stroke-dashoffset: -24; }
+}
+
+@keyframes mimoLostFade {
+    0%, 100% { opacity: 0.12; }
+    50% { opacity: 0.5; }
+}
+
+/* SU-MIMO vs MU-MIMO COMPARISON SVG ANIMATION */
+.mumimo-compare-workspace svg {
+    overflow: visible;
+}
+
+.su-cycle {
+    opacity: 0.12;
+}
+
+.su-cycle-0 { animation: suRoundRobin 6s infinite; animation-delay: 0s; }
+.su-cycle-1 { animation: suRoundRobin 6s infinite; animation-delay: 2s; }
+.su-cycle-2 { animation: suRoundRobin 6s infinite; animation-delay: 4s; }
+
+@keyframes suRoundRobin {
+    0% { opacity: 1; }
+    33% { opacity: 1; }
+    38%, 100% { opacity: 0.12; }
+}
+
+/* MIMO PATH ENGINE TRACKING */
+.mimo-visual, .mumimo-visual {
+    background: #1a1c23;
+    color: white;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mimo-paths, .spatial-beams {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-grow: 1;
+    margin: 0 1.5rem;
+}
+
+.signal-path {
+    padding: 6px;
+    font-size: 0.75rem;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.signal-path.solid-line { border: 2px solid #28a745; background: rgba(40, 167, 69, 0.1); animation: waveTravel 2s infinite linear; }
+.signal-path.dotted-line { border: 2px dotted #ffc107; background: rgba(255, 193, 7, 0.05); animation: waveTravel 2s infinite linear reverse; }
+
+.directed-beam {
+    background: var(--accent);
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transform: translateX(-10px);
+    opacity: 0;
+}
+
+.beam-delay-1 { animation: beamDrive 2s infinite ease-out 0s; }
+.beam-delay-2 { animation: beamDrive 2s infinite ease-out 0.4s; }
+.beam-delay-3 { animation: beamDrive 2s infinite ease-out 0.8s; }
+
+@keyframes waveTravel { 0% { background-position-x: 0px; } 100% { background-position-x: 40px; } }
+@keyframes beamDrive { 0% { opacity: 0; transform: translateX(-30px); } 50% { opacity: 1; background: #ffc107; color: #002170; } 100% { opacity: 0; transform: translateX(30px); } }
+
+/* OFDMA STACK MATRIX RENDERER */
+/* OFDMA TIME-FREQUENCY RESOURCE GRID */
+.ofdma-grid-workspace {
+    color: white;
+}
+
+.ofdma-bandwidth-label {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.ofdma-body-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ofdma-axis-time {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.7rem;
+    color: #8b949e;
+    flex-shrink: 0;
+}
+
+.ofdma-frame-label {
+    writing-mode: vertical-rl;
+    font-size: 0.65rem;
+    color: #8b949e;
+    flex-shrink: 0;
+    border-right: 2px solid #30363d;
+    padding-right: 6px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+}
+
+.ofdma-rows {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.ofdma-row {
+    display: flex;
+    gap: 2px;
+    height: 34px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.ofdma-block {
+    border-radius: 2px;
+}
+
+.ofdma-u1 { background: #29c5d6; }
+.ofdma-u2 { background: #f4b942; }
+.ofdma-u3 { background: #e1543f; }
+.ofdma-u4 { background: #6ab04c; }
+
+.ofdma-scan-highlight {
+    position: absolute;
+    top: 0;
+    left: -4px;
+    right: -4px;
+    height: 34px;
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    border-radius: 6px;
+    pointer-events: none;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+    animation: ofdmaScan 6s ease-in-out infinite;
+}
+
+@keyframes ofdmaScan {
+    0%, 20%   { transform: translateY(0px); }
+    25%, 45%  { transform: translateY(42px); }
+    50%, 70%  { transform: translateY(84px); }
+    75%, 95%  { transform: translateY(126px); }
+    100%      { transform: translateY(0px); }
+}
+
+.ofdma-axis-freq {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #8b949e;
+    margin-top: 10px;
+}
+
+.ofdma-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 14px;
+    font-size: 0.8rem;
+    color: #c9d1d9;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+}
+
+.fallback-panel {
+    background: #f8f9fa;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+}
+
+/* MLO SIMULTANEOUS MULTI-LINK ENGINE */
+.mlo-layout .mlo-visual {
+    background: #111424;
+    color: white;
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.mlo-node {
+    background: var(--bg3);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    z-index: 5;
+    border: 1px solid var(--accent);
+    white-space: nowrap;
+}
+
+.mlo-node.client-box {
+    background: var(--shadow);
+    border-color: #ffc107;
+}
+
+.mlo-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-grow: 1;
+    margin: 0 1.5rem;
+    position: relative;
+}
+
+.mlo-channel {
+    height: 32px;
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+}
+
+.band-label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 2;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* Distinct visual tracks for each link */
+.band-24 {
+    background: rgba(244, 180, 0, 0.08);
+    border: 1px dashed rgba(244, 180, 0, 0.6);
+}
+
+.band-5 {
+    background: rgba(66, 133, 244, 0.08);
+    border: 1px dashed rgba(66, 133, 244, 0.6);
+}
+
+.band-6 {
+    background: rgba(219, 68, 85, 0.08);
+    border: 1px dashed rgba(219, 68, 85, 0.6);
+}
+
+.mlo-packet {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    left: 0;
+    top: 10px;
+}
+
+/* Animation speeds vary to mimic real-world throughput limits per band */
+.packet-24 {
+    background: #f4b400;
+    box-shadow: 0 0 8px #f4b400;
+    animation: mloTravel 2.5s infinite linear;
+}
+
+.packet-5 {
+    background: #4285f4;
+    box-shadow: 0 0 8px #4285f4;
+    animation: mloTravel 1.6s infinite linear;
+}
+
+.packet-6 {
+    background: #db4455;
+    box-shadow: 0 0 8px #db4455;
+    animation: mloTravel 1.0s infinite linear;
+}
+
+@keyframes mloTravel {
+    0% { left: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 96%; opacity: 0; }
+}
+
+/* Mobile scaling safety */
+@media (max-width: 640px) {
+    .mlo-layout .mlo-visual {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .mlo-channels {
+        width: 100%;
+        margin: 1rem 0;
+    }
+}
+/* FHSS animations*/
+
+.fhss-svg-workspace {
+    background: #0d0f14;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fhss-chart {
+    width: 100%;
+    height: auto;
+    max-width: 650px;
+}
+
+.axis-value-text {
+    fill: #6c757d;
+    font-size: 0.65rem;
+    font-family: monospace;
+}
+
+.grid-axis-label {
+    fill: #a5b4fc;
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-family: monospace;
+}
+
+.axis-title-text {
+    fill: #85b2ec;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.packet-internal-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    letter-spacing: 0.5px;
+}
+
+/* Tab 1: Continuous Horizontal Scrolling Conveyor Belt Animation */
+.fhss-scroll-packet {
+    opacity: 0;
+    animation: fhssConveyorScroll 4s linear infinite;
+}
+
+.fhss-scroll-packet.sp1 { animation-delay: 0s; }
+.fhss-scroll-packet.sp2 { animation-delay: 1s; }
+.fhss-scroll-packet.sp3 { animation-delay: 2s; }
+.fhss-scroll-packet.sp4 { animation-delay: 3s; }
+
+@keyframes fhssConveyorScroll {
+    0% {
+        transform: translateX(0px);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(450px);
+        opacity: 0;
+    }
+}
+/* Tab 2: Synced Hopping Sequence up to Tn */
+.fhss-hop-node, .vector-arrow {
+    opacity: 0;
+    animation: hopReveal 8s infinite ease-in-out;
+}
+
+.fhss-hop-node.h1 { animation-delay: 0s; }
+.vector-arrow.v1   { animation-delay: 0.5s; }
+
+.fhss-hop-node.h2 { animation-delay: 1.0s; }
+.vector-arrow.v2   { animation-delay: 1.5s; }
+
+.fhss-hop-node.h3 { animation-delay: 2.0s; }
+.vector-arrow.v3   { animation-delay: 2.5s; }
+
+.fhss-hop-node.h4 { animation-delay: 3.0s; }
+.vector-arrow.v4   { animation-delay: 3.5s; }
+
+.fhss-hop-node.h5 { animation-delay: 4.0s; }
+.vector-arrow.v5   { animation-delay: 4.5s; }
+
+.fhss-hop-node.h6 { animation-delay: 5.0s; }
+.vector-arrow.v6   { animation-delay: 5.5s; }
+
+.fhss-hop-node.hn { animation-delay: 6.0s; }
+
+@keyframes hopReveal {
+    0% { opacity: 0; }
+    5%, 88% { opacity: 1; }
+    100% { opacity: 0; }
+}
+/* DSSS Layout Structures */
+.dsss-flex-workspace {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.xor-table-container {
+    flex: 0 0 180px;
+}
+
+.xor-truth-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #111622;
+    border: 1px solid #232d42;
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 0.8rem;
+}
+
+.xor-truth-table th {
+    background: #182235;
+    color: #94a3b8;
+    padding: 6px;
+    font-weight: 600;
+    border-bottom: 1px solid #232d42;
+}
+
+.xor-truth-table td {
+    padding: 6px;
+    text-align: center;
+    color: #e2e8f0;
+}
+
+.active-table-row {
+    background: rgba(0, 176, 116, 0.22) !important;
+    outline: 1.5px solid #00b074;
+    font-weight: bold;
+}
+
+.active-table-row td {
+    color: #fff !important;
+}
+
+.step-readout {
+    margin-top: 10px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-align: center;
+}
+
+/* Waveform Vector Typographies */
+.dsss-waveform-svg {
+    background: #0d1117;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+    padding: 10px;
+}
+
+.wave-label {
+    fill: #94a3b8;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.wave-bit {
+    fill: #4b5563;
+    font-size: 11px;
+    text-anchor: middle;
+    transition: fill 0.2s ease;
+}
+
+.active-bit-text {
+    fill: #fff;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.active-xor-text {
+    fill: #e1a100;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.wave-timing-caption {
+    fill: #6b7280;
+    font-size: 10px;
+}
+
+/* Tab 3 Fade in and Static Styles */
+.spectral-density-svg {
+    background: #0d1117;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+    max-width: 100%;
+}
+
+.spec-shape-label {
+    font-size: 11px;
+    font-weight: 500;
+}
+.red-txt { fill: #ef4444; }
+.blue-txt { fill: #60a5fa; }
+
+.spectral-shape {
+    opacity: 0;
+    animation: spectralStaticFadeIn 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.narrow-signal-group {
+    animation-delay: 0.4s;
+}
+
+.wide-signal-group {
+    animation-delay: 1.4s;
+}
+
+@keyframes spectralStaticFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* prevent collapsing SVG graph layout (graph with the digital signals)*/
+.dsss-svg-workspace.compact-mode {
+    flex: 1;
+    min-width: 0; /* prevents flex items from collapsing or squeezing to 0 width */
+    width: 100%;
+}
+
+.dsss-waveform-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #0d1117;
+    border-radius: 8px;
+    border: 1px solid #1f2937;
+    padding: 10px;
 }
