@@ -3,7 +3,7 @@ import {useState, useRef, useEffect} from "react";
 
 export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
   // Define descriptions and its correct zone
-  const[items, setItems] = useState([
+ const[items, setItems] = useState([
     {id: 1, text: "The first Wi-Fi standard, introducing wireless networking on the 2.4 GHz band with speeds up to 2 Mbps.", correctZone: "IEEE 802.11"},
     {id: 2, text: "An early 2.4 GHz Wi-Fi standard that increased speeds up to 11 Mbps.", correctZone: "IEEE 802.11b"},
     {id: 3, text: "The first Wi-Fi standard to use OFDM (Orthogonal Frequency Division Multiplexing), providing higher data rates and supporting multiple transmission speeds on the 5 GHz band.", correctZone: "IEEE 802.11a"},
@@ -133,12 +133,13 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
               onDragStart={(e) => handleDragStart(e, item)}
               onClick={(e) => handleItemClick(item, e)}
               style={{
-                padding: "10px 14px",
+                padding: "12px 14px",
                 background: selectedItem?.id === item.id ? "#bbdefb" : "#e3f2fd",
                 border: selectedItem?.id === item.id ? "1px solid #1976d2" : "1px solid #002270a7",
-                borderRadius: "6px",
+                borderRadius: "8px",
                 width: "100%",
-                maxWidth: "240px",
+                maxWidth: "100%",
+                minHeight: "44px",
                 cursor: "pointer",
                 touchAction: "pan-y"
               }}
@@ -152,7 +153,7 @@ export default function MatchStage({ setStage, setAnswers, currentAnswers }) {
 
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
         gap: "16px"
       }}>
         {[

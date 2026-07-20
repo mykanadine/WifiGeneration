@@ -17,8 +17,12 @@ body  {
     --small: 0.8rem;
 }
 
-/* Changes the page background ONLY if our custom timeline exists on the screen.
-   This prevents it from leaking onto your instructor's homepage! */
+html:has(.wifi_history_timeline) {
+    overflow-x: hidden;
+}
+
+/* changes the page background only if timeline exists on the screen
+   to prevent leakage into the homepage */
 body:has(.wifi_history_timeline) {
   --s: 80px; /* control the size*/
   --c1: #6c8a9d;
@@ -46,6 +50,14 @@ body:has(.wifi_history_timeline) {
     flex-direction: column;
     display: flex;
     min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body:has(.wifi_history_timeline),
+body:has(.wifi_history_timeline) * {
+    box-sizing: border-box;
 }
 
 /* Top header bar */
@@ -236,7 +248,9 @@ footer {
     }
 }
 
-/* 1. This handles the browser centering and sizing perfectly */
+/* TIMELINE */
+
+/* handles the browser centering and sizing */
 .timeline-modal {
     border: none;
     border-radius: var(--radius);
@@ -255,14 +269,13 @@ footer {
     overflow-y: auto;    
 }
 
-/* 2. Target the open state specifically for your layout styling */
-/* This isolates your Flexbox settings so it doesn't break the browser's close engine */
+/* target the open state layout styling */
+/* isolate flexbox settings so it doesn't break the browser's close engine */
 .timeline-modal[open] {
     display: flex !important;
     flex-direction: column;
 }
 
-/* (Keep your .timeline-modal button styling exactly as it is below this) */
 .timeline-modal button {
     align-self: flex-end;   
     margin-top: auto;       
@@ -286,33 +299,29 @@ footer {
     backdrop-filter: blur(4px);
 }
 
-/* ==========================================
-   SIMULTANEOUS HOVER EFFECTS
-   ========================================== */
+/* simultaneous hover effects for both the cards and circles in timeline*/
 
-/* 1. Scale and lift the text card on hover */
+/* scale and lift the text card on hover */
 .custom-timeline-element:hover .vertical-timeline-element-content {
   transform: translateY(-4px) scale(1.01);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* 2. Scale and spin/pop the icon circle on hover */
+/* scale and spin/pop the icon circle on hover */
 .custom-timeline-element:hover .vertical-timeline-element-icon {
   transform: scale(1.1) !important;
   box-shadow: 0 0 0 3px #ffffff, 0 8px 16px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* 3. SMOOTH TRANSITIONS (Add this so they glide instead of snap!) */
+/* makes smooth transitions */
 .custom-timeline-element .vertical-timeline-element-content,
 .custom-timeline-element .vertical-timeline-element-icon {
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
-/* ==========================================
-   SCROLL-DRIVEN ENTRY FOR CARDS & CIRCLES
-   ========================================== */
+/* entry animation for cards and circles in timeline*/
 
-/* 1. Define the fade-in and scale up animation */
+/* define the fade-in and scale up animation */
 @keyframes revealElement {
   from {
     opacity: 0;
@@ -324,7 +333,7 @@ footer {
   }
 }
 
-/* 2. Apply it to BOTH the content boxes and icon circles */
+/* apply to both the content boxes and circles */
 .custom-timeline-element .vertical-timeline-element-content,
 .custom-timeline-element .vertical-timeline-element-icon {
   /* Bind it to your existing timeline scroll tracker */
@@ -332,8 +341,8 @@ footer {
   animation-timeline: --timelineScroll;
 }
 
-/* 3. Stagger the reveals using animation-range */
-/* This makes them look at their position relative to the scroll container */
+/* stagger reveals using animation-range */
+/* this makes them look at their position relative to the scroll container */
 .custom-timeline-element .vertical-timeline-element-content,
 .custom-timeline-element .vertical-timeline-element-icon {
   /* entry 0% means start animating as it peeks from the bottom */
@@ -341,45 +350,23 @@ footer {
   animation-range: entry 0% contain 10%;
 }
 
-
-/* 1. Define the clean top-to-bottom growth animation */
-@keyframes drawLine {
-    from {
-        transform: scaleY(0); /* Line length starts at 0 */
-    }
-    to {
-        transform: scaleY(1); /* Line length reaches 100% exactly when the element leaves the screen */
-    }
-}
-
-/* 2. Target the main timeline container to act as the scroll tracker */
+/* keep the main timeline container as the scroll tracker for card and circle reveals */
 .vertical-timeline {
-    /* Creates a custom scroll milestone tied ONLY to this component's visibility */
     view-timeline-name: --timelineScroll;
     view-timeline-axis: block;
 }
 
-/* 3. Apply the view-timeline to your vertical track line */
+/* keep the vertical track visible at full height */
 .vertical-timeline::before {
     width: 4px;
     height: 100%;
     left: 50%;
     transform: translateX(-50%);
     background: var(--bg3) !important;
-    
-    /* Make sure the line stretches downward from the top */
     transform-origin: top; 
-    
-    /* Bind the drawing animation to the custom view timeline created above */
-    animation: drawLine linear both;
-    animation-timeline: --timelineScroll;
-    
-    /* This ensures it starts drawing the moment the timeline enters the screen, */
-    /* and finishes right when the last element of the timeline hits its mark. */
-    animation-range: entry 0% exit 40%;
 }
 
-/* 4. Keep position alignment working flawlessly on mobile */
+/* keep position alignment working on mobile */
 @media only screen and (max-width: 1169px) {
     .vertical-timeline::before {
         left: 18px;
@@ -387,23 +374,16 @@ footer {
     }
 }
 
-
-/* TIMELINE */
-
-/* ==========================================
-   1. GLOBAL TIMELINE OVERRIDES (Optional)
-   ========================================== */
+/* global settings for the timeline*/
 .custom-timeline-element .vertical-timeline-element-content {
   color: #ffffff; /* White text for all cards */
   box-shadow: 5px 4px 0px #dddddd;
   border-radius: 6px;
 }
 
-/* ==========================================
-   2. UNIQUE EVENT THEMES (Custom Backgrounds)
-   ========================================== */
+/* card or bg colors for each wifi in timeline*/
 
-/* Theme: Wifi 1-3*/
+/* bg of Wifi 1-3*/
 .wifi_1 .vertical-timeline-element-content {
   background: #a1c4f3 ; 
 }
@@ -437,7 +417,7 @@ footer {
   box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
 }
 
-/* Theme: Wifi 3*/
+/* bg of Wifi 3*/
 .wifi_3 .vertical-timeline-element-content {
   background: #658cbf ; 
 }
@@ -449,7 +429,7 @@ footer {
   box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
 }
 
-/* Theme: Wifi 4*/
+/* bg of Wifi 4*/
 .wifi_4 .vertical-timeline-element-content {
   background: #3d6dab ;
 }
@@ -461,7 +441,7 @@ footer {
   box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
 }
 
-/* Theme: Wifi 5 */
+/* bg of Wifi 5 */
 .wifi_5 .vertical-timeline-element-content {
   background: #1c4e8f ;
 }
@@ -473,7 +453,7 @@ footer {
   box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
 }
 
-/* Theme: Wifi 6*/
+/* bg of Wifi 6*/
 .wifi_6 .vertical-timeline-element-content {
   background: var(--bg3) ;
 }
@@ -485,7 +465,7 @@ footer {
   box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
 }
 
-/* Theme: Wifi 7*/
+/* bg of Wifi 7*/
 .wifi_7 .vertical-timeline-element-content {
   background: var(--shadow);
 }
@@ -497,12 +477,9 @@ footer {
   box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
 }
 
-/* ==========================================================================
-   RESPONSIVE DATE COLORS
-   ========================================================================== */
+/* timeline responsive date colors */
 
-/* 1. NARROW SCREENS (Mobile/Tablet)
-   The library moves the date INSIDE the colored card, so we make it white. */
+/* adjust color for timeline dates on a narrow screen (mobile) */
 @media only screen and (max-width: 1169px) {
   .custom-timeline-element .vertical-timeline-element-date {
     color: #ffffff !important; 
@@ -512,11 +489,152 @@ footer {
   }
 }
 
-/* 2. WIDE SCREENS (Desktop)
-   The library floats the date OUTSIDE on the white background, so we make it dark gray. */
+/* adjust color for timeline dates on a wide screen */
 @media only screen and (min-width: 1170px) {
   .custom-timeline-element .vertical-timeline-element-date {
     color: #2f3134 !important; 
     font-weight: 600;
   }
+}
+
+/* repsonse layout */
+
+@media (max-width: 640px) {
+    body:has(.wifi_history_timeline) {
+        overflow-x: hidden;
+    }
+
+    .header {
+        padding: 0.75rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .header__titleblock {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .header__titleblock strong {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .header__subtitle {
+        display: block;
+        width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .content {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 0.75rem;
+        gap: 0.75rem;
+        min-width: 0;
+    }
+
+    .content__block {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .article,
+    .content__titlemeta,
+    body:has(.wifi_history_timeline) .toc {
+        padding: 1rem;
+        box-shadow: 3px 3px var(--shadow);
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .content__titlemeta h1 {
+        font-size: clamp(1.4rem, 8vw, 1.75rem);
+        line-height: 1.15;
+    }
+
+    .content__titlemeta span {
+        display: block;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .article {
+        overflow-x: hidden;
+        overflow-wrap: break-word;
+    }
+
+    .article > * {
+        max-width: 100%;
+    }
+
+    body:has(.wifi_history_timeline) .padder {
+        display: none;
+    }
+
+    .wifi_history_timeline {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+    .vertical-timeline {
+        width: 100%;
+        margin: 0;
+        padding: 1.25rem 0;
+    }
+
+    .vertical-timeline-element {
+        margin: 1.5rem 0;
+    }
+
+    .vertical-timeline::before {
+        left: 12px;
+    }
+
+    .vertical-timeline-element-icon {
+        width: 30px !important;
+        height: 30px !important;
+        left: 0 !important;
+    }
+
+    .vertical-timeline-element-content {
+        max-width: calc(100% - 42px);
+        margin-left: 42px !important;
+        padding: 0.875rem !important;
+        overflow-wrap: break-word;
+    }
+
+    .vertical-timeline-element-content-arrow {
+        top: 10px;
+    }
+
+    .vertical-timeline-element-title {
+        font-size: 1.1rem;
+        line-height: 1.15;
+        overflow-wrap: normal;
+    }
+
+    .vertical-timeline-element-content p {
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+
+    .timeline-modal {
+        width: calc(100vw - 2rem);
+        height: calc(100vh - 2rem);
+        padding: 1rem;
+    }
+
+    .timeline-modal button {
+        width: 100%;
+        min-height: 44px;
+    }
 }

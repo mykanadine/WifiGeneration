@@ -101,19 +101,19 @@ export default function TimelineDemo() {
   const [activeEvent, setActiveEvent] = useState(null);
   const [shouldAnimate, setShouldAnimate] = useState(true);
 
-  // Intersection Observer forces a reset when you scroll away
+  // intersection observer forces a reset when you scroll away
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // It's back on screen! Trigger animations
+          // trigger animations when back in screen view
           setShouldAnimate(true);
         } else {
-          // It left the screen! Turn off animation so it can reset
+          // turn off and reset animation when out of screen view
           setShouldAnimate(false);
         }
       },
-      { threshold: 0.05 } // Fires as soon as 5% of the timeline is visible
+      { threshold: 0.05 } // animation starts when 5% of the timeline is visible
     );
 
     if (timelineRef.current) {
@@ -129,9 +129,9 @@ export default function TimelineDemo() {
   };
 
   return (
-    // 1. Attach the ref to a wrapper element
+    // attach ref to a wrapper element
     <div ref={timelineRef} className="wifi_history_timeline">
-      {/* 2. Key attribute forces React to destroy and rebuild the animation cycle cleanly */}
+      {/* key attribute forces React to destroy and rebuild the animation cycle cleanly */}
       <VerticalTimeline key={shouldAnimate ? "visible" : "hidden"} animate={shouldAnimate}>
         {TIMELINE_DATA.map((event) => (
           <VerticalTimelineElement

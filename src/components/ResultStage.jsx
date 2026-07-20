@@ -35,9 +35,13 @@ export default function ResultStage({ setStage, answers }) {
       </div>
 
      <p style={{ fontSize: "20px", marginBottom: "10px" }}><strong>🔍 Matching Stage Answers</strong></p>
-      <div style={{ overflowX: "auto" }}>
+      <div style={{
+        overflowX: "auto",
+        WebkitOverflowScrolling: "touch"
+      }}>
         <table style={{
           width: "100%",
+          minWidth: "680px",
           borderCollapse: "collapse",
           fontSize: "15px"
         }}>
@@ -67,12 +71,16 @@ export default function ResultStage({ setStage, answers }) {
       </div>
 
       <p style={{ fontSize: "20px", marginBottom: "10px" }}><strong>📋 Multiple Choice Answers</strong></p>
-      <div style={{ overflowX: "auto" }}>
-        <table style={{
-          width: "100%",
-          borderCollapse: "collapse",
-          fontSize: "15px"
-        }}>
+      <div style={{
+              overflowX: "auto",
+              WebkitOverflowScrolling: "touch"
+            }}>
+              <table style={{
+                width: "100%",
+                minWidth: "680px",
+                borderCollapse: "collapse",
+                fontSize: "15px"
+              }}>
           <thead>
             <tr style={{ background: "#e9ecef" }}>
               <th style={{ border: "1px solid #ddd", padding: "10px", textAlign: "left" }}>Question</th>
