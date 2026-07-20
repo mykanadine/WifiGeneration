@@ -129,7 +129,15 @@ export default function TimelineDemo() {
   };
 
   return (
-    // attach ref to a wrapper element
+    <div>
+    <div style={{ marginBottom: "20px", padding: "14px 16px", border: "1px solid #dbe7ff", borderRadius: "10px", background: "#f5f8ff" }}>
+        <h3 style={{ margin: "0 0 8px 0", fontSize: "20px" }}>Instructions</h3>
+        <div style={{ display: "grid", gap: "10px" }}>
+            <div style={{ marginTop: "4px", fontSize: "14px" }}>Explore the evolution of Wi-Fi by clicking each timeline box to discover the descriptions, improvements, and limitations.</div>
+        </div>
+    </div>
+    <p>Over the years, Wi-Fi standards have evolved to support higher throughput and become much more efficient in bandwidth use.</p>
+    {/*attach ref to a wrapper element*/}
     <div ref={timelineRef} className="wifi_history_timeline">
       {/* key attribute forces React to destroy and rebuild the animation cycle cleanly */}
       <VerticalTimeline key={shouldAnimate ? "visible" : "hidden"} animate={shouldAnimate}>
@@ -158,6 +166,7 @@ export default function TimelineDemo() {
         <p>{activeEvent?.limitations}</p>
         <button onClick={() => dialogRef.current?.close()}>Close</button>
       </dialog>
+    </div>
     </div>
   );
 }
