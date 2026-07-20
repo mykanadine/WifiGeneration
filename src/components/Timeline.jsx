@@ -131,7 +131,7 @@ export default function TimelineDemo() {
   return (
     <div>
     <div style={{ marginBottom: "20px", padding: "14px 16px", border: "1px solid #dbe7ff", borderRadius: "10px", background: "#f5f8ff" }}>
-        <h3 style={{ margin: "0 0 8px 0", fontSize: "20px" }}>Instructions</h3>
+        <h3 style={{ margin: "0 0 8px 0", fontSize: "20px" }}>Instruction</h3>
         <div style={{ display: "grid", gap: "10px" }}>
             <div style={{ marginTop: "4px", fontSize: "14px" }}>Explore the evolution of Wi-Fi by clicking each timeline box to discover the descriptions, improvements, and limitations.</div>
         </div>
