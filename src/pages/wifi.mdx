@@ -41,11 +41,11 @@ Wireless communication is the process of sending and receiving data over a dista
 
 <TextWithImage
   heading="Why Wi-Fi Needs Collision Avoidance (CSMA/CA)"
-  body={`Every Wi-Fi generation from 1997 through Wi-Fi 6 relies on **Carrier Sense Multiple Access with Collision Avoidance (CSMA/CA)**. Before transmitting, a device must "listen" to the channel and wait until it is completely quiet.
+  body={`Every Wi-Fi generation from 1997 through Wi-Fi 6 relies on **Carrier Sense Multiple Access with Collision Avoidance (CSMA/CA)** because all devices on a wireless network share a single Radio frequency channel. Before transmitting, a device must "listen" to ensure the channel is completely quiet.
 
-As shown in the diagram, if Client 1 and Client 2 transmit at the exact same time, their signals crash. This collision corrupts the data, forcing both devices to reset, wait, and retry.
+Without this rule, devices would transmit simultaneously, causing their radio signals to interfere and cancel each other out. As shown in the diagram, this results in a collision that corrupts the data, forcing both Client 1 and Client 2 to reset, wait, and retry.
 
-While this first-come, first-served system works well with light traffic, it creates a massive bottleneck as networks get crowded. Wi-Fi 6 introduced OFDMA specifically to solve this problem.`}
+While this first-come, first-served system works well with light traffic, it creates a massive bottleneck as more devices are added. To solve this structural limitation, Wi-Fi 6 introduced OFDMA to allow parallel, multi-user communication without collisions.`}
   imageSrc={collisionGif.src}
   imageAlt="Diagram showing two Wi-Fi devices colliding while transmitting"
   imageCaption="When two devices transmit at the same time, the signals collide and both must resend."
