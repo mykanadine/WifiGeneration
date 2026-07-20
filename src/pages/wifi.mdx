@@ -15,6 +15,7 @@ import howWifiImg from "../assets/HOWWIFI.png"
 import collisionGif from "../assets/collision.gif"
 import ImageGallery from '../components/ImageGallery.jsx';
 import KnowledgeCheck from "../components/KnowledgeCheck.jsx";
+import summaryGif from "../assets/summary.gif"
 import TimelineDemo from "../components/Timeline.jsx"
 import Table from "../components/Table.astro"
 import DYK from "../components/DYK.jsx"
@@ -57,6 +58,19 @@ While this first-come, first-served system works well with light traffic, it cre
 <TimelineDemo client:load />
 
 ## Summary
+<img src={summaryGif.src} 
+  alt="Summary animation" 
+  loading="lazy"
+  style="
+    display: block;
+    width: 75%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+    margin: 0 auto;
+  "
+/>
 
 <Table />
 
