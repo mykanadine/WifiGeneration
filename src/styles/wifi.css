@@ -293,6 +293,7 @@ footer {
     background: #00174d;    /* Darkens slightly when hovered */
 }
 
+
 /* Style the dark blurred backdrop background */
 .timeline-modal::backdrop {
     background: rgba(0, 0, 0, 0.6);
