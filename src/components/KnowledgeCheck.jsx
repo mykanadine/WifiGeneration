@@ -15,18 +15,18 @@ export default function KnowledgeCheck() {
   return (
     <div>
       <div style={{ marginBottom: "20px", padding: "14px 16px", border: "1px solid #dbe7ff", borderRadius: "10px", background: "#f5f8ff" }}>
-        <h3 style={{ margin: "0 0 8px 0", color: "#002170" }}>How to complete this Knowledge Check</h3>
+        <h3 style={{ margin: "0 0 8px 0", fontSize: "20px" }}>Instructions</h3>
         <div style={{ display: "grid", gap: "10px" }}>
           <div>
-            <strong>Matching Type:</strong>
-            <div style={{ marginTop: "4px" }}>Drag each description into the correct Wi-Fi standard box. On mobile , tap a card first, then tap the appropriate Wi-Fi generation box to place it.</div>
+            <strong style={{fontSize: "15px" }}>Matching Type:</strong>
+            <div style={{ marginTop: "4px", fontSize: "14px" }}>Tap a card first, then tap the appropriate Wi-Fi generation box to place it. On PC, you can also drag each description into the correct Wi-Fi standard box.</div>
           </div>
           <div>
-            <strong>Multiple Choice:</strong>
-            <div style={{ marginTop: "4px" }}>Select the best answer for each question.</div>
+            <strong style={{fontSize: "15px" }}>Multiple Choice:</strong>
+            <div style={{ marginTop: "4px", fontSize: "14px" }}>Select the best answer for each question.</div>
           </div>
           <div style={{ marginTop: "4px" }}>
-            <strong> </strong>The overall result will be shown at the very end after you complete both parts.</strong>
+            <strong style={{fontSize: "15px" }}>The overall result will be shown at the very end after you complete both parts.</strong>
           </div>
         </div>
       </div>
