@@ -144,6 +144,10 @@ See [Google Drive Link](https://drive.google.com/file/d/1fdIMgzkq_v6f6jqpzgnoJ0a
 - Completed documentation and AI Usage Declaration
 - Added deployed website link to website description
 
+### July 18,2026 - July 19,2026
+- Resaerched and compiled more information, specifically regarding the more technical aspects of each Wi-fi Generation.
+- Compiled visuals to add
+
 ### July 20, 2026
 
 - Added CSMA/CA section
