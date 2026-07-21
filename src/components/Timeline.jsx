@@ -434,6 +434,15 @@ export default function TimelineDemo() {
             {/* DSSS ANIMATION SECTION */}
             {(activeAcronym === "DSSS") && (
               <div className="dsss-container">
+                <div style={{ display: "flex", gap: "12px", alignItems: "flex-start", marginBottom: "14px" }}>
+                  <div style={{ width: "5px", alignSelf: "stretch", borderRadius: "999px", background: "#1f6feb" }} />
+                  <div>
+                    <h4 style={{ marginTop: 0, marginBottom: "6px" }}>Direct Sequence Spread Spectrum</h4>
+                    <p style={{ margin: 0 }}>DSSS is a modulation technique used in wireless communications to make signal transmissions more reliable, secure, and resistant to interference and jamming.</p>
+                  </div>
+                </div>
+                
+
                 <div className="animation-tab-bar">
                   <button className={dsssTab === 1 ? "active-tab" : ""} onClick={() => setDsssTab(1)}>1. System Pipeline</button>
                   <button className={dsssTab === 2 ? "active-tab" : ""} onClick={() => setDssStep(0) || setDsssTab(2)}>2. Bit-by-Bit XOR Modulation</button>
@@ -581,7 +590,7 @@ export default function TimelineDemo() {
 
                 {dsssTab === 2 && (
                   <div className="anim-box">
-                    <h4>Automated 18-Chip Bit-by-Bit XOR Engine</h4>
+                    <h4>Spreading the Input Signal Using XOR Logic</h4>
                     <div className="dsss-flex-workspace">
                       
                       {/* Left: Truth Table Tracking active Logic states */}
@@ -662,6 +671,13 @@ export default function TimelineDemo() {
                           <text x="252.5" y="244" className="wave-timing-caption" textAnchor="middle">← 1st Bit Period (Spreading) →</text>
                           <text x="477.5" y="244" className="wave-timing-caption" textAnchor="middle">← 2nd Bit Period (Spreading) →</text>
                         </svg>
+                      </div>
+                    </div>
+
+                    <div style={{ display: "flex", gap: "12px", alignItems: "flex-start", marginTop: "14px" }}>
+                      <div style={{ width: "5px", alignSelf: "stretch", borderRadius: "999px", background: "#1f6feb" }} />
+                      <div>
+                        <p style={{ margin: 0 }}>When transmitting a DSSS signal, the original data stream is combined with a high-speed spreading code (or "chip code"). Using the <strong>XOR (Exclusive OR)</strong> function, this process creates an output bitstream with a significantly higher rate than the raw data itself, effectively spreading the signal energy across a broad frequency band. In Wi-Fi networks, this spreading is crucial because it allows signals to cut through heavy interference from household appliances like microwaves and Bluetooth devices, maintaining a stable connection.</p>
                       </div>
                     </div>
                   </div>
