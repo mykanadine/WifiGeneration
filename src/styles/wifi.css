@@ -2126,3 +2126,38 @@ footer {
     border: 1px solid #1f2937;
     padding: 10px;
 }
+
+html:has(.wifi_history_timeline),
+body:has(.wifi_history_timeline) {
+    overflow-x: clip;
+}
+
+/* Keep the TOC above the page on narrow screens. */
+@media (max-width: 1099px) {
+    body:has(.wifi_history_timeline) .content {
+        flex-direction: column;
+    }
+
+    body:has(.wifi_history_timeline) .toc {
+        position: static;
+    }
+
+    body:has(.wifi_history_timeline) .padder {
+        display: none;
+    }
+}
+
+/* Keep the TOC sticky on the left in desktop view. */
+@media (min-width: 1100px) {
+    body:has(.wifi_history_timeline) .content {
+        flex-direction: row;
+    }
+
+    body:has(.wifi_history_timeline) .content>.toc:not(.padder) {
+        position: sticky;
+        top: 2rem;
+        align-self: flex-start;
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
+    }
+}
