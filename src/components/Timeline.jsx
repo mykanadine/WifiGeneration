@@ -222,6 +222,7 @@ export default function TimelineDemo() {
         <h3 style={{ margin: "0 0 8px 0", fontSize: "20px" }}>Instruction</h3>
         <div style={{ display: "grid", gap: "10px" }}>
           <div style={{ marginTop: "4px", fontSize: "14px" }}>Explore the evolution of Wi-Fi by clicking each timeline box to discover the descriptions, improvements, and limitations. Inside the popups, click highlighted acronyms to view technical animations.</div>
+          <div style={{ marginTop: "4px", fontSize: "14px" }}>Click the question mark on the lower right corner of your screen for more fun facts about Wi-Fi!</div>        
         </div>
       </div>
       <p>Over the years, Wi-Fi standards have evolved to support higher throughput and become much more efficient in bandwidth use.</p>
