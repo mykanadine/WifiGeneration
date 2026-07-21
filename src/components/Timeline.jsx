@@ -62,7 +62,7 @@ const TIMELINE_DATA = [
     title: "Wi-Fi 4 (802.11n)",
     description: "First considered fully ready for mainstream commercial use",
     modalContent: modalContent4,
-    improvements: "This generation introduced MIMO (Multiple Input, Multiple Output), which used multiple smart antennas to broadcast data simultaneously rather than relying on a single stream. It was also the first truly dual-band standard, allowing routers to transmit over both the far-reaching 2.4 GHz band and the faster 5 GHz band at the same time. These architectural changes dramatically increased maximum throughput up to 600 Mbps and significantly extended indoor signal range",
+    improvements: "This generation introduced Multiple Input, Multiple Output (MIMO), which used multiple smart antennas to broadcast data simultaneously rather than relying on a single stream. It was also the first truly dual-band standard, allowing routers to transmit over both the far-reaching 2.4 GHz band and the faster 5 GHz band at the same time. These architectural changes dramatically increased maximum throughput up to 600 Mbps and significantly extended indoor signal range",
     limitations: " Despite utilizing the 5 GHz band, devices frequently reverted back to the cluttered 2.4 GHz band, which remained plagued by interference from everyday electronics. Additionally, while MIMO supported multiple antennas, the router could still only talk to one device at a time in rapid succession. This meant that if multiple family members tried to use the internet at once, the network experienced immediate lag as it cycled through each device."
   },
   {
@@ -72,7 +72,7 @@ const TIMELINE_DATA = [
     title: "Wi-Fi 5 (802.11ac)",
     description: "Largest single speed increase",
     modalContent: modalContent5,
-    improvements: "This generation solved multi-device lag by introducing MU-MIMO (Multi-User MIMO), which allowed the router to transmit data to up to four different devices simultaneously. It also added Beamforming, a technology that detects where a device is located and shoots a targeted, concentrated beam of data directly to it rather than broadcasting equally in all directions. By focusing entirely on wider channels in the 5 GHz band, it pushed maximum speeds past the gigabit barrier.",
+    improvements: "This generation solved multi-device lag by introducing Multi-User MIMO (MU-MIMO), which allowed the router to transmit data to up to four different devices simultaneously. It also added Beamforming, a technology that detects where a device is located and shoots a targeted, concentrated beam of data directly to it rather than broadcasting equally in all directions. By focusing entirely on wider channels in the 5 GHz band, it pushed maximum speeds past the gigabit barrier.",
     limitations: " The major limitation was that its architectural upgrades, like MU-MIMO and beamforming, only functioned over the 5 GHz frequency band. Any data sent over the longer-range 2.4 GHz band was forced to drop back to old Wi-Fi 4 technology, making it incredibly slow. Furthermore, MU-MIMO only worked for downloading data, meaning uploading files or video-calling still choked under heavy network strain"
   },
   {
@@ -82,7 +82,7 @@ const TIMELINE_DATA = [
     title: "Wi-Fi 6 (802.11ax)",
     description: "Handled many connected devices smoothly at once",
     modalContent: modalContent6,
-    improvements: "Designed for crowded smart homes, this generation introduced OFDMA (Orthogonal Frequency Division Multiple Access), which allows a router to bundle data for multiple completely different devices into a single transmission. Wi-Fi 6 applied these massive upgrades to both the 2.4 GHz and 5 GHz bands, while the 6E update unlocked an entirely new, pristine 6 GHz spectrum highway with zero appliance interference. It also brought MU-MIMO to both uploads and downloads, drastically reducing network latency.",
+    improvements: "Designed for crowded smart homes, this generation introduced Orthogonal Frequency Division Multiple Access (OFDMA), which allows a router to bundle data for multiple completely different devices into a single transmission. Wi-Fi 6 applied these massive upgrades to both the 2.4 GHz and 5 GHz bands, while the 6E update unlocked an entirely new, pristine 6 GHz spectrum highway with zero appliance interference. It also brought MU-MIMO to both uploads and downloads, drastically reducing network latency.",
     limitations: " The primary downside of the advanced Wi-Fi 6E upgrade is that the newly introduced 6 GHz signals have an incredibly short range and struggle to pass through thick walls or glass. To experience these high-speed benefits, consumers are forced to buy entirely new, expensive hardware, as older legacy devices cannot see or connect to the 6 GHz band. Additionally, configuring a multi-band network correctly to stop devices from constantly dropping down to slower bands became much more complex."
   },
   {
@@ -92,7 +92,7 @@ const TIMELINE_DATA = [
     title: "Wi-Fi 7 (802.11be)",
     description: "Major generation of the wireless standard",
     modalContent: modalContent7,
-    improvements: " Named as the Extremely High Throughput standard, Wi-Fi 7 introduced MLO (Multi-Link Operation), which allows a single device to connect to the 2.4 GHz, 5 GHz, and 6 GHz bands all at the same time to combine their speeds and backup data paths. It also doubled maximum channel widths to 320 MHz and implemented Multi-RU Puncturing, a feature that lets the network slice out a small, jammed piece of a radio channel while continuing to use the rest of it. These combined features skyrocketed theoretical speeds to a massive 46 Gbps while cutting latency to near-zero levels.",
+    improvements: " Named as the Extremely High Throughput standard, Wi-Fi 7 introduced Multi-Link Operation (MLO), which allows a single device to connect to the 2.4 GHz, 5 GHz, and 6 GHz bands all at the same time to combine their speeds and backup data paths. It also doubled maximum channel widths to 320 MHz and implemented Multi-RU Puncturing, a feature that lets the network slice out a small, jammed piece of a radio channel while continuing to use the rest of it. These combined features skyrocketed theoretical speeds to a massive 46 Gbps while cutting latency to near-zero levels.",
     limitations: " The extreme speeds offered by this standard are largely overkill for average households, as normal consumer internet plans cannot even come close to saturating its massive bandwidth capacity. Furthermore, the specialized hardware requires significantly more power to run, causing routers to run hotter and often require bulky internal cooling sinks or fans. The premium price tag of both routers and compatible client devices makes it highly cost-prohibitive for the average user."
   }
 ];
@@ -259,7 +259,7 @@ export default function TimelineDemo() {
           <h2>Technical Explanations: {activeAcronym}</h2>
           
           <div className="animation-container-workspace">
-            {/* WLAN ANIMATION SECTION */}
+            {/* this is the WLAN popup - shows a router talking to a few devices with the internet globe above it */}
             {activeAcronym === "WLAN" && (
               <div className="anim-box wlan-layout">
                 <div className="wlan-visual">
@@ -284,7 +284,7 @@ export default function TimelineDemo() {
               </div>
             )}
 
-            {/* FHSS ANIMATION SECTION */}
+            {/* FHSS popup - has its own tabs, so it's set up a bit differently from the others below */}
             {activeAcronym === "FHSS" && (
               <div className="fhss-container">
                 <div className="animation-tab-bar">
@@ -424,14 +424,14 @@ export default function TimelineDemo() {
                       </svg>
                     </div>
                     <div className="anim-description">
-                      <p>FHSS splits data into small parts and rapidly shifts transmission frequencies between slots (F1 to F6) across time boundaries (T1 to Tn). Because transmitter and receiver change channels in sync using a shared pattern, data remains clear and avoids local channel blocks.</p>
+                      <p>FHSS splits data into small parts and rapidly shifts transmission frequencies between slots (F1 to F6) across time boundaries (T1 to Tn). Because transmitter and receiver change channels in sync using a shared pattern, data remains clear and avoids local channel blocks. Meaning, data is spread across many frequencies so that a short burst of noise does not destroy the whole exchange.</p>
                     </div>
                   </div>
                 )}
               </div>
             )}
 
-            {/* DSSS ANIMATION SECTION */}
+            {/* DSSS popup, this one has 3 tabs of its own for the different sub-animations */}
             {(activeAcronym === "DSSS") && (
               <div className="dsss-container">
                 <div style={{ display: "flex", gap: "12px", alignItems: "flex-start", marginBottom: "14px" }}>
@@ -456,7 +456,7 @@ export default function TimelineDemo() {
                     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <div className="dsss-workspace-centered" style={{ background: "#0d1117", borderRadius: "8px", padding: "20px", flex: 1 }}>
                       <svg viewBox="0 0 750 320" style={{ width: "100%", height: "auto", display: "block" }}>
-                        {/* LEFT CONVEYOR BELT */}
+                        {/* conveyor belt on the left side, this is where the data box starts out */}
                         <line x1="20" y1="245" x2="140" y2="245" stroke="#30363d" strokeWidth="6" />
                         <line x1="40" y1="245" x2="40" y2="285" stroke="#30363d" strokeWidth="4" />
                         <line x1="110" y1="245" x2="110" y2="285" stroke="#30363d" strokeWidth="4" />
@@ -464,7 +464,7 @@ export default function TimelineDemo() {
                           <circle key={i} cx={cx} cy="245" r="3" fill="#8b949e" />
                         ))}
 
-                        {/* RIGHT CONVEYOR BELT */}
+                        {/* conveyor belt on the right side, where the box ends up leaving from */}
                         <line x1="590" y1="245" x2="710" y2="245" stroke="#30363d" strokeWidth="6" />
                         <line x1="610" y1="245" x2="610" y2="285" stroke="#30363d" strokeWidth="4" />
                         <line x1="680" y1="245" x2="680" y2="285" stroke="#30363d" strokeWidth="4" />
@@ -472,7 +472,7 @@ export default function TimelineDemo() {
                           <circle key={i} cx={cx} cy="245" r="3" fill="#8b949e" />
                         ))}
 
-                        {/* MACHINE 1: SPREADING MODULATOR */}
+                        {/* machine 1, the spreading modulator, this is where the data box disappears into */}
                         <rect x="140" y="145" width="140" height="110" rx="6" fill="#467194" stroke="#2e4a61" strokeWidth="2" />
                         <text x="210" y="215" fill="#0d1117" fontSize="12" fontWeight="bold" textAnchor="middle">Spreading</text>
                         <text x="210" y="230" fill="#0d1117" fontSize="12" fontWeight="bold" textAnchor="middle">Modulator</text>
@@ -487,7 +487,7 @@ export default function TimelineDemo() {
                         <rect x="165" y="255" width="15" height="30" fill="#1f2937" />
                         <rect x="240" y="255" width="15" height="30" fill="#1f2937" />
 
-                        {/* MACHINE 2: SPREADING DEMODULATOR */}
+                        {/* machine 2, the spreading demodulator, the box comes back out here */}
                         <rect x="450" y="145" width="140" height="110" rx="6" fill="#467194" stroke="#2e4a61" strokeWidth="2" />
                         <text x="520" y="215" fill="#0d1117" fontSize="12" fontWeight="bold" textAnchor="middle">Spreading</text>
                         <text x="520" y="230" fill="#0d1117" fontSize="12" fontWeight="bold" textAnchor="middle">Demodulator</text>
@@ -499,15 +499,15 @@ export default function TimelineDemo() {
                         <rect x="475" y="255" width="15" height="30" fill="#1f2937" />
                         <rect x="550" y="255" width="15" height="30" fill="#1f2937" />
 
-                        {/* FUNNELS */}
+                        {/* little funnel shapes connecting the machines to the belts above */}
                         <path d="M 190 95 L 230 95 L 217 125 L 217 145 L 203 145 L 203 125 Z" fill="#21262d" stroke="#30363d" />
                         <path d="M 500 95 L 540 95 L 527 125 L 527 145 L 513 145 L 513 125 Z" fill="#21262d" stroke="#30363d" />
 
-                        {/* MID-WAY TRANSMISSION LINKS */}
+                        {/* the dashed line between the two machines, only shows up on stage 3 when the signal is being sent over */}
                         <path d="M 280 195 L 450 195" fill="none" stroke="#fff" strokeWidth="3" strokeDasharray={pipelineStep === 2 ? "5" : "none"} markerEnd="url(#pipe-arrow)" style={{ opacity: pipelineStep === 2 ? 1 : 0.2, transition: "opacity 0.4s" }} />
                         <text x="365" y="175" fill="#8b949e" fontSize="12" textAnchor="middle" fontWeight="bold" style={{ opacity: pipelineStep === 2 ? 1 : 0.3, transition: "opacity 0.4s" }}>Transmitted Signals</text>
 
-                        {/* TRANSMITTER PN CODE BLOCK (Drops in Stage 2) */}
+                        {/* the PN code label that drops down on the sending side, only shows during stage 2 */}
                         <g style={{
                           transform: pipelineStep === 1 ? "translate(0px, 110px)" : "translate(0px, 0px)",
                           transition: "transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease",
@@ -517,7 +517,7 @@ export default function TimelineDemo() {
                           <text x="210" y="-32" fill="#fff" fontSize="9" textAnchor="middle" fontWeight="bold">Pseudonoise (PN)</text>
                         </g>
 
-                        {/* RECEIVER PN CODE BLOCK (Drops in Stage 3) */}
+                        {/* the matching PN code label on the receiving side, shows up during stage 3 */}
                         <g style={{
                           transform: pipelineStep === 2 ? "translate(0px, 110px)" : "translate(0px, 0px)",
                           transition: "transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease",
@@ -527,10 +527,11 @@ export default function TimelineDemo() {
                           <text x="520" y="-32" fill="#fff" fontSize="9" textAnchor="middle" fontWeight="bold">Pseudonoise (PN)</text>
                         </g>
 
-                        {/* PHYSICAL TRAVELING DATA BOX - disappears entering the Spreading Modulator, 
-                            reappears exiting the Spreading Demodulator and pauses briefly there, 
-                            then continues fully off-screen to the right, resetting off-screen left 
-                            so it slides back in as a "new" box on each loop */}
+                        {/* this is the orange data box that travels across the whole animation.
+                            it disappears once it enters the modulator, comes back when it leaves
+                            the demodulator, pauses there for a second, then slides all the way off
+                            screen to the right. once it's gone, it resets off screen on the left so
+                            it looks like a fresh box is entering when the loop starts again */}
                         <g style={{
                           transform: !boxVisible ? "translate(-200px, 0px)" :
                                      pipelineStep === 0 ? "translate(0px, 0px)" :
@@ -593,7 +594,7 @@ export default function TimelineDemo() {
                     <h4>Spreading the Input Signal Using XOR Logic</h4>
                     <div className="dsss-flex-workspace">
                       
-                      {/* Left: Truth Table Tracking active Logic states */}
+                      {/* left side, the truth table that highlights whichever row matches the current chip */}
                       <div className="xor-table-container">
                         <table className="xor-truth-table">
                           <thead>
@@ -634,7 +635,7 @@ export default function TimelineDemo() {
                         </div>
                       </div>
 
-                      {/* Right: Full Double-Bit Waveform Grid System */}
+                      {/* right side, the waveform rows for the PN code, the data, and the resulting XOR output */}
                       <div className="dsss-svg-workspace compact-mode">
                         <svg viewBox="0 0 650 250" className="dsss-waveform-svg">
                           <rect x={140 + dssStep * 25} y="5" width="25" height="210" fill="rgba(0, 176, 116, 0.06)" stroke="rgba(0, 176, 116, 0.25)" strokeDasharray="2" strokeWidth="1" />
@@ -644,20 +645,20 @@ export default function TimelineDemo() {
                           <line x1="20" y1="115" x2="600" y2="115" stroke="#1f2937" strokeWidth="1" />
                           <line x1="20" y1="185" x2="600" y2="185" stroke="#1f2937" strokeWidth="1" />
 
-                          {/* 1. Pseudonoise (PN) Sequence Track */}
+                          {/* row 1: the PN code sequence */}
                           <text x="15" y="40" className="wave-label text-bold">PN Code</text>
                           <path d="M 140 25 L 190 25 L 190 45 L 215 45 L 215 25 L 240 25 L 240 45 L 315 45 L 315 25 L 340 25 L 340 45 L 365 45 L 365 25 L 415 25 L 415 45 L 440 45 L 440 25 L 515 25 L 515 45 L 565 45 L 565 25 L 590 25" fill="none" stroke="#38bdf8" strokeWidth="2" />
                           {[1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1].map((val, idx) => (
                             <text key={idx} x={152.5 + idx * 25} y="18" className={`wave-bit ${dssStep === idx ? "active-bit-text text-sky-400" : ""}`}>{val}</text>
                           ))}
 
-                          {/* 2. Raw Input Data Stream Track (Bit 1 then Bit 0) */}
+                          {/* row 2: the raw data, just a single 1 bit followed by a single 0 bit */}
                           <text x="15" y="110" className="wave-label">Data</text>
                           <path d="M 140 95 L 365 95 L 365 115 L 590 115" fill="none" stroke="#00b074" strokeWidth="2" />
                           <text x="252.5" y="85" className={`wave-bit font-bold ${dssStep < 9 ? "active-bit-text" : ""}`}>1</text>
                           <text x="477.5" y="85" className={`wave-bit font-bold ${dssStep >= 9 ? "active-bit-text" : ""}`}>0</text>
 
-                          {/* 3. Transmitted Output Signal Track (Resulting XOR calculation) */}
+                          {/* row 3: what actually gets sent out, this is the data XOR'd with the PN code */}
                           <text x="15" y="180" className="wave-label">Transmitted</text>
                           <path d="M 140 185 L 190 185 L 190 165 L 215 165 L 215 185 L 240 185 L 240 165 L 315 165 L 315 185 L 340 185 L 340 165 L 415 165 L 415 185 L 440 185 L 440 165 L 515 165 L 515 185 L 565 185 L 565 165 L 590 165" fill="none" stroke="#fbbf24" strokeWidth="2" />
                           {[0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1].map((val, idx) => (
@@ -721,7 +722,7 @@ export default function TimelineDemo() {
               </div>
             )}
 
-            {/* OFDM & FDM ANIMATION SECTION */}
+            {/* this popup covers both OFDM and FDM since they share the same tabs and animations */}
             {(activeAcronym === "OFDM" || activeAcronym === "FDM") && (
               <div className="ofdm-container">
                 <div className="animation-tab-bar">
@@ -773,7 +774,7 @@ export default function TimelineDemo() {
                         </div>
                       </div>
                       <div className="stack-half">
-                        <h5>Advanced OFDM (Mathematical Signals Condensing Over One Another)</h5>
+                        <h5>OFDM (Signals Condensing Over One Another)</h5>
                         <div className="signal-canvas-container dark-canvas">
                           <svg className="static-wave-svg" viewBox="0 0 500 80">
                             <path className="sliding-ofdm-wave-svg wave-svg-a" d="M 40 70 Q 80 10, 120 70" fill="none" stroke="#ffc107" strokeWidth="3" opacity="0.75" />
@@ -822,14 +823,14 @@ export default function TimelineDemo() {
                       </svg>
                     </div>
                     <div className="anim-description">
-                      <p>Orthogonality means that at the exact peak frequency of one subcarrier, all other subcarriers are at their zero value. This mathematical independence lets them overlap perfectly without interfering with each other.</p>
+                      <p>Orthogonality means that at the exact peak frequency of one subcarrier or signal, all other subcarriers or signals are at their zero value. This mathematical independence lets them overlap perfectly without interfering with each other.</p>
                     </div>
                   </div>
                 )}
               </div>
             )}
 
-            {/* HR-DSSS & CCK EXPLANATION SECTION */}
+            {/* HR-DSSS and CCK don't have their own animation, just a text explanation */}
             {(activeAcronym === "HR-DSSS" || activeAcronym === "CCK") && (
               <div className="anim-box fallback-panel">
                 <h4>High-Rate Direct Sequence Spread Spectrum & Complementary Code Keying</h4>
@@ -838,41 +839,41 @@ export default function TimelineDemo() {
               </div>
             )}
 
-            {/* MIMO ANIMATION SECTION - animated cityscape comparison (with vs without MIMO) */}
+            {/* MIMO popup - a little city scene comparing what it looks like with vs without MIMO antennas */}
             {activeAcronym === "MIMO" && (
               <div className="anim-box">
                 <h4>MIMO: Multiple Spatial Streams via Multipath</h4>
                 <div className="mimo-city-workspace" style={{ background: "#0d1117", borderRadius: "8px", padding: "20px" }}>
                   <svg viewBox="0 0 700 380" style={{ width: "100%", height: "auto", display: "block" }}>
-                    {/* ===== PANEL 1: WITH MIMO ANTENNA ===== */}
+                    {/* top half of the picture: what it looks like with MIMO antennas */}
                     <text x="670" y="35" fill="#28a745" fontSize="16" fontWeight="bold" textAnchor="end">With MIMO antenna</text>
                     <line x1="20" y1="175" x2="680" y2="175" stroke="#30363d" strokeWidth="3" />
 
-                    {/* Simplified buildings */}
+                    {/* a few simple buildings in the background */}
                     <rect x="140" y="110" width="55" height="65" fill="#d8c9a3" opacity="0.35" />
                     <rect x="210" y="75" width="40" height="100" fill="#7fd9c4" opacity="0.35" />
                     <rect x="270" y="115" width="60" height="60" fill="#cbb8e8" opacity="0.3" />
                     <rect x="430" y="150" width="28" height="25" fill="#f4c98b" opacity="0.5" />
                     <polygon points="430,150 444,135 458,150" fill="#e8a15c" opacity="0.5" />
 
-                    {/* Tower / pole (candy stripe) */}
+                    {/* the red and white striped pole for the cell tower */}
                     <line x1="37.5" y1="175" x2="37.5" y2="60" stroke="#c0392b" strokeWidth="4" />
                     <line x1="37.5" y1="175" x2="37.5" y2="60" stroke="#fff" strokeWidth="4" strokeDasharray="8 8" opacity="0.6" />
 
-                    {/* Two MIMO antennas (blue + orange streams) */}
+                    {/* the two antennas, one blue stream and one orange stream */}
                     <polygon points="25,55 50,55 37.5,75" fill="#2f6fed" />
                     <polygon points="25,78 50,78 37.5,98" fill="#e08b2f" />
 
-                    {/* Phone */}
+                    {/* the phone receiving the signal */}
                     <rect x="560" y="100" width="30" height="55" rx="4" fill="#111" stroke="#333" />
                     <rect x="564" y="108" width="22" height="38" fill="#4fd1c5" />
                     <line x1="575" y1="100" x2="575" y2="90" stroke="#8b949e" strokeWidth="2" />
 
-                    {/* Blue stream: solid direct path + dotted reflected path */}
+                    {/* blue stream, one solid line for the direct path and one dotted line for the reflected path */}
                     <path d="M37.5,75 L575,120" fill="none" stroke="#2f6fed" strokeWidth="2" />
                     <path d="M37.5,75 Q300,25 575,120" fill="none" stroke="#2f6fed" strokeWidth="1.5" strokeDasharray="6 6" className="mimo-dotted-flow" />
 
-                    {/* Orange stream: solid direct path + dotted reflected path */}
+                    {/* same thing for the orange stream */}
                     <path d="M37.5,98 L575,140" fill="none" stroke="#e08b2f" strokeWidth="2" />
                     <path d="M37.5,98 Q300,170 575,140" fill="none" stroke="#e08b2f" strokeWidth="1.5" strokeDasharray="6 6" className="mimo-dotted-flow" />
 
@@ -883,7 +884,7 @@ export default function TimelineDemo() {
                       <animateMotion dur="1.6s" repeatCount="indefinite" path="M37.5,98 L575,140" />
                     </circle>
 
-                    {/* ===== PANEL 2: WITHOUT MIMO ANTENNA ===== */}
+                    {/* bottom half: same scene, but without MIMO antennas */}
                     <text x="670" y="225" fill="#8b949e" fontSize="16" textAnchor="end">Without MIMO antenna</text>
                     <line x1="20" y1="365" x2="680" y2="365" stroke="#30363d" strokeWidth="3" />
 
@@ -896,32 +897,32 @@ export default function TimelineDemo() {
                     <line x1="37.5" y1="365" x2="37.5" y2="250" stroke="#c0392b" strokeWidth="4" opacity="0.5" />
                     <line x1="37.5" y1="365" x2="37.5" y2="250" stroke="#fff" strokeWidth="4" strokeDasharray="8 8" opacity="0.3" />
 
-                    {/* Single antenna only */}
+                    {/* only one antenna this time */}
                     <polygon points="25,245 50,245 37.5,265" fill="#8b949e" />
 
                     <rect x="560" y="290" width="30" height="55" rx="4" fill="#111" stroke="#333" opacity="0.8" />
                     <rect x="564" y="298" width="22" height="38" fill="#4a5560" />
                     <line x1="575" y1="290" x2="575" y2="280" stroke="#8b949e" strokeWidth="2" />
 
-                    {/* Only one usable path - solid */}
+                    {/* the only path that actually gets used */}
                     <path d="M37.5,265 L575,310" fill="none" stroke="#8b949e" strokeWidth="2" />
                     <circle r="4" fill="#8b949e">
                       <animateMotion dur="1.8s" repeatCount="indefinite" path="M37.5,265 L575,310" />
                     </circle>
 
-                    {/* The reflected multipath copy exists, but goes unused - fades and never reaches the phone */}
+                    {/* this reflected copy still exists physically, but with no second antenna to pick it up, it just fades away unused */}
                     <path d="M37.5,265 Q250,215 400,300" fill="none" stroke="#8b949e" strokeWidth="1.5" strokeDasharray="4 6" className="mimo-lost-path" />
                   </svg>
                 </div>
                 <div className="anim-description">
                   <p><strong>Solid lines</strong> are the direct, line-of-sight path each spatial stream takes straight from an antenna to the device.</p>
                   <p><strong>Dotted lines</strong> are the same stream's reflected copy, bouncing off buildings and obstacles along the way (multipath).</p>
-                  <p>With MIMO, the router uses <strong>multiple antennas</strong> (blue and orange here) to send two separate streams at once, and can combine each stream's direct and reflected copies to boost speed and reliability. Without MIMO, only one antenna and one stream is used, so the reflected copy of the signal goes uncaptured and wasted, shown fading out below.</p>
+                  <p>With Multiple Input, Multiple Output (MIMO), the router uses <strong>multiple antennas</strong> (blue and orange here) to send two separate streams at once, and can combine each stream's direct and reflected copies to boost speed and reliability. Without MIMO, only one antenna and one stream is used, so the reflected copy of the signal goes uncaptured and wasted, shown fading out below.</p>
                 </div>
               </div>
             )}
 
-            {/* MU-MIMO ANIMATION SECTION - SU-MIMO (round-robin) vs MU-MIMO (simultaneous) comparison */}
+            {/* MU-MIMO popup - side by side comparison, SU-MIMO taking turns vs MU-MIMO serving everyone at once */}
             {activeAcronym === "MU-MIMO" && (
               <div className="anim-box">
                 <h4>SU-MIMO vs MU-MIMO: Serving Multiple Devices</h4>
@@ -931,7 +932,7 @@ export default function TimelineDemo() {
                     <text x="150" y="28" fill="#e08b2f" fontSize="16" fontWeight="bold" textAnchor="middle">SU-MIMO (takes turns)</text>
                     <text x="610" y="28" fill="#28a745" fontSize="16" fontWeight="bold" textAnchor="middle">MU-MIMO (all at once)</text>
 
-                    {/* ===== SU-MIMO ACCESS POINT ===== */}
+                    {/* the SU-MIMO access point on the left, with its 3 antennas */}
                     <rect x="40" y="50" width="90" height="230" fill="none" stroke="#e08b2f" strokeWidth="2" rx="4" />
                     <text x="85" y="298" fill="#8b949e" fontSize="10" textAnchor="middle">3x3 Access Point</text>
                     {[90, 165, 240].map((y, i) => (
@@ -943,7 +944,7 @@ export default function TimelineDemo() {
                       </g>
                     ))}
 
-                    {/* SU-MIMO clients - only one lights up at a time, taking turns */}
+                    {/* the 3 clients waiting on the SU-MIMO side, only one gets lit up and served at a time */}
                     {[90, 165, 240].map((y, i) => (
                       <g key={`su-client-${i}`} className={`su-cycle su-cycle-${i}`}>
                         <rect x="255" y={y - 16} width="28" height="38" rx="3" fill="#1f2937" stroke="#e08b2f" strokeWidth="1.5" />
@@ -955,7 +956,7 @@ export default function TimelineDemo() {
                       </g>
                     ))}
 
-                    {/* ===== MU-MIMO ACCESS POINT ===== */}
+                    {/* the MU-MIMO access point on the right, same 3 antennas */}
                     <rect x="430" y="50" width="90" height="230" fill="none" stroke="#28a745" strokeWidth="2" rx="4" />
                     <text x="475" y="298" fill="#8b949e" fontSize="10" textAnchor="middle">3x3 Access Point</text>
                     {[90, 165, 240].map((y, i) => (
@@ -967,7 +968,7 @@ export default function TimelineDemo() {
                       </g>
                     ))}
 
-                    {/* MU-MIMO clients - all three served simultaneously, one stream per device */}
+                    {/* all 3 clients here get their own stream and are served together, not one at a time */}
                     {[90, 165, 240].map((y, i) => (
                       <g key={`mu-client-${i}`}>
                         <path d={`M 520 ${y} L 645 ${y}`} fill="none" stroke="#28a745" strokeWidth="2" />
@@ -982,15 +983,15 @@ export default function TimelineDemo() {
                   </svg>
                 </div>
                 <div className="anim-description">
-                  <p>An <strong>SU-MIMO</strong> access point can still only aim all of its spatial streams at <strong>one device at a time</strong>. If three devices need service, it has to serve Client 1, then Client 2, then Client 3 in turn, watch how the beam swaps between them above, even though the hardware technically has three streams available.</p>
-                  <p>An <strong>MU-MIMO</strong> access point splits those same three streams across <strong>three different devices at once</strong>, each getting its own dedicated stream simultaneously instead of waiting for a turn.</p>
+                  <p>A Single-User MIMO <strong>(SU-MIMO)</strong> access point can still only aim all of its spatial streams at <strong>one device at a time</strong>. If three devices need service, it has to serve Client 1, then Client 2, then Client 3 in turn, watch how the beam swaps between them above, even though the hardware technically has three streams available.</p>
+                  <p>A Multi-User MIMO <strong>(MU-MIMO)</strong> access point splits those same three streams across <strong>three different devices at once</strong>, each getting its own dedicated stream simultaneously instead of waiting for a turn.</p>
                   <p>This is why MU-MIMO serves more devices better: instead of one client monopolizing all the streams while others queue, each connected device gets its own slice of bandwidth in parallel, so a busy network with many phones, laptops, and smart devices sees far less lag overall.</p>
                 </div>
               </div>
             )}
 
 
-            {/* OFDMA ANIMATION SECTION */}
+            {/* OFDMA popup - the grid showing multiple users squeezed into one frame */}
             {activeAcronym === "OFDMA" && (
               <div className="anim-box">
                 <h4>OFDMA: Splitting One Frame Across Multiple Users</h4>
@@ -1039,7 +1040,7 @@ export default function TimelineDemo() {
               </div>
             )}
 
-            {/* MLO ANIMATION SECTION */}
+            {/* MLO popup - shows a device connected to all three bands at the same time */}
             {activeAcronym === "MLO" && (
               <div className="anim-box mlo-layout">
                 <h4>Multi-Link Operation (MLO) Simultaneous Connections</h4>

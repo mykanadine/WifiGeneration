@@ -667,9 +667,7 @@ footer {
     }
 }
 
-/* ==========================================================================
-   INTERACTIVE ACRO_ANIMATION CSS LAYER ADDITIONS
-   ========================================================================== */
+/* everything below here is for the clickable acronym links and the popup animations */
 
 .interactive-acronym-link {
     color: #3d6dab;
@@ -740,7 +738,7 @@ footer {
     margin: 8px 0 0 0;
 }
 
-/* WLAN VISUAL ENGINE */
+/* styles for the WLAN popup, the router and its connected devices */
 .wlan-layout .wlan-visual {
     position: relative;
     height: 240px;
@@ -846,46 +844,7 @@ footer {
     }
 }
 
-/* DSSS PIPELINE AND XOR LAYER WORKSPACE */
-.dsss-pipeline-visual {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #111;
-    padding: 1.5rem;
-    border-radius: var(--radius);
-    overflow-x: auto;
-    gap: 8px;
-}
-
-.pipe-node {
-    background: var(--accent);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    white-space: normal;
-    text-align: center;
-    min-width: 90px;
-}
-
-.pipe-node.specialized {
-    background: var(--bg3);
-    font-weight: 500;
-}
-
-.pipe-node.spreaded {
-    background: #1c4e8f;
-    border: 1px solid #ffc107;
-}
-
-.pipe-arrow {
-    font-weight: bold;
-    color: #ffc107;
-    font-size: 1.2rem;
-}
-
-/* Staggered entry flash animations for DSSS pipeline components */
+/* these make each node/arrow flash one after another instead of all at once */
 .active-node-1 {
     animation: flashHighlight 4s infinite 0s;
 }
@@ -1036,7 +995,7 @@ footer {
     }
 }
 
-/*OFDM/FDM signal wave*/
+/* styles for the OFDM/FDM signal wave popup */
 
 .fdm-animation-space-svg {
     background: #0d0f14;
@@ -1076,7 +1035,7 @@ footer {
     stroke-linecap: round;
 }
 
-/* Loop animations match wavelength coordinates perfectly for seamless movement */
+/* the animation distance has to match the wave's actual wavelength or the loop will jump/stutter */
 .wave-amber {
     stroke: #ffc107;
     animation: propagateWavelength60 1.5s infinite linear;
@@ -1107,7 +1066,7 @@ footer {
     }
 }
 
-/* Guard Band UI Divider Line */
+/* the little gap between channels representing the guard band */
 .wave-channel-row.guard-band-gap {
     height: 28px;
     background: rgba(220, 53, 69, 0.05);
@@ -1126,7 +1085,7 @@ footer {
     letter-spacing: 0.5px;
 }
 
-/* Tab 2: Comparison Signal Stack Enclosures */
+/* tab 2, comparing the two signal stacks side by side */
 .signal-canvas-container.dark-canvas {
     background: #0d0f14;
     padding: 10px;
@@ -1140,16 +1099,14 @@ footer {
     display: block;
 }
 
-/* Slide closer together to simulate advanced optimization packing */
-/* Sets a permanent semi-transparent look so waves are already faded to begin with */
+/* these waves slide closer together and fade a bit, to show the channels packing in tighter with OFDM */
 .sliding-ofdm-wave-svg {
     transform-origin: bottom;
     opacity: 0.5;
-    /* Adjust this number (0.0 to 1.0) to make them more or less transparent */
     animation: packingOverlap 2.5s ease-in-out 1 forwards;
 }
 
-/* Removed opacity transitions so only the horizontal movement happens */
+/* only moves side to side, no fading here since the waves already start faded above */
 @keyframes packingOverlap {
     0% {
         transform: translateX(0);
@@ -1172,7 +1129,7 @@ footer {
     --slide-dist: -75px;
 }
 
-/* Tab 3: Orthogonal Analytical Cross Sections */
+/* tab 3, showing how the subcarriers line up without overlapping each other */
 .ofdm-orthogonal-space-svg {
     background: #0d0f14;
     border-radius: var(--radius);
@@ -1203,6 +1160,7 @@ footer {
     animation-delay: 3s;
 }
 
+/* fades each marker in quickly, holds it visible for a while, then fades out and stays hidden for the rest of the loop */
 @keyframes alignmentFlash {
     0% {
         opacity: 0;
@@ -1212,25 +1170,20 @@ footer {
         opacity: 1;
     }
 
-    /* Quickly fades in at the start of its window */
     29% {
         opacity: 1;
     }
 
-    /* Holds solid visibility */
     33.3% {
         opacity: 0;
     }
 
-    /* Fully fades out before the 2-second mark hits */
     100% {
         opacity: 0;
     }
-
-    /* Stays completely invisible for the rest of the 6s cycle */
 }
 
-/* OFDM Orthogonal Subcarrier Intersects */
+/* where the subcarrier waves cross paths at their orthogonal points */
 .ofdm-orthogonal-space {
     background: #0f111a;
     height: 160px;
@@ -1344,7 +1297,7 @@ footer {
     }
 }
 
-/* MIMO CITYSCAPE SVG ANIMATION */
+/* styles for the MIMO city scene, with vs without antennas */
 .mimo-city-workspace svg {
     overflow: visible;
 }
@@ -1375,7 +1328,7 @@ footer {
     }
 }
 
-/* SU-MIMO vs MU-MIMO COMPARISON SVG ANIMATION */
+/* styles for the SU-MIMO vs MU-MIMO comparison animation */
 .mumimo-compare-workspace svg {
     overflow: visible;
 }
@@ -1414,7 +1367,9 @@ footer {
     }
 }
 
-/* MIMO PATH ENGINE TRACKING */
+/* this whole block (mimo-visual, mumimo-visual, signal-path, directed-beam, etc) is left over from
+   an earlier version of the MIMO/MU-MIMO popups. neither popup uses these classes anymore, both
+   were rebuilt as SVG animations above, so this is just kept around in case it's needed again */
 .mimo-visual,
 .mumimo-visual {
     background: #1a1c23;
@@ -1505,8 +1460,7 @@ footer {
     }
 }
 
-/* OFDMA STACK MATRIX RENDERER */
-/* OFDMA TIME-FREQUENCY RESOURCE GRID */
+/* styles for the OFDMA time and frequency resource grid */
 .ofdma-grid-workspace {
     color: white;
 }
@@ -1658,7 +1612,7 @@ footer {
     border-radius: var(--radius);
 }
 
-/* MLO SIMULTANEOUS MULTI-LINK ENGINE */
+/* styles for the MLO popup, showing all 3 bands running at the same time */
 .mlo-layout .mlo-visual {
     background: #111424;
     color: white;
@@ -1712,7 +1666,7 @@ footer {
     text-shadow: 1px 1px 2px #000;
 }
 
-/* Distinct visual tracks for each link */
+/* each band gets its own color so they're easy to tell apart */
 .band-24 {
     background: rgba(244, 180, 0, 0.08);
     border: 1px dashed rgba(244, 180, 0, 0.6);
@@ -1737,7 +1691,7 @@ footer {
     top: 10px;
 }
 
-/* Animation speeds vary to mimic real-world throughput limits per band */
+/* 6 GHz moves the fastest, 2.4 GHz the slowest, just to give a rough feel for real speed differences */
 .packet-24 {
     background: #f4b400;
     box-shadow: 0 0 8px #f4b400;
@@ -1776,7 +1730,7 @@ footer {
     }
 }
 
-/* Mobile scaling safety */
+/* stack things vertically on small screens so it doesn't get too cramped */
 @media (max-width: 640px) {
     .mlo-layout .mlo-visual {
         flex-direction: column;
@@ -1789,7 +1743,7 @@ footer {
     }
 }
 
-/* FHSS animations*/
+/* styles for the FHSS popup */
 
 .fhss-svg-workspace {
     background: #0d0f14;
@@ -1834,7 +1788,7 @@ footer {
     letter-spacing: 0.5px;
 }
 
-/* Tab 1: Continuous Horizontal Scrolling Conveyor Belt Animation */
+/* tab 1, the data packets scrolling across the same fixed frequency line */
 .fhss-scroll-packet {
     opacity: 0;
     animation: fhssConveyorScroll 4s linear infinite;
@@ -1876,7 +1830,7 @@ footer {
     }
 }
 
-/* Tab 2: Synced Hopping Sequence up to Tn */
+/* tab 2, each hop and its arrow fade in one after another to show the frequency jumping around */
 .fhss-hop-node,
 .vector-arrow {
     opacity: 0;
@@ -1950,7 +1904,7 @@ footer {
     }
 }
 
-/* DSSS Layout Structures */
+/* layout for the DSSS truth table and waveform tab */
 .dsss-flex-workspace {
     display: flex;
     gap: 20px;
@@ -2004,7 +1958,7 @@ footer {
     text-align: center;
 }
 
-/* Waveform Vector Typographies */
+/* the waveform box on the DSSS XOR tab */
 .dsss-waveform-svg {
     background: #0d1117;
     border-radius: 8px;
@@ -2012,7 +1966,7 @@ footer {
     padding: 10px;
 }
 
-/* Must stay within narrow mobile screens. */
+/* keep everything readable on small screens */
 @media (max-width: 640px) {
     .animation-container-workspace {
         width: 100%;
@@ -2112,7 +2066,7 @@ footer {
     font-size: 10px;
 }
 
-/* Tab 3 Fade in and Static Styles */
+/* tab 3, the spectral shapes just fade in and stay put */
 .spectral-density-svg {
     background: #0d1117;
     border-radius: 8px;
@@ -2156,11 +2110,10 @@ footer {
     }
 }
 
-/* prevent collapsing SVG graph layout (graph with the digital signals)*/
+/* stops the SVG graph from getting squeezed down to nothing on smaller screens */
 .dsss-svg-workspace.compact-mode {
     flex: 1;
     min-width: 0;
-    /* prevents flex items from collapsing or squeezing to 0 width */
     width: 100%;
 }
 
