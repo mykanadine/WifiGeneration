@@ -1,24 +1,91 @@
-# Incremental Readme
+# Evolution of Wi-Fi
 
-### Tasks Accomplished:
-**1. Website Layout**
+## Proposal
+### Members
+- Myka Nadine Chua
+- Mj Esperanza
+- Julienne Skye Lim
+- Eiress Ong
+- Kai Wen Xu
+
+
+### Topic Theme
+**The Evolution of Wi-Fi**
+
+### Brief Content Overview
+
+#### What is Wi-Fi?
+1. What is Wi-Fi and its purpose?
+1. How wireless communication works
+
+#### Wi-Fi 0 to Wi-Fi 3
+1. Early Wi-Fi standards and architecture behind early wireless communication
+   1. 802.11
+   1. 802.11b
+   1. 802.11a
+   1. 802.11g
+1. Limitations
+   1. Interference with Bluetooth devices due to sharing the same frequency bandwidth
+   1. Insufficient throughput and interoperability issues
+
+#### Wi-Fi 4
+1. Major changes and improvements introduced by Wi-Fi 4 (first to be ready for commercial use)
+1. Advantages
+   1. Introduction of Multiple-Input and Multiple-Output (MIMO)
+   1. 40 MHz channels to the physical layer
+   1. Frame aggregation to the Media Access Control Layer
+1. Limitations
+
+
+#### Wi-Fi 5 
+1. Major improvements in this Wi-Fi generation
+   1. Multi-User, Multiple-Input, and Multiple-Output (MU-MIMO
+   1. Increase in bandwidth
+   1. Beamforming
+1. <mark>Discuss limitations
+
+
+#### Wi-Fi 6 & Wi-Fi 6E 
+1. Improvements on previous generations
+   1. Dual-band technology working in 2.4 and 5 GHz frequencies
+   2. Orthogonal Frequency-Division Multiple Access (OFDMA)
+   3. Wi-Fi 6E works in the 6 GHz band
+1. Limitations
+
+#### Wi-Fi 7
+1. Introduction of Multi-Link Operation
+2. Highlight potential challenges and limitations
+
+### Tech Stack Plan
+- **MDX** – Content pages
+- **CSS** – Styling
+- **JavaScript** – Interactivity
+- **JSX** – Component structure
+- **Astro 6** – Framework
+- **Node.js 26** – Runtime environment
+
+### Interactive Elements
+
+#### Did You Know?
+Pressing a button will make a pop-up appear containing a fun fact about firewalls. 
+
+
+#### Knowledge Check
+There will be a 10 item multiple choice quiz at the end that will contain questions about the content of the exhibit.
 
 
 
-**2. Information Collection**
 
-**3. Interactive Elements**
-- Timeline
-- Did You Know?
-- Knowledge Check
+### Desktop & Mobile-Responsive Layout
+See [Google Drive Link](https://drive.google.com/file/d/1fdIMgzkq_v6f6jqpzgnoJ0aKdvYnCC3i/view?usp=sharing)
 
-**4. Website Deployment**
 
-### Tasks Remaining:
-1. Refine mobile layout, specifically on the layout for Table of Contents
-2. Add more visual aids
+### Sources
+1. [Ethernet Xpress. *Wi-Fi Generations Explained: From Wi-Fi 0 to Wi-Fi 7*](https://expl.in/wifi-generations-explained-wifi-0-to-wifi-7/)
 
-***
+2. [Cees Links. *The Evolution of Wi-Fi networks: from IEEE 802.11 to Wi-Fi 6E*](https://www.wevolver.com/article/the-evolution-of-wi-fi-networks-from-ieee-80211-to-wi-fi-6e)
+
+## Progress and Discussion Log
 
 ### June 29, 2026
 
@@ -51,14 +118,14 @@
 - Deployed the website
 - Finalized information to the website
 - Began working on the mobile layout
-- **Challenge & Realization**: Upon deployment, the group realized that edits would have to be made to fix the mobile layout. Initially, the group had thought that the mobile layout would look the same as the minimized window view on the laptop. However, it turns out that there are still quite some differences when the website is actually viewed through mobile. The differences were mainly in the CSS stylings and designs and the knowledge check layout. To counter this, the group used syntax like `@media` and `overflow-x: hidden` to ensure that the layout changes depending on screen dimensions and cuts-off excess parts of the website in a vertical view, disabling horizontal scrolling in the mobile layout.
+- **Challenge & Realization & Technical discussion**: Upon deployment, the group realized that edits would have to be made to fix the mobile layout. Initially, the group had thought that the mobile layout would look the same as the minimized window view on the laptop. However, it turns out that there are still quite some differences when the website is actually viewed through mobile. The differences were mainly in the CSS stylings and designs and the knowledge check layout. To counter this, the group used syntax like `@media` and `overflow-x: hidden` to ensure that the layout changes depending on screen dimensions and cuts-off excess parts of the website in a vertical view, disabling horizontal scrolling in the mobile layout.
   
 ### July 5, 2026
 
 - Fixed knowledge check layout on mobile
 - Compiled and added references
 - Added missing information to summary table
-- **Challenge encountered**: The mobile version of the matching stage in the Knowledge Check section was being modified after deployment. The first version wasn't able to drag because touchmove wasn't added. The touchmove was added and an autoscroll was added to allow the page to autoscroll while the user is dragging the item in the mobile version. However, when it is being tried on the phone, it is sometimes working and sometimes not. The group tried to debug, but it is not working. Some of the items started to freeze on a certain area of the page and the autoscroll worked occasionally. Due to its instability, the group decided to switch to onClick for the matching stage since it works on both mobile and pc. Though the group added the onClick event, the dragging for the PC version was still preserved. On one hand, in the PC version, both dragging and dropping and selecting description and pick zone works. On the other hand, in the mobile version, only select and pick works.
+- **Challenge encountered & Technical discussion**: The mobile version of the matching stage in the Knowledge Check section was being modified after deployment. The first version wasn't able to drag because touchmove wasn't added. The touchmove was added and an autoscroll was added to allow the page to autoscroll while the user is dragging the item in the mobile version. However, when it is being tried on the phone, it is sometimes working and sometimes not. The group tried to debug, but it is not working. Some of the items started to freeze on a certain area of the page and the autoscroll worked occasionally. Due to its instability, the group decided to switch to onClick for the matching stage since it works on both mobile and pc. Though the group added the onClick event, the dragging for the PC version was still preserved. On one hand, in the PC version, both dragging and dropping and selecting description and pick zone works. On the other hand, in the mobile version, only select and pick works.
 
 ### July 6, 2026
 
@@ -72,6 +139,14 @@
 - Completed documentation and AI Usage Declaration
 - Added deployed website link to website description
 
+### July 20, 2026
+
+- Added CSMA/CA section
+- Added visual elements to the summary section
+- Added an acronym reference section with visual elements and descriptions
+- Added instructions for the timeline and knowledge check section
+
+### July 21, 2026
 ***
 
 ### AI Usage
