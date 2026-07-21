@@ -39,10 +39,10 @@
 
 #### Wi-Fi 5 
 1. Major improvements in this Wi-Fi generation
-   1. Multi-User, Multiple-Input, and Multiple-Output (MU-MIMO
+   1. Multi-User, Multiple-Input, and Multiple-Output (MU-MIMO)
    1. Increase in bandwidth
    1. Beamforming
-1. <mark>Discuss limitations
+1. Discuss limitations
 
 
 #### Wi-Fi 6 & Wi-Fi 6E 
