@@ -454,7 +454,7 @@ export default function TimelineDemo() {
                   <div className="anim-box">
                     <h4>DSSS Modulation and Demodulation Pipeline (Click the arrow to advance)</h4>
 
-                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <div className="dsss-pipeline-row" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <div className="dsss-workspace-centered" style={{ background: "#0d1117", borderRadius: "8px", padding: "20px", flex: 1 }}>
                       <svg viewBox="0 0 750 320" style={{ width: "100%", height: "auto", display: "block" }}>
                         {/* conveyor belt on the left side, this is where the data box starts out */}
@@ -556,6 +556,7 @@ export default function TimelineDemo() {
                       </div>
 
                       <button
+                        className="dsss-pipeline-play-btn"
                         onClick={goToNextPipelineStep}
                         aria-label="Next stage"
                         style={{

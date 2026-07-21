@@ -2017,6 +2017,16 @@ footer {
         max-width: 100%;
     }
 
+    /* in the DSSS "System Pipeline", put play button below animation. */
+    .dsss-pipeline-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .dsss-pipeline-play-btn {
+        margin: 0.75rem auto 0 !important;
+    }
+
     .anim-box h4,
     .anim-box h5 {
         overflow-wrap: anywhere;
