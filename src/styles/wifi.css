@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"); 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
 
-body  {
+body {
     --accent: #5076a7;
-    --accent2:#c7dbe4;
+    --accent2: #c7dbe4;
     --bg1: #e2e2e2;
     --bg2: #ffffff;
     --bg3: #002170;
@@ -24,21 +24,21 @@ html:has(.wifi_history_timeline) {
 /* changes the page background only if timeline exists on the screen
    to prevent leakage into the homepage */
 body:has(.wifi_history_timeline) {
-  --s: 80px; /* control the size*/
-  --c1: #6c8a9d;
-  --c2: #7994a0;
-  
-  --_s: calc(2*var(--s)) calc(2*var(--s));
-  --_g: 35.36% 35.36% at;
-  --_c: #0000 66%,var(--c2) 68% 70%,#0000 72%;
-  background:
-    radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s),
-    radial-gradient(var(--_g) 0    75%,var(--_c)) var(--s) var(--s)/var(--_s),
-    radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s),
-    radial-gradient(var(--_g) 0    75%,var(--_c)) 0 0/var(--_s),
-    repeating-conic-gradient(var(--c1) 0 25%,#0000 0 50%) 0 0/var(--_s),
-    radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s)
-    var(--c1);
+    --s: 80px;
+    /* control the size*/
+    --c1: #6c8a9d;
+    --c2: #7994a0;
+
+    --_s: calc(2*var(--s)) calc(2*var(--s));
+    --_g: 35.36% 35.36% at;
+    --_c: #0000 66%, var(--c2) 68% 70%, #0000 72%;
+    background:
+        radial-gradient(var(--_g) 100% 25%, var(--_c)) var(--s) var(--s)/var(--_s),
+        radial-gradient(var(--_g) 0 75%, var(--_c)) var(--s) var(--s)/var(--_s),
+        radial-gradient(var(--_g) 100% 25%, var(--_c)) 0 0/var(--_s),
+        radial-gradient(var(--_g) 0 75%, var(--_c)) 0 0/var(--_s),
+        repeating-conic-gradient(var(--c1) 0 25%, #0000 0 50%) 0 0/var(--_s),
+        radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c1);
 }
 
 body:has(.wifi_history_timeline) {
@@ -64,7 +64,7 @@ body:has(.wifi_history_timeline) * {
 .subtitle {
     margin-bottom: 0;
     color: var(--bg2);
-    text-align: center; 
+    text-align: center;
     font-size: 3rem;
     font-family: "Lora";
     text-shadow: 5px 5px 0px var(--text);
@@ -188,7 +188,8 @@ body:has(.wifi_history_timeline) .toc {
     border: 1px solid var(--border2);
     border-radius: var(--radius);
     flex: 1;
-    height: fit-content; /* Prevents stretching */
+    height: fit-content;
+    /* Prevents stretching */
     padding: 2rem;
     box-shadow: 5px 5px var(--shadow);
 }
@@ -232,14 +233,16 @@ footer {
 
 @media (min-width: 1100px) {
     .content {
-        max-width: 100%; /* Expanded width to easily fit both columns */
+        max-width: 100%;
+        /* Expanded width to easily fit both columns */
         display: flex;
         flex-direction: row;
     }
 
     .toc {
         position: sticky;
-        top: 2rem; /* Gap between top of viewport and component during scroll */
+        top: 2rem;
+        /* Gap between top of viewport and component during scroll */
     }
 }
 
@@ -252,16 +255,16 @@ footer {
     background: var(--bg2);
     color: var(--text);
     padding: 3rem;
-    
-    margin: auto; 
+
+    margin: auto;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     z-index: 1000;
 
-    width: 80vw;         
-    height: 80vh;        
-    max-width: 1200px;   
-    max-height: 850px;   
-    overflow-y: auto;    
+    width: 80vw;
+    height: 80vh;
+    max-width: 1200px;
+    max-height: 850px;
+    overflow-y: auto;
 }
 
 /* target the open state layout styling */
@@ -272,8 +275,8 @@ footer {
 }
 
 .timeline-modal button {
-    align-self: flex-end;   
-    margin-top: auto;       
+    align-self: flex-end;
+    margin-top: auto;
     cursor: pointer;
     padding: 0.75rem 2rem;
     background: var(--bg3);
@@ -285,7 +288,8 @@ footer {
 }
 
 .timeline-modal button:hover {
-    background: #00174d;    /* Darkens slightly when hovered */
+    background: #00174d;
+    /* Darkens slightly when hovered */
 }
 
 /* Style the dark blurred backdrop background */
@@ -298,51 +302,52 @@ footer {
 
 /* scale and lift the text card on hover */
 .custom-timeline-element:hover .vertical-timeline-element-content {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2) !important;
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* scale and spin/pop the icon circle on hover */
 .custom-timeline-element:hover .vertical-timeline-element-icon {
-  transform: scale(1.1) !important;
-  box-shadow: 0 0 0 3px #ffffff, 0 8px 16px rgba(0, 0, 0, 0.3) !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 0 0 3px #ffffff, 0 8px 16px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* makes smooth transitions */
 .custom-timeline-element .vertical-timeline-element-content,
 .custom-timeline-element .vertical-timeline-element-icon {
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 /* entry animation for cards and circles in timeline*/
 
 /* define the fade-in and scale up animation */
 @keyframes revealElement {
-  from {
-    opacity: 0;
-    transform: scale(0.8) translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 /* apply to both the content boxes and circles */
 .custom-timeline-element .vertical-timeline-element-content,
 .custom-timeline-element .vertical-timeline-element-icon {
-  /* Bind it to your existing timeline scroll tracker */
-  animation: revealElement linear both;
-  animation-timeline: --timelineScroll;
+    /* Bind it to your existing timeline scroll tracker */
+    animation: revealElement linear both;
+    animation-timeline: --timelineScroll;
 }
 
 /* stagger reveals using animation-range */
 /* this makes them look at their position relative to the scroll container */
 .custom-timeline-element .vertical-timeline-element-content,
 .custom-timeline-element .vertical-timeline-element-icon {
-  /* entry 0% means start animating as it peeks from the bottom */
-  /* contain 30% forces it to finish revealing much lower on the screen */
-  animation-range: entry 0% contain 10%;
+    /* entry 0% means start animating as it peeks from the bottom */
+    /* contain 30% forces it to finish revealing much lower on the screen */
+    animation-range: entry 0% contain 10%;
 }
 
 /* keep the main timeline container as the scroll tracker for card and circle reveals */
@@ -358,7 +363,7 @@ footer {
     left: 50%;
     transform: translateX(-50%);
     background: var(--bg3) !important;
-    transform-origin: top; 
+    transform-origin: top;
 }
 
 /* keep position alignment working on mobile */
@@ -371,125 +376,143 @@ footer {
 
 /* global settings for the timeline*/
 .custom-timeline-element .vertical-timeline-element-content {
-  color: #ffffff; /* White text for all cards */
-  box-shadow: 5px 4px 0px #dddddd;
-  border-radius: 6px;
+    color: #ffffff;
+    /* White text for all cards */
+    box-shadow: 5px 4px 0px #dddddd;
+    border-radius: 6px;
 }
 
 /* card or bg colors for each wifi in timeline*/
 
 /* bg of Wifi 1-3*/
 .wifi_1 .vertical-timeline-element-content {
-  background: #a1c4f3 ; 
+    background: #a1c4f3;
 }
+
 .wifi_1 .vertical-timeline-element-content-arrow {
-  border-right: 7px solid #a1c4f3 ;
+    border-right: 7px solid #a1c4f3;
 }
+
 .wifi_1 .vertical-timeline-element-icon {
-  background: #a1c4f3;
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+    background: #a1c4f3;
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, .08), 0 3px 0 4px rgba(0, 0, 0, .05);
 }
 
 .wifi_2a .vertical-timeline-element-content {
-  background: #85b2ec ; 
+    background: #85b2ec;
 }
+
 .wifi_2a .vertical-timeline-element-content-arrow {
-  border-right: 7px solid #85b2ec ;
+    border-right: 7px solid #85b2ec;
 }
+
 .wifi_2a .vertical-timeline-element-icon {
-  background: #85b2ec;
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+    background: #85b2ec;
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, .08), 0 3px 0 4px rgba(0, 0, 0, .05);
 }
 
 .wifi_2b .vertical-timeline-element-content {
-  background: #7ca6dd ; 
+    background: #7ca6dd;
 }
+
 .wifi_2b .vertical-timeline-element-content-arrow {
-  border-right: 7px solid #7ca6dd ;
+    border-right: 7px solid #7ca6dd;
 }
+
 .wifi_2b .vertical-timeline-element-icon {
-  background: #7ca6dd;
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+    background: #7ca6dd;
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, .08), 0 3px 0 4px rgba(0, 0, 0, .05);
 }
 
 /* bg of Wifi 3*/
 .wifi_3 .vertical-timeline-element-content {
-  background: #658cbf ; 
+    background: #658cbf;
 }
+
 .wifi_3 .vertical-timeline-element-content-arrow {
-  border-right: 7px solid #658cbf ;
+    border-right: 7px solid #658cbf;
 }
+
 .wifi_3 .vertical-timeline-element-icon {
-  background: #658cbf;
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+    background: #658cbf;
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, .08), 0 3px 0 4px rgba(0, 0, 0, .05);
 }
 
 /* bg of Wifi 4*/
 .wifi_4 .vertical-timeline-element-content {
-  background: #3d6dab ;
+    background: #3d6dab;
 }
+
 .wifi_4 .vertical-timeline-element-content-arrow {
-  border-right: 7px solid #3d6dab ;
+    border-right: 7px solid #3d6dab;
 }
+
 .wifi_4 .vertical-timeline-element-icon {
-  background: #3d6dab ;
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+    background: #3d6dab;
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, .08), 0 3px 0 4px rgba(0, 0, 0, .05);
 }
 
 /* bg of Wifi 5 */
 .wifi_5 .vertical-timeline-element-content {
-  background: #1c4e8f ;
+    background: #1c4e8f;
 }
+
 .wifi_5 .vertical-timeline-element-content-arrow {
-  border-right: 7px solid #1c4e8f ;
+    border-right: 7px solid #1c4e8f;
 }
+
 .wifi_5 .vertical-timeline-element-icon {
-  background: #1c4e8f ;
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+    background: #1c4e8f;
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, .08), 0 3px 0 4px rgba(0, 0, 0, .05);
 }
 
 /* bg of Wifi 6*/
 .wifi_6 .vertical-timeline-element-content {
-  background: var(--bg3) ;
+    background: var(--bg3);
 }
+
 .wifi_6 .vertical-timeline-element-content-arrow {
-  border-right: 7px solid var(--bg3) ;
+    border-right: 7px solid var(--bg3);
 }
+
 .wifi_6 .vertical-timeline-element-icon {
-  background: var(--bg3) ;
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+    background: var(--bg3);
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, .08), 0 3px 0 4px rgba(0, 0, 0, .05);
 }
 
 /* bg of Wifi 7*/
 .wifi_7 .vertical-timeline-element-content {
-  background: var(--shadow);
+    background: var(--shadow);
 }
+
 .wifi_7 .vertical-timeline-element-content-arrow {
-  border-right: 7px solid var(--shadow);
+    border-right: 7px solid var(--shadow);
 }
+
 .wifi_7 .vertical-timeline-element-icon {
-  background: var(--shadow) ;
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05);
+    background: var(--shadow);
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, .08), 0 3px 0 4px rgba(0, 0, 0, .05);
 }
 
 /* timeline responsive date colors */
 
 /* adjust color for timeline dates on a narrow screen (mobile) */
 @media only screen and (max-width: 1169px) {
-  .custom-timeline-element .vertical-timeline-element-date {
-    color: #ffffff !important; 
-    opacity: 0.85; /* Makes it look slightly softer, like a subtitle */
-    padding: 0.5rem 0 0 0;
-    display: block;
-  }
+    .custom-timeline-element .vertical-timeline-element-date {
+        color: #ffffff !important;
+        opacity: 0.85;
+        /* Makes it look slightly softer, like a subtitle */
+        padding: 0.5rem 0 0 0;
+        display: block;
+    }
 }
 
 /* adjust color for timeline dates on a wide screen */
 @media only screen and (min-width: 1170px) {
-  .custom-timeline-element .vertical-timeline-element-date {
-    color: #2f3134 !important; 
-    font-weight: 600;
-  }
+    .custom-timeline-element .vertical-timeline-element-date {
+        color: #2f3134 !important;
+        font-weight: 600;
+    }
 }
 
 /* repsonse layout */
@@ -526,6 +549,7 @@ footer {
     }
 
     .content {
+        flex-direction: column;
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
@@ -566,7 +590,7 @@ footer {
         overflow-wrap: break-word;
     }
 
-    .article > * {
+    .article>* {
         max-width: 100%;
     }
 
@@ -727,11 +751,32 @@ footer {
     justify-content: center;
 }
 
-.globe-icon { top: 5%; left: 48%; animation: rotGlobe 12s linear infinite; }
-.router-icon { top: 38%; left: 48%; font-size: 2rem; }
-.pc-icon { bottom: 8%; left: 18%; }
-.laptop-icon { bottom: 8%; left: 48%; }
-.printer-icon { bottom: 8%; left: 76%; }
+.globe-icon {
+    top: 5%;
+    left: 48%;
+    animation: rotGlobe 12s linear infinite;
+}
+
+.router-icon {
+    top: 38%;
+    left: 48%;
+    font-size: 2rem;
+}
+
+.pc-icon {
+    bottom: 8%;
+    left: 18%;
+}
+
+.laptop-icon {
+    bottom: 8%;
+    left: 48%;
+}
+
+.printer-icon {
+    bottom: 8%;
+    left: 76%;
+}
 
 .radiating-circle {
     position: absolute;
@@ -760,9 +805,37 @@ footer {
     animation: dashPulse 1.2s linear infinite;
 }
 
-@keyframes rotGlobe { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes radPulse { 0% { width: 10px; height: 10px; opacity: 1; border-color: #ffc107; } 100% { width: 140px; height: 140px; opacity: 0; border-color: #ffeb3b; } }
-@keyframes dashPulse { to { stroke-dashoffset: -24; } }
+@keyframes rotGlobe {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes radPulse {
+    0% {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+        border-color: #ffc107;
+    }
+
+    100% {
+        width: 140px;
+        height: 140px;
+        opacity: 0;
+        border-color: #ffeb3b;
+    }
+}
+
+@keyframes dashPulse {
+    to {
+        stroke-dashoffset: -24;
+    }
+}
 
 /* DSSS PIPELINE AND XOR LAYER WORKSPACE */
 .dsss-pipeline-visual {
@@ -787,22 +860,71 @@ footer {
     min-width: 90px;
 }
 
-.pipe-node.specialized { background: var(--bg3); font-weight: 500; }
-.pipe-node.spreaded { background: #1c4e8f; border: 1px solid #ffc107; }
-.pipe-arrow { font-weight: bold; color: #ffc107; font-size: 1.2rem; }
+.pipe-node.specialized {
+    background: var(--bg3);
+    font-weight: 500;
+}
+
+.pipe-node.spreaded {
+    background: #1c4e8f;
+    border: 1px solid #ffc107;
+}
+
+.pipe-arrow {
+    font-weight: bold;
+    color: #ffc107;
+    font-size: 1.2rem;
+}
 
 /* Staggered entry flash animations for DSSS pipeline components */
-.active-node-1 { animation: flashHighlight 4s infinite 0s; }
-.anim-arrow-1  { animation: flashHighlight 4s infinite 0.4s; }
-.active-node-2 { animation: flashHighlight 4s infinite 0.8s; }
-.anim-arrow-2  { animation: flashHighlight 4s infinite 1.2s; }
-.active-node-3 { animation: flashHighlight 4s infinite 1.6s; }
-.anim-arrow-3  { animation: flashHighlight 4s infinite 2.0s; }
-.active-node-4 { animation: flashHighlight 4s infinite 2.4s; }
-.anim-arrow-4  { animation: flashHighlight 4s infinite 2.8s; }
-.active-node-5 { animation: flashHighlight 4s infinite 3.2s; }
+.active-node-1 {
+    animation: flashHighlight 4s infinite 0s;
+}
 
-@keyframes flashHighlight { 0%, 20% { background: #ffc107; color: #002170; transform: scale(1.04); } 25%, 100% {} }
+.anim-arrow-1 {
+    animation: flashHighlight 4s infinite 0.4s;
+}
+
+.active-node-2 {
+    animation: flashHighlight 4s infinite 0.8s;
+}
+
+.anim-arrow-2 {
+    animation: flashHighlight 4s infinite 1.2s;
+}
+
+.active-node-3 {
+    animation: flashHighlight 4s infinite 1.6s;
+}
+
+.anim-arrow-3 {
+    animation: flashHighlight 4s infinite 2.0s;
+}
+
+.active-node-4 {
+    animation: flashHighlight 4s infinite 2.4s;
+}
+
+.anim-arrow-4 {
+    animation: flashHighlight 4s infinite 2.8s;
+}
+
+.active-node-5 {
+    animation: flashHighlight 4s infinite 3.2s;
+}
+
+@keyframes flashHighlight {
+
+    0%,
+    20% {
+        background: #ffc107;
+        color: #002170;
+        transform: scale(1.04);
+    }
+
+    25%,
+    100% {}
+}
 
 .xor-stream-simulation {
     background: #1e1e1e;
@@ -816,12 +938,41 @@ footer {
     gap: 8px;
 }
 
-.xor-row span { color: #85b2ec; width: 160px; display: inline-block; }
-.xor-row .bit-stream { display: inline-block; letter-spacing: 6px; }
-.xor-row .bit-stream-out { display: inline-block; letter-spacing: 6px; color: #ffc107; animation: bitReveal 3s steps(6) infinite; }
-.xor-row.output { border-top: 2px dashed #444; padding-top: 8px; margin-top: 4px; }
+.xor-row span {
+    color: #85b2ec;
+    width: 160px;
+    display: inline-block;
+}
 
-@keyframes bitReveal { from { width: 0; overflow: hidden; white-space: nowrap; } to { width: 120px; } }
+.xor-row .bit-stream {
+    display: inline-block;
+    letter-spacing: 6px;
+}
+
+.xor-row .bit-stream-out {
+    display: inline-block;
+    letter-spacing: 6px;
+    color: #ffc107;
+    animation: bitReveal 3s steps(6) infinite;
+}
+
+.xor-row.output {
+    border-top: 2px dashed #444;
+    padding-top: 8px;
+    margin-top: 4px;
+}
+
+@keyframes bitReveal {
+    from {
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    to {
+        width: 120px;
+    }
+}
 
 .spectral-density-graph {
     height: 180px;
@@ -835,9 +986,14 @@ footer {
 
 .narrowband-spike {
     position: absolute;
-    bottom: 0; left: 20%; width: 12%; height: 85%;
+    bottom: 0;
+    left: 20%;
+    width: 12%;
+    height: 85%;
     background: rgba(220, 53, 69, 0.85);
-    color: white; font-size: 0.75rem; text-align: center;
+    color: white;
+    font-size: 0.75rem;
+    text-align: center;
     padding-top: 10px;
     font-weight: bold;
     animation: entranceSpike 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
@@ -845,15 +1001,31 @@ footer {
 
 .dsss-wideband-spread {
     position: absolute;
-    bottom: 0; left: 5%; width: 90%; height: 22%;
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    height: 22%;
     background: rgba(40, 167, 69, 0.8);
-    color: white; font-size: 0.75rem; text-align: center;
+    color: white;
+    font-size: 0.75rem;
+    text-align: center;
     padding-top: 6px;
     font-weight: bold;
     animation: entranceSpike 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
-@keyframes entranceSpike { from { transform: scaleY(0); transform-origin: bottom; opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
+@keyframes entranceSpike {
+    from {
+        transform: scaleY(0);
+        transform-origin: bottom;
+        opacity: 0;
+    }
+
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
 
 /*OFDM/FDM signal wave*/
 
@@ -907,13 +1079,23 @@ footer {
 }
 
 @keyframes propagateWavelength60 {
-    from { transform: translateX(0); }
-    to { transform: translateX(60px); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(60px);
+    }
 }
 
 @keyframes propagateWavelength40 {
-    from { transform: translateX(0); }
-    to { transform: translateX(40px); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(40px);
+    }
 }
 
 /* Guard Band UI Divider Line */
@@ -921,7 +1103,8 @@ footer {
     height: 28px;
     background: rgba(220, 53, 69, 0.05);
     border: 1px dashed rgba(220, 53, 69, 0.25);
-    border-left: none; border-right: none;
+    border-left: none;
+    border-right: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -952,18 +1135,33 @@ footer {
 /* Sets a permanent semi-transparent look so waves are already faded to begin with */
 .sliding-ofdm-wave-svg {
     transform-origin: bottom;
-    opacity: 0.5; /* Adjust this number (0.0 to 1.0) to make them more or less transparent */
+    opacity: 0.5;
+    /* Adjust this number (0.0 to 1.0) to make them more or less transparent */
     animation: packingOverlap 2.5s ease-in-out 1 forwards;
 }
 
 /* Removed opacity transitions so only the horizontal movement happens */
 @keyframes packingOverlap {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(var(--slide-dist, -15px)); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(var(--slide-dist, -15px));
+    }
 }
-.wave-svg-b { --slide-dist: -25px; }
-.wave-svg-c { --slide-dist: -50px; }
-.wave-svg-d { --slide-dist: -75px; }
+
+.wave-svg-b {
+    --slide-dist: -25px;
+}
+
+.wave-svg-c {
+    --slide-dist: -50px;
+}
+
+.wave-svg-d {
+    --slide-dist: -75px;
+}
 
 /* Tab 3: Orthogonal Analytical Cross Sections */
 .ofdm-orthogonal-space-svg {
@@ -981,19 +1179,46 @@ footer {
 
 .orthogonal-marker-group {
     opacity: 0;
-    animation: alignmentFlash 4.5s infinite linear; 
+    animation: alignmentFlash 4.5s infinite linear;
 }
 
-.line-m1 { animation-delay: 0s; }
-.line-m2 { animation-delay: 1.5s; }
-.line-m3 { animation-delay: 3s; }
+.line-m1 {
+    animation-delay: 0s;
+}
+
+.line-m2 {
+    animation-delay: 1.5s;
+}
+
+.line-m3 {
+    animation-delay: 3s;
+}
 
 @keyframes alignmentFlash {
-    0% { opacity: 0; }
-    4% { opacity: 1; }   /* Quickly fades in at the start of its window */
-    29% { opacity: 1; }  /* Holds solid visibility */
-    33.3% { opacity: 0; }/* Fully fades out before the 2-second mark hits */
-    100% { opacity: 0; } /* Stays completely invisible for the rest of the 6s cycle */
+    0% {
+        opacity: 0;
+    }
+
+    4% {
+        opacity: 1;
+    }
+
+    /* Quickly fades in at the start of its window */
+    29% {
+        opacity: 1;
+    }
+
+    /* Holds solid visibility */
+    33.3% {
+        opacity: 0;
+    }
+
+    /* Fully fades out before the 2-second mark hits */
+    100% {
+        opacity: 0;
+    }
+
+    /* Stays completely invisible for the rest of the 6s cycle */
 }
 
 /* OFDM Orthogonal Subcarrier Intersects */
@@ -1007,12 +1232,29 @@ footer {
 
 .sine-subcarrier {
     position: absolute;
-    bottom: 0; height: 110px; border-radius: 50% 50% 0 0; opacity: 0.4;
+    bottom: 0;
+    height: 110px;
+    border-radius: 50% 50% 0 0;
+    opacity: 0.4;
 }
 
-.sub-blue { left: 10%; width: 45%; background: #4285f4; }
-.sub-red { left: 28%; width: 45%; background: #ea4335; }
-.sub-yellow { left: 45%; width: 45%; background: #fabc05; }
+.sub-blue {
+    left: 10%;
+    width: 45%;
+    background: #4285f4;
+}
+
+.sub-red {
+    left: 28%;
+    width: 45%;
+    background: #ea4335;
+}
+
+.sub-yellow {
+    left: 45%;
+    width: 45%;
+    background: #fabc05;
+}
 
 .orthogonal-axis-line {
     position: absolute;
@@ -1026,8 +1268,15 @@ footer {
     align-items: center;
 }
 
-.marker-line-1 { left: 50.5%; animation: fadeBlink 3s infinite ease-in-out; }
-.marker-line-2 { left: 32.5%; animation: fadeBlink 3s infinite ease-in-out 1.5s; }
+.marker-line-1 {
+    left: 50.5%;
+    animation: fadeBlink 3s infinite ease-in-out;
+}
+
+.marker-line-2 {
+    left: 32.5%;
+    animation: fadeBlink 3s infinite ease-in-out 1.5s;
+}
 
 .orthogonal-axis-line .dot {
     width: 10px;
@@ -1036,15 +1285,55 @@ footer {
     position: absolute;
 }
 
-.peak-red { top: 32%; background: #ea4335; box-shadow: 0 0 8px #ea4335; border: 2px solid #fff; }
-.zero-blue { bottom: 0; background: #000; border: 2px solid #4285f4; }
-.zero-yellow { bottom: 0; background: #000; border: 2px solid #fabc05; }
+.peak-red {
+    top: 32%;
+    background: #ea4335;
+    box-shadow: 0 0 8px #ea4335;
+    border: 2px solid #fff;
+}
 
-.peak-blue { top: 32%; background: #4285f4; box-shadow: 0 0 8px #4285f4; border: 2px solid #fff; }
-.zero-red-2 { bottom: 0; background: #000; border: 2px solid #ea4335; }
-.zero-yellow-2 { bottom: 0; background: #000; border: 2px solid #fabc05; }
+.zero-blue {
+    bottom: 0;
+    background: #000;
+    border: 2px solid #4285f4;
+}
 
-@keyframes fadeBlink { 0%, 100% { opacity: 0.1; } 50% { opacity: 1; } }
+.zero-yellow {
+    bottom: 0;
+    background: #000;
+    border: 2px solid #fabc05;
+}
+
+.peak-blue {
+    top: 32%;
+    background: #4285f4;
+    box-shadow: 0 0 8px #4285f4;
+    border: 2px solid #fff;
+}
+
+.zero-red-2 {
+    bottom: 0;
+    background: #000;
+    border: 2px solid #ea4335;
+}
+
+.zero-yellow-2 {
+    bottom: 0;
+    background: #000;
+    border: 2px solid #fabc05;
+}
+
+@keyframes fadeBlink {
+
+    0%,
+    100% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
 
 /* MIMO CITYSCAPE SVG ANIMATION */
 .mimo-city-workspace svg {
@@ -1060,12 +1349,21 @@ footer {
 }
 
 @keyframes mimoDashFlow {
-    to { stroke-dashoffset: -24; }
+    to {
+        stroke-dashoffset: -24;
+    }
 }
 
 @keyframes mimoLostFade {
-    0%, 100% { opacity: 0.12; }
-    50% { opacity: 0.5; }
+
+    0%,
+    100% {
+        opacity: 0.12;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 /* SU-MIMO vs MU-MIMO COMPARISON SVG ANIMATION */
@@ -1077,18 +1375,39 @@ footer {
     opacity: 0.12;
 }
 
-.su-cycle-0 { animation: suRoundRobin 6s infinite; animation-delay: 0s; }
-.su-cycle-1 { animation: suRoundRobin 6s infinite; animation-delay: 2s; }
-.su-cycle-2 { animation: suRoundRobin 6s infinite; animation-delay: 4s; }
+.su-cycle-0 {
+    animation: suRoundRobin 6s infinite;
+    animation-delay: 0s;
+}
+
+.su-cycle-1 {
+    animation: suRoundRobin 6s infinite;
+    animation-delay: 2s;
+}
+
+.su-cycle-2 {
+    animation: suRoundRobin 6s infinite;
+    animation-delay: 4s;
+}
 
 @keyframes suRoundRobin {
-    0% { opacity: 1; }
-    33% { opacity: 1; }
-    38%, 100% { opacity: 0.12; }
+    0% {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 1;
+    }
+
+    38%,
+    100% {
+        opacity: 0.12;
+    }
 }
 
 /* MIMO PATH ENGINE TRACKING */
-.mimo-visual, .mumimo-visual {
+.mimo-visual,
+.mumimo-visual {
     background: #1a1c23;
     color: white;
     padding: 1.5rem;
@@ -1098,7 +1417,8 @@ footer {
     align-items: center;
 }
 
-.mimo-paths, .spatial-beams {
+.mimo-paths,
+.spatial-beams {
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -1113,8 +1433,17 @@ footer {
     border-radius: 4px;
 }
 
-.signal-path.solid-line { border: 2px solid #28a745; background: rgba(40, 167, 69, 0.1); animation: waveTravel 2s infinite linear; }
-.signal-path.dotted-line { border: 2px dotted #ffc107; background: rgba(255, 193, 7, 0.05); animation: waveTravel 2s infinite linear reverse; }
+.signal-path.solid-line {
+    border: 2px solid #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    animation: waveTravel 2s infinite linear;
+}
+
+.signal-path.dotted-line {
+    border: 2px dotted #ffc107;
+    background: rgba(255, 193, 7, 0.05);
+    animation: waveTravel 2s infinite linear reverse;
+}
 
 .directed-beam {
     background: var(--accent);
@@ -1127,12 +1456,45 @@ footer {
     opacity: 0;
 }
 
-.beam-delay-1 { animation: beamDrive 2s infinite ease-out 0s; }
-.beam-delay-2 { animation: beamDrive 2s infinite ease-out 0.4s; }
-.beam-delay-3 { animation: beamDrive 2s infinite ease-out 0.8s; }
+.beam-delay-1 {
+    animation: beamDrive 2s infinite ease-out 0s;
+}
 
-@keyframes waveTravel { 0% { background-position-x: 0px; } 100% { background-position-x: 40px; } }
-@keyframes beamDrive { 0% { opacity: 0; transform: translateX(-30px); } 50% { opacity: 1; background: #ffc107; color: #002170; } 100% { opacity: 0; transform: translateX(30px); } }
+.beam-delay-2 {
+    animation: beamDrive 2s infinite ease-out 0.4s;
+}
+
+.beam-delay-3 {
+    animation: beamDrive 2s infinite ease-out 0.8s;
+}
+
+@keyframes waveTravel {
+    0% {
+        background-position-x: 0px;
+    }
+
+    100% {
+        background-position-x: 40px;
+    }
+}
+
+@keyframes beamDrive {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    50% {
+        opacity: 1;
+        background: #ffc107;
+        color: #002170;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
 
 /* OFDMA STACK MATRIX RENDERER */
 /* OFDMA TIME-FREQUENCY RESOURCE GRID */
@@ -1194,10 +1556,21 @@ footer {
     border-radius: 2px;
 }
 
-.ofdma-u1 { background: #29c5d6; }
-.ofdma-u2 { background: #f4b942; }
-.ofdma-u3 { background: #e1543f; }
-.ofdma-u4 { background: #6ab04c; }
+.ofdma-u1 {
+    background: #29c5d6;
+}
+
+.ofdma-u2 {
+    background: #f4b942;
+}
+
+.ofdma-u3 {
+    background: #e1543f;
+}
+
+.ofdma-u4 {
+    background: #6ab04c;
+}
 
 .ofdma-scan-highlight {
     position: absolute;
@@ -1213,11 +1586,30 @@ footer {
 }
 
 @keyframes ofdmaScan {
-    0%, 20%   { transform: translateY(0px); }
-    25%, 45%  { transform: translateY(42px); }
-    50%, 70%  { transform: translateY(84px); }
-    75%, 95%  { transform: translateY(126px); }
-    100%      { transform: translateY(0px); }
+
+    0%,
+    20% {
+        transform: translateY(0px);
+    }
+
+    25%,
+    45% {
+        transform: translateY(42px);
+    }
+
+    50%,
+    70% {
+        transform: translateY(84px);
+    }
+
+    75%,
+    95% {
+        transform: translateY(126px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .ofdma-axis-freq {
@@ -1356,10 +1748,23 @@ footer {
 }
 
 @keyframes mloTravel {
-    0% { left: 0%; opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { left: 96%; opacity: 0; }
+    0% {
+        left: 0%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 96%;
+        opacity: 0;
+    }
 }
 
 /* Mobile scaling safety */
@@ -1368,11 +1773,13 @@ footer {
         flex-direction: column;
         gap: 1rem;
     }
+
     .mlo-channels {
         width: 100%;
         margin: 1rem 0;
     }
 }
+
 /* FHSS animations*/
 
 .fhss-svg-workspace {
@@ -1424,58 +1831,116 @@ footer {
     animation: fhssConveyorScroll 4s linear infinite;
 }
 
-.fhss-scroll-packet.sp1 { animation-delay: 0s; }
-.fhss-scroll-packet.sp2 { animation-delay: 1s; }
-.fhss-scroll-packet.sp3 { animation-delay: 2s; }
-.fhss-scroll-packet.sp4 { animation-delay: 3s; }
+.fhss-scroll-packet.sp1 {
+    animation-delay: 0s;
+}
+
+.fhss-scroll-packet.sp2 {
+    animation-delay: 1s;
+}
+
+.fhss-scroll-packet.sp3 {
+    animation-delay: 2s;
+}
+
+.fhss-scroll-packet.sp4 {
+    animation-delay: 3s;
+}
 
 @keyframes fhssConveyorScroll {
     0% {
         transform: translateX(0px);
         opacity: 0;
     }
+
     5% {
         opacity: 1;
     }
+
     85% {
         opacity: 1;
     }
+
     100% {
         transform: translateX(450px);
         opacity: 0;
     }
 }
+
 /* Tab 2: Synced Hopping Sequence up to Tn */
-.fhss-hop-node, .vector-arrow {
+.fhss-hop-node,
+.vector-arrow {
     opacity: 0;
     animation: hopReveal 8s infinite ease-in-out;
 }
 
-.fhss-hop-node.h1 { animation-delay: 0s; }
-.vector-arrow.v1   { animation-delay: 0.5s; }
+.fhss-hop-node.h1 {
+    animation-delay: 0s;
+}
 
-.fhss-hop-node.h2 { animation-delay: 1.0s; }
-.vector-arrow.v2   { animation-delay: 1.5s; }
+.vector-arrow.v1 {
+    animation-delay: 0.5s;
+}
 
-.fhss-hop-node.h3 { animation-delay: 2.0s; }
-.vector-arrow.v3   { animation-delay: 2.5s; }
+.fhss-hop-node.h2 {
+    animation-delay: 1.0s;
+}
 
-.fhss-hop-node.h4 { animation-delay: 3.0s; }
-.vector-arrow.v4   { animation-delay: 3.5s; }
+.vector-arrow.v2 {
+    animation-delay: 1.5s;
+}
 
-.fhss-hop-node.h5 { animation-delay: 4.0s; }
-.vector-arrow.v5   { animation-delay: 4.5s; }
+.fhss-hop-node.h3 {
+    animation-delay: 2.0s;
+}
 
-.fhss-hop-node.h6 { animation-delay: 5.0s; }
-.vector-arrow.v6   { animation-delay: 5.5s; }
+.vector-arrow.v3 {
+    animation-delay: 2.5s;
+}
 
-.fhss-hop-node.hn { animation-delay: 6.0s; }
+.fhss-hop-node.h4 {
+    animation-delay: 3.0s;
+}
+
+.vector-arrow.v4 {
+    animation-delay: 3.5s;
+}
+
+.fhss-hop-node.h5 {
+    animation-delay: 4.0s;
+}
+
+.vector-arrow.v5 {
+    animation-delay: 4.5s;
+}
+
+.fhss-hop-node.h6 {
+    animation-delay: 5.0s;
+}
+
+.vector-arrow.v6 {
+    animation-delay: 5.5s;
+}
+
+.fhss-hop-node.hn {
+    animation-delay: 6.0s;
+}
 
 @keyframes hopReveal {
-    0% { opacity: 0; }
-    5%, 88% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    5%,
+    88% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
+
 /* DSSS Layout Structures */
 .dsss-flex-workspace {
     display: flex;
@@ -1580,8 +2045,14 @@ footer {
     font-size: 11px;
     font-weight: 500;
 }
-.red-txt { fill: #ef4444; }
-.blue-txt { fill: #60a5fa; }
+
+.red-txt {
+    fill: #ef4444;
+}
+
+.blue-txt {
+    fill: #60a5fa;
+}
 
 .spectral-shape {
     opacity: 0;
@@ -1600,6 +2071,7 @@ footer {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -1608,7 +2080,8 @@ footer {
 /* prevent collapsing SVG graph layout (graph with the digital signals)*/
 .dsss-svg-workspace.compact-mode {
     flex: 1;
-    min-width: 0; /* prevents flex items from collapsing or squeezing to 0 width */
+    min-width: 0;
+    /* prevents flex items from collapsing or squeezing to 0 width */
     width: 100%;
 }
 
