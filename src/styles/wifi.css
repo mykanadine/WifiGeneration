@@ -1730,11 +1730,7 @@ footer {
     }
 }
 
-/* keep router -> channels -> client horizontal on small screens too, since the
-   packet animation only makes sense as a left-to-right motion between them.
-   stacking vertically (the old behavior) left the packets sliding sideways
-   inside bars that were stacked top-to-bottom, so the "connection" from
-   router to client no longer read visually. shrink things instead. */
+/* keep router -> channels -> client format horizontal on small screens; shrink elements */
 @media (max-width: 640px) {
     .mlo-layout .mlo-visual {
         padding: 1.25rem 0.5rem;
