@@ -101,7 +101,7 @@ Through the development of the project, the group encountered several challenges
 3. The Matching section of the Knowledge Check section was modified several times to ensure mobile compatibility. The initial plan of the group was to allow dragging and dropping on both PC and mobile. However, the mouse events `onDragStart` and `onDragOver` only work in PC. Therefore, the group tried to add `touchstart`, `touchmove`, and `touchend`. Considering that the user might need to scroll when dragging the item in mobile, an auto-scroll was also added. However, there are several bugs encountered such as items freezing in the middle of the screen or auto-scroll not functioning ocassionally. To ensure stability, the group switched to click and drop using `onClick`. This event is applicable in both PC and mobile and ensures stability of the website. In the end, the drag and drop method in PC was retained and click and drop method is usable in both PC and mobile.
 4. After the deployment, the group realized several inalignment in the layout for mobile. The group had to research and learn responsive design techniques to ensure mobile compatilibility. Moreover, the changes in mobile layout had to be checked every time using the deployed link after committing and pushing the changes into GitHub. Another challenge was that some layout issues appeared on some phones but not on others. To resolve this, all group members had to test the website on their own phones to confirm that the layout will display correctly across different screen sizes and devices.
 5. Upon working on the webpage's animations, the group found it very challenging to do seemingly simple animations or effects. Since the group decided to use pop-up boxes to for the explanation of technical terms, it was very tedious to create several HTML elements of hierarchical order including both descriptive texts and shape elements to be contained inside the bigger container or pop-up box. The layouting was difficult and very tedious espcially for animations that required the group to recreate an image or symbol using shapes. The group had to use `rect`, `circle`, `line`, `svg`, etc. The group also had to set the styling of each shape element one by one, making the process even more tedious. As a result, the Timeline.jsx code became incredibly verbose, repetitive, and difficult to read or trace. The group also had to create several new functions in order to create new tabs or track the start and end of an animation, further complicating the code.
-6. In relation to animation, most of it was done in the wifi.css file. It was also a very tedious task to animate and create stylings for each component or element since thr group had to make edits on each class. It took even more time to get the timing, entry & exit, layout, etc. of the animations correctly. It was a lot of trial-and-error to achieve the animation effects desired. The group had to learn how to use some less familiar syntax such as `@keyframe` and `!important` to do animations and to avoid overriding of certain stylings of certain components over others.
+6. In relation to animation, most of it was done in the wifi.css file. It was also a very tedious task to animate and create stylings for each component or element since thr group had to make edits on each class. It took even more time to get the timing, entry & exit, layout, etc. of the animations correctly. It was a lot of trial-and-error to achieve the animation effects desired. The group had to learn how to use some less familiar syntax such as `@keyframes` and `!important` to do animations and to avoid overriding of certain stylings of certain components over others.
 
 ## Progress and Discussion Log
 
@@ -179,3 +179,25 @@ Through the development of the project, the group encountered several challenges
 - Prompt: What events can be used for mobile development?
 - Prompt: What events can be used for both mobile and pc?
 - Prompt: Aside from multiple choice for knowledge check what else can I do to make it more interactive?
+  
+**2. Gemini**
+- Used to assist in learning syntax for stylings and structure.
+- Sample Prompts:
+- Prompt: How to recreate and image or icon using jsx?
+- Prompt: How to add animations to an HTML class?
+- Prompt: How to create a pop-up box upon clicking the timeline card?
+- Prompt: How to create a pop-up box upon clicking on a word?
+- Prompt: How to create a multiple tabs in a pop-up box?
+- Other general stylings: How to change opacity, space allocation, position, bold, highlight. etc.
+  
+**3. Claude**
+- Used to assist in animations.
+- Sample Prompts:
+- Prompt: How to slow down/speed up animation?
+- Prompt: What are the syntax or settings @keyframes can handle?
+- Prompt: How to fade elements in and out?
+- Prompt: How to restart the animation after the user scrolls away and goes back to it?
+- Prompt: How to freeze the animation and track at which stage it is in for step-by-step animations controlled by the user?
+- Prompt: How to keep an animation playing on loop?
+- Prompt: How to slide an object across the screen?
+- Prompt: How to create a continous moving effect on solid and dotted lines?
