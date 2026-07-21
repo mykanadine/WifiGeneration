@@ -156,6 +156,7 @@ See [Google Drive Link](https://drive.google.com/file/d/1fdIMgzkq_v6f6jqpzgnoJ0a
 - Added instructions for the timeline and knowledge check section
 
 ### July 21, 2026
+- Fixed layout for mobile
 ***
 
 ### AI Usage
