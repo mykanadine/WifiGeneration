@@ -1,5 +1,9 @@
 # Evolution of Wi-Fi
 
+## Website
+Visit the deployed website here:
+https://mykanadine.github.io/WifiGeneration/
+
 ## Proposal
 ### Members
 - Myka Nadine Chua
