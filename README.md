@@ -85,6 +85,11 @@ See [Google Drive Link](https://drive.google.com/file/d/1fdIMgzkq_v6f6jqpzgnoJ0a
 
 2. [Cees Links. *The Evolution of Wi-Fi networks: from IEEE 802.11 to Wi-Fi 6E*](https://www.wevolver.com/article/the-evolution-of-wi-fi-networks-from-ieee-80211-to-wi-fi-6e)
 
+## Technical Discussions
+## Creative Discussions
+## Aha Moments Discussions
+## Challenges Encounted Discussions
+
 ## Progress and Discussion Log
 
 ### June 29, 2026
